@@ -31,12 +31,18 @@
     }
 
     & &__rightContent + &__rightContent {
-        margin-left: 28px;
+        margin-left: 14px;
+        padding-left: 14px;
+        border-left: 1px solid #808080;
     }
 
     & &__link {
         color: inherit;
         text-decoration: inherit;
         font-size: 13px;
+
+        &:hover {
+            opacity: 0.5;
+        }
     }
 }
