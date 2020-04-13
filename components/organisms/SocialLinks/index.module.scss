@@ -1,0 +1,29 @@
+@import '../../../style/index';
+
+.SocialLinks {
+    & &__headerText {
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    & &__contents {
+        display: flex;
+        margin-top: 20px;
+    }
+
+
+    & &__content + &__content {
+        margin-left: 10px;
+
+        &::before {
+            content: '/';
+            display: inline-block;
+            padding-right: 10px;
+        }
+    }
+
+    & &__link {
+        font-size: 17px;
+        color: inherit;
+    }
+}

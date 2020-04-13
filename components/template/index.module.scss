@@ -1,0 +1,46 @@
+@import '../../style/index';
+
+.PageTemplate {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+   
+    & &__inner {
+        display: flex;
+        flex-direction: column;
+        min-width: 990px;
+        padding: 20px 100px;
+    }
+
+    & &__header {
+        padding-right: 20px;
+    }
+
+    & &__main {
+        flex-grow: 1;
+    }
+
+    & &__homeContent {
+        height: 100%;
+    }
+
+    & &__contentHeader,
+    & &__introduction,
+    & &__imageGrid,
+    & &__socialLinks {
+        margin-top: 20px;
+    }
+
+    & &__introduction,
+    & &__imageGrid {
+        max-width: 990px;
+    }
+
+    & &__footer {
+        margin-top: auto;
+    }
+
+    & &__footerContent {
+        padding-top: 20px;
+    }
+}

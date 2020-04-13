@@ -1,0 +1,36 @@
+@import '../../../style/index';
+
+.Footer {
+    color: #808080;
+
+    & &__contents {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    & &__content + &__content {
+        margin-left: 10px;
+    }
+
+    & &__text {
+        font-size: 15px;
+    }
+
+    & &__links {
+        display: flex;
+    }
+
+    & &__link + &__link {
+        margin-left: 20px;
+    }
+
+    & &__linkContent {
+        display: block;
+        color: inherit;
+    }
+
+    & &__linkIcon {
+        font-size: 19px;
+    }
+}
