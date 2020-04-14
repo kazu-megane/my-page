@@ -48,25 +48,27 @@ const PageTemplate: FC<Props> = ({ pageType, images }) => (
       </header>
       <main className={style.PageTemplate__main}>
         {pageType !== PageType.HOME ? (
-          <ContentHeader
-            contentType={switchContentType(pageType)}
-            className={style.PageTemplate__contentHeader}
-          />
+          <div className={style.PageTemplate__pageContent}>
+            <ContentHeader
+              contentType={switchContentType(pageType)}
+              className={style.PageTemplate__contentHeader}
+            />
+            {pageType === PageType.ABOUT ? (
+              <Introduction className={style.PageTemplate__introduction} />
+            ) : null}
+            {pageType === PageType.PHOTO && images ? (
+              <ImageGrid
+                images={images}
+                className={style.PageTemplate__imageGrid}
+              />
+            ) : null}
+            {pageType === PageType.CONTACT ? (
+              <SocialLinks className={style.PageTemplate__socialLinks} />
+            ) : null}
+          </div>
         ) : (
           <HomeContent className={style.PageTemplate__homeContent} />
         )}
-        {pageType === PageType.ABOUT ? (
-          <Introduction className={style.PageTemplate__introduction} />
-        ) : null}
-        {pageType === PageType.PHOTO && images ? (
-          <ImageGrid
-            images={images}
-            className={style.PageTemplate__imageGrid}
-          />
-        ) : null}
-        {pageType === PageType.CONTACT ? (
-          <SocialLinks className={style.PageTemplate__socialLinks} />
-        ) : null}
       </main>
       <footer className={style.PageTemplate__footer}>
         <Footer className={style.PageTemplate__footerContent} />
