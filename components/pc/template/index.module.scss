@@ -4,12 +4,14 @@
     display: flex;
     justify-content: center;
     height: 100%;
+    padding: 0 8px;
    
     & &__inner {
         display: flex;
         flex-direction: column;
-        min-width: 990px;
-        padding: 20px 100px;
+        min-width: 970px;
+        max-width: 1310px;
+        padding: 20px 0;
     }
 
     & &__header {
