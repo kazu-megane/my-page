@@ -1,25 +1,31 @@
-import PageTemplate, { PageType } from "../components/template/component";
+import PcPageTemplate, { PageType } from "../components/pc/template/component";
+import SpPageTemplate from "../components/sp/template/componet";
 import { NextPage, GetServerSideProps } from "next";
 
-const Home: NextPage = () => <PageTemplate pageType={PageType.HOME} />;
+interface Props {
+  isPc: boolean;
+}
+
+const Home: NextPage<Props> = ({ isPc }) =>
+  isPc ? <PcPageTemplate pageType={PageType.HOME} /> : <SpPageTemplate />;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const userAgent = context.req
     ? context.req.headers["user-agent"]
     : navigator.userAgent;
 
-  let agent: string = "";
+  let isPc = true;
 
   if (userAgent) {
     if (userAgent.match(/iPhone|Android.+Mobile/)) {
-      agent = "smartphone";
+      isPc = false;
     } else {
-      agent = "pc";
+      isPc = true;
     }
   }
 
   return {
-    props: { userAgent: agent },
+    props: { isPc },
   };
 };
 

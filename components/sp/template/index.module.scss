@@ -1,0 +1,9 @@
+@import '../../../style/index';
+
+.SpPageTemplate {
+    & &__text {
+        font-size: 15px;
+        font-weight: bold;
+        color: red;
+    }
+}
