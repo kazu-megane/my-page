@@ -6,4 +6,5 @@ module.exports = withSass({
     importLoaders: 2,
     localIdentName: "[local]_[hash:base64:5]",
   },
+  distDir: "build",
 });
