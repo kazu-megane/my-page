@@ -16,7 +16,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   let agent: string = "";
 
   if (userAgent) {
-    if (userAgent.match(/iPhone|Android.+Mobile/)) {
+    if (
+      userAgent.match(/iPhone|Android.+Mobile/) ||
+      userAgent.indexOf("iphone") > -1 ||
+      userAgent.indexOf("ipad") > -1 ||
+      userAgent.indexOf("macintosh") > -1
+    ) {
       agent = "smartphone";
     } else {
       agent = "pc";
