@@ -38,38 +38,36 @@ function switchContentType(pageType: string) {
 
 const PcPageTemplate: FC<Props> = ({ pageType, images }) => (
   <div className={style.PcPageTemplate}>
-    <div className={style.PcPageTemplate__inner}>
-      <header className={style.PcPageTemplate__header}>
-        <Header />
-      </header>
-      <main className={style.PcPageTemplate__main}>
-        {pageType !== PageType.HOME ? (
-          <div className={style.PcPageTemplate__pageContent}>
-            <ContentHeader
-              contentType={switchContentType(pageType)}
-              className={style.PcPageTemplate__contentHeader}
+    <header className={style.PcPageTemplate__header}>
+      <Header />
+    </header>
+    <main className={style.PcPageTemplate__main}>
+      {pageType !== PageType.HOME ? (
+        <div className={style.PcPageTemplate__pageContent}>
+          <ContentHeader
+            contentType={switchContentType(pageType)}
+            className={style.PcPageTemplate__contentHeader}
+          />
+          {pageType === PageType.ABOUT ? (
+            <Introduction className={style.PcPageTemplate__introduction} />
+          ) : null}
+          {pageType === PageType.PHOTO && images ? (
+            <ImageGrid
+              images={images}
+              className={style.PcPageTemplate__imageGrid}
             />
-            {pageType === PageType.ABOUT ? (
-              <Introduction className={style.PcPageTemplate__introduction} />
-            ) : null}
-            {pageType === PageType.PHOTO && images ? (
-              <ImageGrid
-                images={images}
-                className={style.PcPageTemplate__imageGrid}
-              />
-            ) : null}
-            {pageType === PageType.CONTACT ? (
-              <SocialLinks className={style.PcPageTemplate__socialLinks} />
-            ) : null}
-          </div>
-        ) : (
-          <HomeContent className={style.PcPageTemplate__homeContent} />
-        )}
-      </main>
-      <footer className={style.PcPageTemplate__footer}>
-        <Footer className={style.PcPageTemplate__footerContent} />
-      </footer>
-    </div>
+          ) : null}
+          {pageType === PageType.CONTACT ? (
+            <SocialLinks className={style.PcPageTemplate__socialLinks} />
+          ) : null}
+        </div>
+      ) : (
+        <HomeContent className={style.PcPageTemplate__homeContent} />
+      )}
+    </main>
+    <footer className={style.PcPageTemplate__footer}>
+      <Footer className={style.PcPageTemplate__footerContent} />
+    </footer>
   </div>
 );
 

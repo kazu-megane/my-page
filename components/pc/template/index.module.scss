@@ -2,19 +2,20 @@
 
 .PcPageTemplate {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    min-width: 752px;
+    max-width: 1310px;
+    padding: 0 20px;
     height: 100%;
-    padding: 0 8px;
-   
-    & &__inner {
-        display: flex;
-        flex-direction: column;
-        min-width: 752px;
-        max-width: 1310px;
-        padding: 20px 0;
-    }
 
+    & &__header,
+    & &__footer {
+        padding-top: 20px; 
+    }
+   
     & &__header {
+        padding-left: 20px;
         padding-right: 20px;
     }
 
@@ -22,29 +23,21 @@
         flex-grow: 1;
         display: flex;
         justify-content: center;
+        margin-top: 80px;
     }
 
     & &__pageContent {
         width: 100%;
     }
 
-    & &__contentHeader,
     & &__introduction,
     & &__imageGrid,
     & &__socialLinks {
         margin-top: 20px;
     }
 
-    & &__introduction,
-    & &__imageGrid {
-        max-width: 990px;
-    }
-
     & &__footer {
         margin-top: auto;
-    }
-
-    & &__footerContent {
-        padding-top: 20px;
+        padding-bottom: 20px;
     }
 }

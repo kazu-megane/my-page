@@ -21,9 +21,20 @@
         text-decoration: inherit;
     }
 
+    & &__icon,
+    & &__title {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    & &__icon {
+        font-size: 15px;
+    }
+
     & &__title {
         font-weight: bold;
-        padding-bottom: 20px;
+        font-size: 17px;
+        margin-left: 4px;
     }
 
     & &__rightContents {
@@ -37,7 +48,7 @@
     }
 
     & &__link {
-        color: inherit;
+        color: #808080;
         text-decoration: inherit;
         font-size: 13px;
 
