@@ -1,7 +1,20 @@
-import PageTemplate, { PageType } from "../components/all/template/component";
+import React, { useState, useEffect } from "react";
+import PcPageTemplate, { PageType } from "~/components/pc/template/component";
 import { NextPage, GetServerSideProps } from "next";
+import { useMediaQuery } from "react-responsive";
 
-const Home: NextPage = () => <PageTemplate pageType={PageType.HOME} />;
+const Home: NextPage = () => {
+  const [isServer, setIsServer] = useState(true);
+  const isPc = useMediaQuery({ minWidth: 768 });
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsServer(false);
+    }
+  }, []);
+
+  return isServer || isPc ? <PcPageTemplate pageType={PageType.HOME} /> : null;
+};
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const userAgent = context.req

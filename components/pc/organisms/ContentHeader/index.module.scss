@@ -2,7 +2,8 @@
 
 .ContentHeader {
     & &__title {
-        font-weight: bold;
         font-size: 21px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #c9c9c9;
     }
 }

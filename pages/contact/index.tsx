@@ -1,9 +1,7 @@
-import PageTemplate, {
-  PageType,
-} from "../../components/all/template/component";
+import PcPageTemplate, { PageType } from "~/components/pc/template/component";
 import { NextPage, GetServerSideProps } from "next";
 
-const Contact: NextPage = () => <PageTemplate pageType={PageType.CONTACT} />;
+const Contact: NextPage = () => <PcPageTemplate pageType={PageType.CONTACT} />;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const userAgent = context.req
