@@ -1,9 +1,9 @@
-import PcPageTemplate, {
+import PageTemplate, {
   PageType,
-} from "../../components/pc/template/component";
+} from "../../components/all/template/component";
 import { NextPage, GetServerSideProps } from "next";
 
-const Video: NextPage = () => <PcPageTemplate pageType={PageType.VIDEO} />;
+const Video: NextPage = () => <PageTemplate pageType={PageType.VIDEO} />;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const userAgent = context.req

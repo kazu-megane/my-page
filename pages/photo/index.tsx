@@ -1,11 +1,11 @@
-import PcPageTemplate, {
+import PageTemplate, {
   PageType,
   Props,
-} from "../../components/pc/template/component";
+} from "../../components/all/template/component";
 import { NextPage, GetServerSideProps } from "next";
 
 const Photo: NextPage<Pick<Props, "images">> = ({ images }) => (
-  <PcPageTemplate pageType={PageType.PHOTO} images={images} />
+  <PageTemplate pageType={PageType.PHOTO} images={images} />
 );
 
 export const getServerSideProps: GetServerSideProps = async (context) => {

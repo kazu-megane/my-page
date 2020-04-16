@@ -1,13 +1,7 @@
-import PcPageTemplate, { PageType } from "../components/pc/template/component";
-import SpPageTemplate from "../components/sp/template/componet";
+import PageTemplate, { PageType } from "../components/all/template/component";
 import { NextPage, GetServerSideProps } from "next";
 
-interface Props {
-  isPc: boolean;
-}
-
-const Home: NextPage<Props> = ({ isPc }) =>
-  isPc ? <PcPageTemplate pageType={PageType.HOME} /> : <SpPageTemplate />;
+const Home: NextPage = () => <PageTemplate pageType={PageType.HOME} />;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const userAgent = context.req

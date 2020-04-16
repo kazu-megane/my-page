@@ -1,11 +1,13 @@
 import React, { FC } from "react";
-import Header from "../organisms/Header";
-import ContentHeader, { ContentType } from "../organisms/ContentHeader";
-import Introduction from "../organisms/Introduction";
-import Footer from "../organisms/Footer";
-import SocialLinks from "../organisms/SocialLinks";
-import ImageGrid, { Props as ImageGridProps } from "../organisms/ImageGrid";
-import HomeContent from "../organisms/HomeContent";
+import Header from "../../pc/organisms/Header";
+import ContentHeader, { ContentType } from "../../pc/organisms/ContentHeader";
+import Introduction from "../../pc/organisms/Introduction";
+import Footer from "../../pc/organisms/Footer";
+import SocialLinks from "../../pc/organisms/SocialLinks";
+import ImageGrid, {
+  Props as ImageGridProps,
+} from "../../pc/organisms/ImageGrid";
+import HomeContent from "../../pc/organisms/HomeContent";
 import style from "./index.module.scss";
 
 export enum PageType {
@@ -36,7 +38,7 @@ function switchContentType(pageType: string) {
   }
 }
 
-const PcPageTemplate: FC<Props> = ({ pageType, images }) => (
+const PageTemplate: FC<Props> = ({ pageType, images }) => (
   <div className={style.PcPageTemplate}>
     <header className={style.PcPageTemplate__header}>
       <Header />
@@ -71,4 +73,4 @@ const PcPageTemplate: FC<Props> = ({ pageType, images }) => (
   </div>
 );
 
-export default PcPageTemplate;
+export default PageTemplate;
