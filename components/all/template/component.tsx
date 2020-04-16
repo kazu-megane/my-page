@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useLayoutEffect, useState } from "react";
 import Header from "../../pc/organisms/Header";
 import ContentHeader, { ContentType } from "../../pc/organisms/ContentHeader";
 import Introduction from "../../pc/organisms/Introduction";
@@ -9,6 +9,7 @@ import ImageGrid, {
 } from "../../pc/organisms/ImageGrid";
 import HomeContent from "../../pc/organisms/HomeContent";
 import style from "./index.module.scss";
+import { useMediaQuery } from "react-responsive";
 
 export enum PageType {
   HOME = "HOME",
@@ -38,39 +39,56 @@ function switchContentType(pageType: string) {
   }
 }
 
-const PageTemplate: FC<Props> = ({ pageType, images }) => (
-  <div className={style.PcPageTemplate}>
-    <header className={style.PcPageTemplate__header}>
-      <Header />
-    </header>
-    <main className={style.PcPageTemplate__main}>
-      {pageType !== PageType.HOME ? (
-        <div className={style.PcPageTemplate__pageContent}>
-          <ContentHeader
-            contentType={switchContentType(pageType)}
-            className={style.PcPageTemplate__contentHeader}
-          />
-          {pageType === PageType.ABOUT ? (
-            <Introduction className={style.PcPageTemplate__introduction} />
-          ) : null}
-          {pageType === PageType.PHOTO && images ? (
-            <ImageGrid
-              images={images}
-              className={style.PcPageTemplate__imageGrid}
-            />
-          ) : null}
-          {pageType === PageType.CONTACT ? (
-            <SocialLinks className={style.PcPageTemplate__socialLinks} />
-          ) : null}
-        </div>
+const PageTemplate: FC<Props> = ({ pageType, images }) => {
+  const [isServer, setIsServer] = useState(true);
+  const isPc = useMediaQuery({ minWidth: 768 });
+
+  useLayoutEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsServer(false);
+    }
+  });
+
+  return (
+    <div className={style.PageTemplate}>
+      {isServer || isPc ? (
+        <>
+          <header className={style.PageTemplate__header}>
+            <Header />
+          </header>
+          <main className={style.PageTemplate__main}>
+            {pageType !== PageType.HOME ? (
+              <div className={style.PageTemplate__pageContent}>
+                <ContentHeader
+                  contentType={switchContentType(pageType)}
+                  className={style.PageTemplate__contentHeader}
+                />
+                {pageType === PageType.ABOUT ? (
+                  <Introduction className={style.PageTemplate__introduction} />
+                ) : null}
+                {pageType === PageType.PHOTO && images ? (
+                  <ImageGrid
+                    images={images}
+                    className={style.PageTemplate__imageGrid}
+                  />
+                ) : null}
+                {pageType === PageType.CONTACT ? (
+                  <SocialLinks className={style.PageTemplate__socialLinks} />
+                ) : null}
+              </div>
+            ) : (
+              <HomeContent className={style.PageTemplate__homeContent} />
+            )}
+          </main>
+          <footer className={style.PageTemplate__footer}>
+            <Footer className={style.PageTemplate__footerContent} />
+          </footer>
+        </>
       ) : (
-        <HomeContent className={style.PcPageTemplate__homeContent} />
+        <p className={style.PageTemplate__spContent}>こちらはスマホ</p>
       )}
-    </main>
-    <footer className={style.PcPageTemplate__footer}>
-      <Footer className={style.PcPageTemplate__footerContent} />
-    </footer>
-  </div>
-);
+    </div>
+  );
+};
 
 export default PageTemplate;

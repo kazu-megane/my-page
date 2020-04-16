@@ -1,10 +1,9 @@
 @import '../../../style/index';
 
-.PcPageTemplate {
+.PageTemplate {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    min-width: 752px;
     max-width: 1310px;
     padding: 0 20px;
     height: 100%;
@@ -39,5 +38,11 @@
     & &__footer {
         margin-top: auto;
         padding-bottom: 20px;
+    }
+
+    & &__spContent {
+        color: red;
+        font-weight: bold;
+        font-size: 15px;
     }
 }
