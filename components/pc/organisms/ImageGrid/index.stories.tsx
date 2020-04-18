@@ -37,6 +37,6 @@ const stub: Props = {
   ],
 };
 
-storiesOf("organisms | ImageGrid", module).add("default", () => (
+storiesOf("pc | organisms/ImageGrid", module).add("default", () => (
   <ImageGrid {...stub} />
 ));

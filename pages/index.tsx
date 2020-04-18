@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import PcPageTemplate, { PageType } from "~/components/pc/template/component";
 import { NextPage, GetServerSideProps } from "next";
 import { useMediaQuery } from "react-responsive";
@@ -7,7 +7,7 @@ const Home: NextPage = () => {
   const [isServer, setIsServer] = useState(true);
   const isPc = useMediaQuery({ minWidth: 768 });
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (typeof window !== "undefined") {
       setIsServer(false);
     }

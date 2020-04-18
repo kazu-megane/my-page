@@ -27,10 +27,6 @@ time, mark, audio, video {
     background:transparent;
 }
 
-html {
-    font-size: 13px;
-}
-
 body {
     line-height:1;
 }
@@ -109,4 +105,5 @@ html,
 body,
 #main {
     height: 100%;
+    font-size: 13px;
 }
