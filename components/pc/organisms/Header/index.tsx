@@ -19,6 +19,8 @@ const Header: FC<Props> = ({ className }) => (
               <FontAwesomeIcon
                 className={style.Header__icon}
                 icon={faTerminal}
+                size="xs"
+                fixedWidth
               />
               <h1 className={style.Header__title}>Kazuya Hashimoto</h1>
             </a>
