@@ -1,5 +1,6 @@
 import React, { useState, useLayoutEffect } from "react";
 import PcPageTemplate, { PageType } from "~/components/pc/template/component";
+import SpPageTemplate from "~/components/sp/template/component";
 import { NextPage, GetServerSideProps } from "next";
 import { useMediaQuery } from "react-responsive";
 
@@ -13,7 +14,11 @@ const Home: NextPage = () => {
     }
   }, []);
 
-  return isServer || isPc ? <PcPageTemplate pageType={PageType.HOME} /> : null;
+  return isServer || isPc ? (
+    <PcPageTemplate pageType={PageType.HOME} />
+  ) : (
+    <SpPageTemplate pageType={PageType.HOME} />
+  );
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
