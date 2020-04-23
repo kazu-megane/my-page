@@ -1,18 +1,18 @@
 @import '../../../style/index';
 
 .PageTemplate {
-    padding: 0 20px;
     min-height: 812px;
     display: flex;
     flex-direction: column;
+    position: relative;
 
-    & &__header,
     & &__footer {
         padding-top: 20px; 
     }
 
     & &__main {
-        margin-top: 40px;
+        margin-top: 20px;
+        padding: 0 24px;
     }
 
     & &__introduction,
@@ -23,7 +23,6 @@
 
     & &__footer {
         margin-top: auto;
-        padding-bottom: 20px;
     }
 
     & &__spContent {

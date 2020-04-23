@@ -39,7 +39,7 @@ function switchContentType(pageType: string) {
 const PageTemplate: FC<Props> = ({ pageType, images }) => (
   <div className={style.PageTemplate}>
     <header className={style.PageTemplate__header}>
-      <Header onClickMenu={() => {}} />
+      <Header />
     </header>
     <main className={style.PageTemplate__main}>
       {pageType !== PageType.HOME ? (

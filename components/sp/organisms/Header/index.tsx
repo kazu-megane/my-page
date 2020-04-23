@@ -1,17 +1,29 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import Binder from "~/components/all/atoms/helpers/Binder";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTerminal, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faTerminal } from "@fortawesome/free-solid-svg-icons";
+import ModalHeader from "~/components/sp/molecules/ModalHeader";
 import style from "./index.module.scss";
 
 interface Props {
   className?: string;
-  onClickMenu: () => void;
 }
 
-const Header: FC<Props> = ({ className, onClickMenu }) => {
+const Header: FC<Props> = ({ className }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+
+  useEffect(() => {
+    const html = document.querySelector("html");
+    if (html) {
+      if (isOpenMenu) {
+        html.style.position = "fixed";
+        html.style.width = "100%";
+      } else {
+        html.removeAttribute("style");
+      }
+    }
+  }, [isOpenMenu]);
 
   return (
     <Binder classNames={[style.Header, className]}>
@@ -19,7 +31,10 @@ const Header: FC<Props> = ({ className, onClickMenu }) => {
         <div className={style.Header__columns}>
           <div className={style.Header__columnLeft}>
             <Link href="/">
-              <a className={style.Header__columnLink}>
+              <a
+                className={style.Header__columnLink}
+                onClick={() => setIsOpenMenu(false)}
+              >
                 <FontAwesomeIcon
                   className={style.Header__icon}
                   icon={faTerminal}
@@ -41,7 +56,6 @@ const Header: FC<Props> = ({ className, onClickMenu }) => {
                 type="button"
                 onClick={() => {
                   setIsOpenMenu(!isOpenMenu);
-                  onClickMenu();
                 }}
               >
                 <span className={style.Header__triggerIcon}></span>
@@ -51,6 +65,12 @@ const Header: FC<Props> = ({ className, onClickMenu }) => {
             </Binder>
           </div>
         </div>
+        {isOpenMenu ? (
+          <ModalHeader
+            className={style.Header__modal}
+            onClick={() => setIsOpenMenu(false)}
+          />
+        ) : null}
       </div>
     </Binder>
   );

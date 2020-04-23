@@ -1,6 +1,8 @@
 @import "../../../../style/index";
 
 .Header {
+    padding: 32px 28px;
+    
     & &__columns {
         display: flex;
         align-items: center;
@@ -73,5 +75,10 @@
         .Header__triggerIcon:nth-child(3)::before {
             transform: translate(2px, -6px) rotate(-45deg);
         }
+    }
+
+    &__modal {
+        position: absolute;
+        top: 64px + 15px;
     }
 }

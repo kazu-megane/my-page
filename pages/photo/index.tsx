@@ -1,12 +1,28 @@
+import React, { useLayoutEffect, useState } from "react";
 import PcPageTemplate, {
   PageType,
   Props,
 } from "~/components/pc/template/component";
 import { NextPage, GetServerSideProps } from "next";
+import SpPageTemplate from "~/components/sp/template/component";
+import { useMediaQuery } from "react-responsive";
 
-const Photo: NextPage<Pick<Props, "images">> = ({ images }) => (
-  <PcPageTemplate pageType={PageType.PHOTO} images={images} />
-);
+const Photo: NextPage<Pick<Props, "images">> = ({ images }) => {
+  const [isServer, setIsServer] = useState(true);
+  const isPc = useMediaQuery({ minWidth: 768 });
+
+  useLayoutEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsServer(false);
+    }
+  }, []);
+
+  return isServer || isPc ? (
+    <PcPageTemplate pageType={PageType.PHOTO} images={images} />
+  ) : (
+    <SpPageTemplate pageType={PageType.PHOTO} images={images} />
+  );
+};
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const userAgent = context.req

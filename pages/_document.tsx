@@ -26,8 +26,10 @@ class MyDocument extends Document<{ styleTags: ReactElement }> {
           </style>
         </Head>
         <body>
-          <Main />
-          <NextScript />
+          <div id="root">
+            <Main />
+            <NextScript />
+          </div>
         </body>
       </Html>
     );
