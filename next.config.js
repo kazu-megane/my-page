@@ -1,5 +1,6 @@
 const withSass = require("@zeit/next-sass");
 const path = require("path");
+require("dotenv").config();
 
 module.exports = withSass({
   cssModules: true,
@@ -15,5 +16,11 @@ module.exports = withSass({
       "~": path.resolve(__dirname, "."),
     };
     return config;
+  },
+  env: {
+    // Reference a variable that was defined in the .env file and make it available at Build Time
+    CLIENT_ID: process.env.CLIENT_ID,
+    CLIENT_SECRET: process.env.CLIENT_SECRET,
+    REFRESH_TOKEN: process.env.REFRESH_TOKEN,
   },
 });
