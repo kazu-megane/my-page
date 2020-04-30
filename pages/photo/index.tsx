@@ -98,6 +98,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return {
       url: item.baseUrl,
       alt: item.filename,
+      data: item.mediaMetadata,
     };
   });
 

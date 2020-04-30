@@ -1,0 +1,91 @@
+@import '../../../../style/index';
+
+.ModalImage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    & &__trigger {
+        display: block;
+    }
+
+    & &__background {
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100vw;
+        height: 100vh;
+    }
+
+    & &__close {
+        position: absolute;
+        top: 4px;
+        right: 8px;
+    }
+
+    & &__closeLink {
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        top: 4px;
+        right: 0;
+        width: 24.53px;/*枠の大きさ*/
+        height: 24.53px;/*枠の大きさ*/
+
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 28px;
+            background: #808080;
+            transform: rotate(45deg);
+            // transform-origin: 0% 50%;
+            position: absolute;
+            top: calc(14% - 5px);
+            left: 50%;
+        }
+
+        &::after {
+            transform: rotate(-45deg);
+            // transform-origin: 100% 50%;
+        }
+    }
+
+    & &__mainArea {
+        position: absolute;
+        box-sizing: border-box;
+        width: 70%;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        background-color: #ffffff;
+        padding: 48px 20px 20px;
+    }
+
+    & &__image {
+        flex-basis: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    & &__imageContent {
+        max-width: 100%;
+        max-height: 900px;
+    }
+
+    & &__descriptions {
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        margin-top: 12px;
+    }
+
+    & &__description {
+        font-weight: bold;
+        padding-top: 8px;
+    }
+
+    & &__description + &__description {
+        margin-left: 16px;
+    }
+}
