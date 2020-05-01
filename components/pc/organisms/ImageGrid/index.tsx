@@ -47,6 +47,7 @@ const ImageGrid: FC<Props> = ({ className, images }) => {
                   setIsDesplayedModal(true);
                 }}
               >
+                <span className={style.ImageGrid__tape}></span>
                 <p className={style.ImageGrid__image}>
                   <img
                     className={style.ImageGrid__imageContent}
