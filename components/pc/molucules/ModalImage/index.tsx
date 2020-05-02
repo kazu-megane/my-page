@@ -66,7 +66,6 @@ const ModalImage: FC<Props> = ({ url, alt, data, onClick, className }) => {
         <a onClick={onClick} className={style.ModalImage__trigger}>
           <div className={style.ModalImage__background}></div>
         </a>
-
         <div className={style.ModalImage__mainArea}>
           <p className={style.ModalImage__close}>
             <a className={style.ModalImage__closeLink} onClick={onClick}></a>
@@ -78,43 +77,52 @@ const ModalImage: FC<Props> = ({ url, alt, data, onClick, className }) => {
               className={style.ModalImage__imageContent}
             />
           </p>
-          {data.photo ? (
-            <ul className={style.ModalImage__descriptions}>
-              {camera ? (
-                <li className={style.ModalImage__description}>
-                  <p className={style.ModalImage__descriptionText}>{camera}</p>
-                </li>
-              ) : null}
-              {foculLength ? (
-                <li className={style.ModalImage__description}>
-                  <p className={style.ModalImage__descriptionText}>
-                    {foculLength}
-                  </p>
-                </li>
-              ) : null}
-              {apertureFNumber ? (
-                <li className={style.ModalImage__description}>
-                  <p className={style.ModalImage__descriptionText}>
-                    {apertureFNumber}
-                  </p>
-                </li>
-              ) : null}
-              {isoEquivalent ? (
-                <li className={style.ModalImage__description}>
-                  <p className={style.ModalImage__descriptionText}>
-                    {isoEquivalent}
-                  </p>
-                </li>
-              ) : null}
-              {exposureTime ? (
-                <li className={style.ModalImage__description}>
-                  <p className={style.ModalImage__descriptionText}>
-                    {exposureTime}
-                  </p>
-                </li>
-              ) : null}
-            </ul>
-          ) : null}
+          <ul className={style.ModalImage__descriptions}>
+            {data.photo ? (
+              <>
+                {camera ? (
+                  <li className={style.ModalImage__description}>
+                    <p className={style.ModalImage__descriptionText}>
+                      {camera}
+                    </p>
+                  </li>
+                ) : null}
+                {foculLength ? (
+                  <li className={style.ModalImage__description}>
+                    <p className={style.ModalImage__descriptionText}>
+                      {foculLength}
+                    </p>
+                  </li>
+                ) : null}
+                {apertureFNumber ? (
+                  <li className={style.ModalImage__description}>
+                    <p className={style.ModalImage__descriptionText}>
+                      {apertureFNumber}
+                    </p>
+                  </li>
+                ) : null}
+                {isoEquivalent ? (
+                  <li className={style.ModalImage__description}>
+                    <p className={style.ModalImage__descriptionText}>
+                      {isoEquivalent}
+                    </p>
+                  </li>
+                ) : null}
+                {exposureTime ? (
+                  <li className={style.ModalImage__description}>
+                    <p className={style.ModalImage__descriptionText}>
+                      {exposureTime}
+                    </p>
+                  </li>
+                ) : null}
+              </>
+            ) : null}
+            <li className={style.ModalImage__description}>
+              <p className={style.ModalImage__descriptionText}>
+                {data.creationTime.split("T")[0].replace(/-/g, "/")}
+              </p>
+            </li>
+          </ul>
         </div>
       </Modal>
     </Binder>
