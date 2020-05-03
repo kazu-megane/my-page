@@ -12,7 +12,8 @@ const Introduction: FC<Props> = ({ className }) => (
       <div className={style.Introduction__columns}>
         <div className={style.Introduction__columnLeft}>
           <img
-            src="https://scontent-nrt1-1.cdninstagram.com/v/t51.2885-19/s320x320/77091699_2685801504774912_7570025119288918016_n.jpg?_nc_ht=scontent-nrt1-1.cdninstagram.com&_nc_ohc=K0ZsVugd-r4AX8VajM0&oh=e9a9d874958e2766325a669816c6b838&oe=5EBCA11F"
+            src="/myPhoto.jpg"
+            alt="myPhoto"
             className={style.Introduction__image}
           />
         </div>
