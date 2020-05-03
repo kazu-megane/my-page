@@ -1,8 +1,6 @@
 import React, { FC, useState, useEffect } from "react";
 import Binder from "~/components/all/atoms/helpers/Binder";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTerminal } from "@fortawesome/free-solid-svg-icons";
 import ModalHeader from "~/components/sp/molecules/ModalHeader";
 import style from "./index.module.scss";
 
@@ -35,13 +33,11 @@ const Header: FC<Props> = ({ className }) => {
                 className={style.Header__columnLink}
                 onClick={() => setIsOpenMenu(false)}
               >
-                <FontAwesomeIcon
-                  className={style.Header__icon}
-                  icon={faTerminal}
-                  size="xs"
-                  fixedWidth
+                <img
+                  src="/headerLogo.png"
+                  alt="logo"
+                  className={style.Header__logo}
                 />
-                <h1 className={style.Header__title}>Kazuya Hashimoto</h1>
               </a>
             </Link>
           </div>

@@ -2,8 +2,6 @@ import React, { FC } from "react";
 import Binder from "../../../all/atoms/helpers/Binder";
 import style from "./index.module.scss";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTerminal } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
   className?: string;
@@ -16,13 +14,11 @@ const Header: FC<Props> = ({ className }) => (
         <div className={style.Header__columnLeft}>
           <Link href="/">
             <a className={style.Header__columnLink}>
-              <FontAwesomeIcon
-                className={style.Header__icon}
-                icon={faTerminal}
-                size="xs"
-                fixedWidth
+              <img
+                src="/headerLogo.png"
+                alt="logo"
+                className={style.Header__logo}
               />
-              <h1 className={style.Header__title}>Kazuya Hashimoto</h1>
             </a>
           </Link>
         </div>

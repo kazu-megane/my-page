@@ -24,6 +24,7 @@ const ImageGrid: FC<Props> = ({ className, images }) =>
                   className={style.ImageGrid__imageContent}
                   src={image.url}
                   alt={image.alt}
+                  loading="lazy"
                 />
               </p>
             </li>

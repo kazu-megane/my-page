@@ -18,22 +18,11 @@
         display: block;
         color: inherit;
         text-decoration: inherit;
+        height: 23px;
     }
 
-    & &__icon,
-    & &__title {
-        display: inline-block;
-        vertical-align: middle;
-    }
-
-    & &__icon {
-        font-size: 13px;
-    }
-
-    & &__title {
-        font-weight: bold;
-        font-size: 15px;
-        margin-left: 4px;
+    & &__logo {
+        height: inherit;
     }
 
     & &__trigger {

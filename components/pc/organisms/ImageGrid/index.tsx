@@ -50,6 +50,7 @@ const ImageGrid: FC<Props> = ({ className, images }) => {
                 <p className={style.ImageGrid__image}>
                   <img
                     className={style.ImageGrid__imageContent}
+                    loading="lazy"
                     src={image.url}
                     alt={image.alt}
                   />
