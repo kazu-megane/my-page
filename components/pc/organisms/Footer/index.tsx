@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import Binder from "../../../all/atoms/helpers/Binder";
 import style from "./index.module.scss";
+import { TWITTER_URL, INSTAGRAM_URL, GITHUB_URL } from "~/components/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTwitter,
@@ -24,8 +25,9 @@ const Footer: FC<Props> = ({ className }) => (
             <li className={style.Footer__link}>
               <a
                 className={style.Footer__linkContent}
-                href="https://twitter.com/kazukazu_maronn"
+                href={TWITTER_URL}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <FontAwesomeIcon
                   className={style.Footer__linkIcon}
@@ -36,8 +38,9 @@ const Footer: FC<Props> = ({ className }) => (
             <li className={style.Footer__link}>
               <a
                 className={style.Footer__linkContent}
-                href="https://www.instagram.com/kazu_megane/"
+                href={INSTAGRAM_URL}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <FontAwesomeIcon
                   className={style.Footer__linkIcon}
@@ -48,8 +51,9 @@ const Footer: FC<Props> = ({ className }) => (
             <li className={style.Footer__link}>
               <a
                 className={style.Footer__linkContent}
-                href="https://github.com/kazu-megane"
+                href={GITHUB_URL}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <FontAwesomeIcon
                   className={style.Footer__linkIcon}

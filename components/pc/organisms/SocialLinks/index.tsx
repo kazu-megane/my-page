@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import Binder from "../../../all/atoms/helpers/Binder";
+import { TWITTER_URL, INSTAGRAM_URL } from "~/components/constants";
 import style from "./index.module.scss";
 
 interface Props {
@@ -16,8 +17,9 @@ const SocialLinks: FC<Props> = ({ className }) => (
         <li className={style.SocialLinks__content}>
           <a
             className={style.SocialLinks__link}
-            href="https://twitter.com/kazukazu_maronn"
+            href={TWITTER_URL}
             target="_blank"
+            rel="noopener noreferrer"
           >
             Twitter
           </a>
@@ -25,8 +27,9 @@ const SocialLinks: FC<Props> = ({ className }) => (
         <li className={style.SocialLinks__content}>
           <a
             className={style.SocialLinks__link}
-            href="https://www.instagram.com/kazu_megane/"
+            href={INSTAGRAM_URL}
             target="_blank"
+            rel="noopener noreferrer"
           >
             Instagram
           </a>
