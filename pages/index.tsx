@@ -1,49 +1,45 @@
-import React, { useState, useLayoutEffect } from "react";
-import PcPageTemplate, { PageType } from "~/components/pc/template/component";
-import SpPageTemplate from "~/components/sp/template/component";
+import React, { useState, useEffect } from "react";
 import { NextPage, GetServerSideProps } from "next";
-import { useMediaQuery } from "react-responsive";
+import { wrapper } from "~/lib/strore";
+import PcPageTemplate, { PageType } from "~/components/pc/template";
+import SpPageTemplate from "~/components/sp/template";
 
-const Home: NextPage = () => {
-  const [isServer, setIsServer] = useState(true);
-  const isPc = useMediaQuery({ minWidth: 768 });
+const Home: NextPage<{ isPc: boolean }> = ({ isPc }) => {
+  const [isDesktop, setIsDesktop] = useState(isPc);
 
-  useLayoutEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsServer(false);
+  function judgeDevice() {
+    if (window.innerWidth <= 768) {
+      setIsDesktop(false);
+    } else {
+      setIsDesktop(true);
+    }
+  }
+
+  useEffect(() => {
+    if (window) {
+      judgeDevice();
+      window.addEventListener("resize", judgeDevice);
     }
   }, []);
 
-  return isServer || isPc ? (
+  return isDesktop ? (
     <PcPageTemplate pageType={PageType.HOME} />
   ) : (
     <SpPageTemplate pageType={PageType.HOME} />
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const userAgent = context.req
-    ? context.req.headers["user-agent"]
-    : navigator.userAgent;
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
+  async (context) => {
+    const ua = context.req.headers["user-agent"];
+    const isPc = ua && !ua.match(/like mac os x/) && !ua.match(/android/);
 
-  let isPc = true;
-
-  if (userAgent) {
-    if (
-      userAgent.match(/iPhone|Android.+Mobile/) ||
-      userAgent.indexOf("iphone") > -1 ||
-      userAgent.indexOf("ipad") > -1 ||
-      userAgent.indexOf("macintosh") > -1
-    ) {
-      isPc = false;
-    } else {
-      isPc = true;
-    }
+    return {
+      props: {
+        isPc,
+      },
+    };
   }
-
-  return {
-    props: { isPc },
-  };
-};
+);
 
 export default Home;

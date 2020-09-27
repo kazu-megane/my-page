@@ -6,9 +6,10 @@ import style from "./index.module.scss";
 
 interface Props {
   className?: string;
+  onClick?: (content?: string) => void;
 }
 
-const Header: FC<Props> = ({ className }) => {
+const Header: FC<Props> = ({ onClick = () => {}, className }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   useEffect(() => {
@@ -31,7 +32,10 @@ const Header: FC<Props> = ({ className }) => {
             <Link href="/">
               <a
                 className={style.Header__columnLink}
-                onClick={() => setIsOpenMenu(false)}
+                onClick={() => {
+                  onClick("HOME");
+                  setIsOpenMenu(false);
+                }}
               >
                 <img
                   src="/headerLogo.png"
@@ -64,7 +68,10 @@ const Header: FC<Props> = ({ className }) => {
         {isOpenMenu ? (
           <ModalHeader
             className={style.Header__modal}
-            onClick={() => setIsOpenMenu(false)}
+            onClick={(content) => {
+              onClick(content);
+              setIsOpenMenu(false);
+            }}
           />
         ) : null}
       </div>

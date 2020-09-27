@@ -6,6 +6,10 @@
     flex-direction: column;
     position: relative;
 
+    & &__loading {
+        flex-grow: 1;
+    }
+
     & &__footer {
         padding-top: 20px; 
     }

@@ -6,44 +6,59 @@ import Binder from "~/components/all/atoms/helpers/Binder";
 
 interface Props {
   className?: string;
-  onClick?: () => void;
+  onClick?: (content?: string) => void;
 }
 
-const ModalHeader: FC<Props> = ({ className, onClick }) => (
+const ModalHeader: FC<Props> = ({ className, onClick = () => {} }) => (
   <Binder classNames={[style.ModalHeader, className]}>
     <Modal>
       <ul className={style.ModalHeader__lists}>
         <li className={style.ModalHeader__list}>
           <Link href="/">
-            <a className={style.ModalHeader__link} onClick={onClick}>
+            <a
+              className={style.ModalHeader__link}
+              onClick={() => onClick("HOME")}
+            >
               HOME
             </a>
           </Link>
         </li>
         <li className={style.ModalHeader__list}>
           <Link href="/about">
-            <a className={style.ModalHeader__link} onClick={onClick}>
+            <a
+              className={style.ModalHeader__link}
+              onClick={() => onClick("ABOUT")}
+            >
               ABOUT
             </a>
           </Link>
         </li>
         <li className={style.ModalHeader__list}>
           <Link href="/photo">
-            <a className={style.ModalHeader__link} onClick={onClick}>
+            <a
+              className={style.ModalHeader__link}
+              onClick={() => onClick("PHOTO")}
+            >
               PHOTO
             </a>
           </Link>
         </li>
         <li className={style.ModalHeader__list}>
           <Link href="/video">
-            <a className={style.ModalHeader__link} onClick={onClick}>
+            <a
+              className={style.ModalHeader__link}
+              onClick={() => onClick("VIDEO")}
+            >
               VIDEO
             </a>
           </Link>
         </li>
         <li className={style.ModalHeader__list}>
           <Link href="/contact">
-            <a className={style.ModalHeader__link} onClick={onClick}>
+            <a
+              className={style.ModalHeader__link}
+              onClick={() => onClick("CONTACT")}
+            >
               CONTACT
             </a>
           </Link>

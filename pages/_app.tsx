@@ -1,7 +1,24 @@
-import { AppProps } from "next/app";
+import React from "react";
+import App, { AppContext } from "next/app";
+import { WrapperProps } from "next-redux-wrapper";
+import { wrapper } from "~/lib/strore";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+type MyAppProps = WrapperProps;
+
+class MyApp extends App<MyAppProps> {
+  static async getInitialProps({ Component, ctx }: AppContext) {
+    const pageProps = Component.getInitialProps
+      ? await Component.getInitialProps(ctx)
+      : {};
+
+    return { pageProps };
+  }
+
+  public render() {
+    const { Component, pageProps } = this.props;
+
+    return <Component {...pageProps} />;
+  }
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);

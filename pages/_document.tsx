@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import Document, {
   DocumentContext,
   Html,
@@ -7,7 +7,7 @@ import Document, {
   NextScript,
 } from "next/document";
 
-class MyDocument extends Document<{ styleTags: ReactElement }> {
+class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };

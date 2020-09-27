@@ -1,49 +1,45 @@
-import React, { useLayoutEffect, useState } from "react";
-import PcPageTemplate, { PageType } from "~/components/pc/template/component";
-import SpPageTemplate from "~/components/sp/template/component";
+import React, { useState, useEffect } from "react";
 import { NextPage, GetServerSideProps } from "next";
-import { useMediaQuery } from "react-responsive";
+import PcPageTemplate, { PageType } from "~/components/pc/template";
+import SpPageTemplate from "~/components/sp/template";
+import { wrapper } from "~/lib/strore";
 
-const Video: NextPage = () => {
-  const [isServer, setIsServer] = useState(true);
-  const isPc = useMediaQuery({ minWidth: 768 });
+const Video: NextPage<{ isPc: boolean }> = ({ isPc }) => {
+  const [isDesktop, setIsDesktop] = useState(isPc);
 
-  useLayoutEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsServer(false);
+  function judgeDevice() {
+    if (window.innerWidth <= 768) {
+      setIsDesktop(false);
+    } else {
+      setIsDesktop(true);
+    }
+  }
+
+  useEffect(() => {
+    if (window) {
+      judgeDevice();
+      window.addEventListener("resize", judgeDevice);
     }
   }, []);
 
-  return isServer || isPc ? (
+  return isDesktop ? (
     <PcPageTemplate pageType={PageType.VIDEO} />
   ) : (
     <SpPageTemplate pageType={PageType.VIDEO} />
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const userAgent = context.req
-    ? context.req.headers["user-agent"]
-    : navigator.userAgent;
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
+  async (context) => {
+    const ua = context.req.headers["user-agent"];
+    const isPc = ua && !ua.match(/like mac os x/) && !ua.match(/android/);
 
-  let agent: string = "";
-
-  if (userAgent) {
-    if (
-      userAgent.match(/iPhone|Android.+Mobile/) ||
-      userAgent.indexOf("iphone") > -1 ||
-      userAgent.indexOf("ipad") > -1 ||
-      userAgent.indexOf("macintosh") > -1
-    ) {
-      agent = "smartphone";
-    } else {
-      agent = "pc";
-    }
+    return {
+      props: {
+        isPc,
+      },
+    };
   }
-
-  return {
-    props: { userAgent: agent },
-  };
-};
+);
 
 export default Video;
