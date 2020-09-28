@@ -32,7 +32,7 @@ const Contact: NextPage<{ isPc: boolean }> = ({ isPc }) => {
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
   async (context) => {
     const ua = context.req.headers["user-agent"];
-    const isPc = ua && !ua.match(/like mac os x/) && !ua.match(/android/);
+    const isPc = ua && !ua.match(/iPhone|Android.+Mobile/);
 
     return {
       props: {

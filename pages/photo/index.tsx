@@ -91,7 +91,7 @@ export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps
 
     // SSR時のua判定をする
     const ua = context.req.headers["user-agent"];
-    const isPc = ua && !ua.match(/like mac os x/) && !ua.match(/android/);
+    const isPc = ua && !ua.match(/iPhone|Android.+Mobile/);
 
     return {
       props: {
