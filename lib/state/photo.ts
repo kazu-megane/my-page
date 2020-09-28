@@ -105,7 +105,7 @@ export const fetchPhotoItems = (accessToken: string) => async (
               Authorization: "Bearer " + accessToken,
             },
             body: JSON.stringify({
-              pageSize: "33",
+              pageSize: "30",
               albumId:
                 "AC2o_TmhQyq8bUzBgt5nx0_CE5lXSvEv5wbMxKaQMcMot69TbjxhXcUlaDyxKTuaTLxF12up1GGD",
             }),
@@ -142,7 +142,7 @@ export const fetchNextPhotoItems = () => async (
               Authorization: "Bearer " + accessToken,
             },
             body: JSON.stringify({
-              pageSize: "33",
+              pageSize: "30",
               albumId:
                 "AC2o_TmhQyq8bUzBgt5nx0_CE5lXSvEv5wbMxKaQMcMot69TbjxhXcUlaDyxKTuaTLxF12up1GGD",
               pageToken: nextPageToken,

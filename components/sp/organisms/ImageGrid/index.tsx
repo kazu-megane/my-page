@@ -15,12 +15,17 @@ export interface Props {
 }
 
 const ImageGrid: FC<Props> = ({ className, images, hasNext, onClick }) => {
+  const [displayedNextButton, setDisplayedNextButton] = useState(hasNext);
   const [page, setPage] = useState(1);
+
+  useEffect(() => {
+    setDisplayedNextButton(hasNext);
+  }, [hasNext, images]);
 
   useEffect(() => {
     const bookmark = document.getElementById(`page-${page - 1}`);
     if (page >= 2 && bookmark) {
-      bookmark.scrollIntoView({ block: "center" });
+      bookmark.scrollIntoView({ block: "nearest" });
     }
   }, [images]);
 
@@ -31,7 +36,11 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClick }) => {
           {images.map((image, index) => {
             return (
               <li
-                id={index !== 0 && index % 32 === 0 ? `page-${index / 32}` : ""}
+                id={
+                  index > 0 && (index + 1) % 30 === 0
+                    ? `page-${(index + 1) / 30}`
+                    : ""
+                }
                 className={style.ImageGrid__item}
                 key={index}
               >
@@ -49,11 +58,12 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClick }) => {
             );
           })}
         </ul>
-        {hasNext ? (
+        {displayedNextButton ? (
           <div className={style.ImageGrid__actionArea}>
             <button
               onClick={() => {
                 if (onClick) {
+                  setDisplayedNextButton(false);
                   setPage(page + 1);
                   onClick();
                 }

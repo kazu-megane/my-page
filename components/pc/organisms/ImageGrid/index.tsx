@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import Binder from "../../../all/atoms/helpers/Binder";
 import ModalImage from "~/components/pc/molucules/ModalImage";
 import style from "./index.module.scss";
@@ -35,6 +35,11 @@ export interface Props {
 const ImageGrid: FC<Props> = ({ className, images, hasNext, onClick }) => {
   const [isDisplayedModal, setIsDesplayedModal] = useState(false);
   const [selectItem, setSelectItem] = useState<number | null>(null);
+  const [displayedNextButton, setDisplayedNextButton] = useState(hasNext);
+
+  useEffect(() => {
+    setDisplayedNextButton(hasNext);
+  }, [images, hasNext]);
 
   return images.length > 0 ? (
     <Binder classNames={[style.ImageGrid, className]}>
@@ -63,9 +68,17 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClick }) => {
             </li>
           ))}
         </ul>
-        {hasNext ? (
+        {displayedNextButton ? (
           <div className={style.ImageGrid__actionArea}>
-            <button onClick={onClick} className={style.ImageGrid__button}>
+            <button
+              onClick={() => {
+                if (onClick) {
+                  setDisplayedNextButton(false);
+                  onClick();
+                }
+              }}
+              className={style.ImageGrid__button}
+            >
               M O R E
             </button>
           </div>
