@@ -28,9 +28,11 @@ interface ImageProps {
 export interface Props {
   className?: string;
   images: ImageProps[];
+  hasNext?: boolean;
+  onClick?: () => void;
 }
 
-const ImageGrid: FC<Props> = ({ className, images }) => {
+const ImageGrid: FC<Props> = ({ className, images, hasNext, onClick }) => {
   const [isDisplayedModal, setIsDesplayedModal] = useState(false);
   const [selectItem, setSelectItem] = useState<number | null>(null);
 
@@ -51,6 +53,8 @@ const ImageGrid: FC<Props> = ({ className, images }) => {
                   <img
                     className={style.ImageGrid__imageContent}
                     loading="lazy"
+                    width="380"
+                    height="250"
                     src={image.url}
                     alt={image.alt}
                   />
@@ -59,6 +63,13 @@ const ImageGrid: FC<Props> = ({ className, images }) => {
             </li>
           ))}
         </ul>
+        {hasNext ? (
+          <div className={style.ImageGrid__actionArea}>
+            <button onClick={onClick} className={style.ImageGrid__button}>
+              M O R E
+            </button>
+          </div>
+        ) : null}
         {isDisplayedModal && selectItem !== null ? (
           <ModalImage
             {...images[selectItem]}

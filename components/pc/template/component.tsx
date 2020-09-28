@@ -20,11 +20,13 @@ export enum PageType {
 export interface Props {
   pageType: PageType;
   images?: ImageGridProps["images"];
+  hasNext?: boolean;
   isLoading?: boolean;
 }
 
 export interface DispatchProps {
   onClick?: (content?: string) => void;
+  onClickMore?: () => void;
 }
 
 function switchContentType(pageType: string) {
@@ -45,8 +47,10 @@ function switchContentType(pageType: string) {
 const PageTemplate: FC<Props & DispatchProps> = ({
   pageType,
   images,
+  hasNext,
   isLoading,
   onClick,
+  onClickMore,
 }) => (
   <div className={style.PageTemplate}>
     <header className={style.PageTemplate__header}>
@@ -68,6 +72,8 @@ const PageTemplate: FC<Props & DispatchProps> = ({
             {pageType === PageType.PHOTO && images ? (
               <ImageGrid
                 images={images}
+                hasNext={hasNext}
+                onClick={onClickMore}
                 className={style.PageTemplate__imageGrid}
               />
             ) : null}

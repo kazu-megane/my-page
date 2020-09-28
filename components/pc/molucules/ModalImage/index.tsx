@@ -74,6 +74,8 @@ const ModalImage: FC<Props> = ({ url, alt, data, onClick, className }) => {
             <img
               src={url}
               alt={alt}
+              width="1282"
+              height="854"
               className={style.ModalImage__imageContent}
             />
           </p>

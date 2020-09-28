@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { StateProps } from "~/lib/state";
 
 export type Props = {
   isLoading: boolean;
@@ -21,5 +22,8 @@ const loadingSlice = createSlice({
 });
 
 export default loadingSlice.reducer;
+
+// selectors
+export const loadingSelectors = (state: StateProps) => state.loading;
 
 export const { setLoading } = loadingSlice.actions;
