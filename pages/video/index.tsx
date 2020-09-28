@@ -1,26 +1,45 @@
-import PageTemplate, { PageType } from "../../components/template/component";
+import React, { useState, useEffect } from "react";
 import { NextPage, GetServerSideProps } from "next";
+import PcPageTemplate, { PageType } from "~/components/pc/template";
+import SpPageTemplate from "~/components/sp/template";
+import { wrapper } from "~/lib/strore";
 
-const Video: NextPage = () => <PageTemplate pageType={PageType.VIDEO} />;
+const Video: NextPage<{ isPc: boolean }> = ({ isPc }) => {
+  const [isDesktop, setIsDesktop] = useState(isPc);
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const userAgent = context.req
-    ? context.req.headers["user-agent"]
-    : navigator.userAgent;
-
-  let agent: string = "";
-
-  if (userAgent) {
-    if (userAgent.match(/iPhone|Android.+Mobile/)) {
-      agent = "smartphone";
+  function judgeDevice() {
+    if (window.innerWidth <= 768) {
+      setIsDesktop(false);
     } else {
-      agent = "pc";
+      setIsDesktop(true);
     }
   }
 
-  return {
-    props: { userAgent: agent },
-  };
+  useEffect(() => {
+    if (window) {
+      judgeDevice();
+      window.addEventListener("resize", judgeDevice);
+    }
+  }, []);
+
+  return isDesktop ? (
+    <PcPageTemplate pageType={PageType.VIDEO} />
+  ) : (
+    <SpPageTemplate pageType={PageType.VIDEO} />
+  );
 };
+
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
+  async (context) => {
+    const ua = context.req.headers["user-agent"];
+    const isPc = ua && !ua.match(/iPhone|Android.+Mobile/);
+
+    return {
+      props: {
+        isPc,
+      },
+    };
+  }
+);
 
 export default Video;

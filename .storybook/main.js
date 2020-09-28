@@ -40,6 +40,12 @@ module.exports = {
       }
     );
     config.resolve.extensions.push(".ts", ".tsx");
+
+    // '~'でrootを参照
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "~": path.resolve(__dirname, "../"),
+    };
     return config;
   },
 };

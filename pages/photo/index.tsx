@@ -1,75 +1,105 @@
-import PageTemplate, {
-  PageType,
-  Props,
-} from "../../components/template/component";
+import React, { useState, useEffect, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import PcPageTemplate, {
+  PageType as PcPageType,
+} from "~/components/pc/template";
 import { NextPage, GetServerSideProps } from "next";
+import SpPageTemplate, {
+  PageType as SpPageType,
+} from "~/components/sp/template";
+import { wrapper } from "~/lib/strore";
+import { google } from "googleapis";
+import { fetchPhotoItems, photoSelectors } from "~/lib/state/photo";
 
-const Photo: NextPage<Pick<Props, "images">> = ({ images }) => (
-  <PageTemplate pageType={PageType.PHOTO} images={images} />
-);
+type Props = {
+  isPc: boolean;
+  accessToken: string;
+};
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const userAgent = context.req
-    ? context.req.headers["user-agent"]
-    : navigator.userAgent;
+const Photo: NextPage<Props> = ({ isPc, accessToken }) => {
+  const [isFirst, setIsFirst] = useState(true);
+  const [isDesktop, setIsDesktop] = useState(isPc);
+  const photo = useSelector(photoSelectors);
+  const dispatch = useDispatch();
 
-  let agent: string = "";
+  const fetchPhoto = useCallback(() => {
+    dispatch(fetchPhotoItems(accessToken));
+  }, [dispatch]);
 
-  if (userAgent) {
-    if (userAgent.match(/iPhone|Android.+Mobile/)) {
-      agent = "smartphone";
+  function judgeDevice() {
+    if (window.innerWidth <= 768) {
+      setIsDesktop(false);
     } else {
-      agent = "pc";
+      setIsDesktop(true);
     }
   }
 
-  return {
-    props: {
-      userAgent: agent,
-      images: [
-        {
-          url:
-            "https://pbs.twimg.com/media/EMxv6eMUcAAsdeQ?format=jpg&name=4096x4096",
-          alt: "",
-        },
-        {
-          url:
-            "https://pbs.twimg.com/media/EMxv6eMUcAAsdeQ?format=jpg&name=4096x4096",
-          alt: "",
-        },
-        {
-          url:
-            "https://pbs.twimg.com/media/EMxv6eMUcAAsdeQ?format=jpg&name=4096x4096",
-          alt: "",
-        },
-        {
-          url:
-            "https://pbs.twimg.com/media/EMxv6eMUcAAsdeQ?format=jpg&name=4096x4096",
-          alt: "",
-        },
-        {
-          url:
-            "https://pbs.twimg.com/media/EMxv6eMUcAAsdeQ?format=jpg&name=4096x4096",
-          alt: "",
-        },
-        {
-          url:
-            "https://pbs.twimg.com/media/EMxv6eMUcAAsdeQ?format=jpg&name=4096x4096",
-          alt: "",
-        },
-        {
-          url:
-            "https://pbs.twimg.com/media/EMxv6eMUcAAsdeQ?format=jpg&name=4096x4096",
-          alt: "",
-        },
-        {
-          url:
-            "https://pbs.twimg.com/media/EMxv6eMUcAAsdeQ?format=jpg&name=4096x4096",
-          alt: "",
-        },
-      ],
-    },
-  };
+  useEffect(() => {
+    if (window) {
+      judgeDevice();
+      window.addEventListener("resize", judgeDevice);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isFirst && photo.images.length <= 0) {
+      fetchPhoto();
+    }
+    if (isFirst) {
+      setIsFirst(false);
+    }
+  }, [isFirst]);
+
+  return isDesktop ? (
+    <PcPageTemplate pageType={PcPageType.PHOTO} />
+  ) : (
+    <SpPageTemplate pageType={SpPageType.PHOTO} />
+  );
 };
+
+export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
+  async (context) => {
+    // accessTokenを取得
+    const CLIENT_ID = process.env.CLIENT_ID;
+    const CLIENT_SECRET = process.env.CLIENT_SECRET;
+    const REDIRECT_URL = "";
+    const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
+
+    const oauth2Client = new google.auth.OAuth2(
+      CLIENT_ID,
+      CLIENT_SECRET,
+      REDIRECT_URL
+    );
+
+    oauth2Client.setCredentials({
+      refresh_token: REFRESH_TOKEN,
+    });
+
+    const refreshAccessToken = () => {
+      return new Promise((resolve, reject) => {
+        oauth2Client.refreshAccessToken((err, res) => {
+          if (err) {
+            console.log(err);
+            reject(err);
+          } else {
+            resolve(res);
+          }
+        });
+      });
+    };
+    const token: any = await refreshAccessToken();
+
+    // SSR時のua判定をする
+    const ua = context.req.headers["user-agent"];
+    const isPc = ua && !ua.match(/iPhone|Android.+Mobile/);
+
+    return {
+      props: {
+        accessToken: token.access_token,
+        isPc,
+      },
+    };
+  }
+);
 
 export default Photo;

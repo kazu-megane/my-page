@@ -1,0 +1,48 @@
+@import '../../../../style/index';
+
+.Header {
+    & &__columns {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    & &__columnLeft {
+        flex-shrink: 0;
+    }
+
+    & &__columnRight {
+        margin-left: 28px;
+    }
+
+    & &__columnLink {
+        display: block;
+        color: inherit;
+        text-decoration: inherit;
+        height: 30px;
+    }
+
+    & &__logo {
+        height: inherit;
+    }
+
+    & &__rightContents {
+        display: flex;
+    }
+
+    & &__rightContent + &__rightContent {
+        margin-left: 14px;
+        padding-left: 14px;
+        border-left: 1px solid #808080;
+    }
+
+    & &__link {
+        color: #808080;
+        text-decoration: inherit;
+        font-size: 13px;
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+}
