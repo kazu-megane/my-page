@@ -38,6 +38,7 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClick }) => {
   const [selectItem, setSelectItem] = useState<number | null>(null);
   const [displayedNextButton, setDisplayedNextButton] = useState(hasNext);
   const [isLoading, setIsLoading] = useState(false);
+  let count = 0;
 
   useEffect(() => {
     setIsLoading(false);
@@ -48,28 +49,34 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClick }) => {
     <Binder classNames={[style.ImageGrid, className]}>
       <div>
         <ul className={style.ImageGrid__items}>
-          {images.map((image, index) => (
-            <li className={style.ImageGrid__item} key={index}>
-              <a
-                className={style.ImageGrid__link}
-                onClick={() => {
-                  setSelectItem(index);
-                  setIsDesplayedModal(true);
-                }}
-              >
-                <p className={style.ImageGrid__image}>
-                  <img
-                    className={style.ImageGrid__imageContent}
-                    loading="lazy"
-                    width="380"
-                    height="250"
-                    src={image.url}
-                    alt={image.alt}
-                  />
-                </p>
-              </a>
-            </li>
-          ))}
+          {images.map((image, index) => {
+            if (index === 0 || (index + 1) % 30 === 0) {
+              count = 0;
+            }
+            count++;
+            return (
+              <li className={style.ImageGrid__item} key={index}>
+                <a
+                  className={style.ImageGrid__link}
+                  onClick={() => {
+                    setSelectItem(index);
+                    setIsDesplayedModal(true);
+                  }}
+                >
+                  <p className={style.ImageGrid__image}>
+                    <img
+                      className={style.ImageGrid__imageContent}
+                      loading={count > 9 ? "lazy" : undefined}
+                      width="380"
+                      height="250"
+                      src={image.url}
+                      alt={image.alt}
+                    />
+                  </p>
+                </a>
+              </li>
+            );
+          })}
         </ul>
         {displayedNextButton ? (
           <div className={style.ImageGrid__actionArea}>

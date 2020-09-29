@@ -19,6 +19,7 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClick }) => {
   const [displayedNextButton, setDisplayedNextButton] = useState(hasNext);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
+  let count = 0;
 
   useEffect(() => {
     setIsLoading(false);
@@ -37,6 +38,10 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClick }) => {
       <div>
         <ul className={style.ImageGrid__items}>
           {images.map((image, index) => {
+            if (index === 0 || (index + 1) % 30 === 0) {
+              count = 0;
+            }
+            count++;
             return (
               <li
                 id={
@@ -54,7 +59,7 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClick }) => {
                     alt={image.alt}
                     width="512"
                     height="341"
-                    loading="lazy"
+                    loading={count > 4 ? "lazy" : undefined}
                   />
                 </p>
               </li>
