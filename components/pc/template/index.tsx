@@ -15,11 +15,11 @@ const PageTemplate: FC<Props> = ({ pageType }) => {
 
   const onClickLink = useCallback(
     (context) => {
-      if (context === PageType.PHOTO) {
+      if (context === PageType.PHOTO && !photo.images.length) {
         dispatch(setLoading(true));
       }
     },
-    [dispatch]
+    [dispatch, photo]
   );
 
   const onClickMore = useCallback(() => {

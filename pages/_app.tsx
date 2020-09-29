@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 import App, { AppContext } from "next/app";
 import { WrapperProps } from "next-redux-wrapper";
 import { wrapper } from "~/lib/strore";
@@ -17,7 +18,14 @@ class MyApp extends App<MyAppProps> {
   public render() {
     const { Component, pageProps } = this.props;
 
-    return <Component {...pageProps} />;
+    return (
+      <>
+        <Head>
+          <title>KAZUYA HASHIMOTO</title>
+        </Head>
+        <Component {...pageProps} />
+      </>
+    );
   }
 }
 

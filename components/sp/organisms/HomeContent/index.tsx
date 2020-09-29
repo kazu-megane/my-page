@@ -33,18 +33,37 @@ const HomeContent: FC<Props> = ({ className }) => {
           <li className={style.HomeContent__content}>
             <p className={style.HomeContent__skelton}>
               <span className={style.HomeContent__skeltonContent}>
+                <span className={style.HomeContent__text}>
+                  <span className={style.HomeContent__textValue}>
+                    #切り取られた日常
+                  </span>
+                </span>
                 <span className={style.HomeContent__date}>{today}</span>
               </span>
             </p>
           </li>
           <li className={style.HomeContent__content}>
             <p className={style.HomeContent__skelton}>
-              <span className={style.HomeContent__skeltonContent}></span>
+              <span className={style.HomeContent__skeltonContent}>
+                <span className={style.HomeContent__text}>
+                  <span className={style.HomeContent__textValue}>#sony</span>
+                  <span className={style.HomeContent__textValue}>
+                    #fujifilm
+                  </span>
+                </span>
+              </span>
             </p>
           </li>
           <li className={style.HomeContent__content}>
             <p className={style.HomeContent__skelton}>
-              <span className={style.HomeContent__skeltonContent}></span>
+              <span className={style.HomeContent__skeltonContent}>
+                <span className={style.HomeContent__text}>
+                  <span className={style.HomeContent__textValue}>#tamron</span>
+                  <span className={style.HomeContent__textValue}>
+                    #noktonClassic
+                  </span>
+                </span>
+              </span>
             </p>
           </li>
         </ul>

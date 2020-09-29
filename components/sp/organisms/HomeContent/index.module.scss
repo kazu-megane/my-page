@@ -45,6 +45,7 @@
    }
 
    & &__skeltonContent {
+       position: relative;
        display: flex;
        align-items: flex-end;
        justify-content: flex-end;
@@ -53,6 +54,27 @@
        width: 300px;
        height: 180px;
     //    filter: drop-shadow(8px 8px 8px rgba(0,0,0,0.6));
+   }
+
+   & &__text {
+       position: absolute;
+       width: 100%;
+       height: 100%;
+       top: 50%;
+       left: 50%;
+       transform: translateY(-50%) translateX(-50%);
+       display: flex;
+       flex-wrap: wrap;
+       align-items: center;
+       justify-content: center;
+   }
+
+   & &__textValue {
+       flex-shrink: 0;
+   }
+
+   & &__textValue + &__textValue {
+       margin-left: 4px;
    }
 
    & &__date {

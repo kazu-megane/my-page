@@ -17,7 +17,6 @@ class MyDocument extends Document {
     return (
       <Html lang="ja">
         <Head>
-          <title>KAZUYA HASHIMOTO</title>
           <style>
             {`
             #__next {
