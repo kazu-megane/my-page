@@ -26,10 +26,7 @@
     }
 
     & &__trigger {
-        padding: 0;
-        border: none;
-        outline: none;
-        cursor: pointer;
+        padding: 4px 0;
         transition: 200ms all ease;
         background-color: #ffffff;
     }
