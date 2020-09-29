@@ -1,6 +1,7 @@
 import React, { FC, useState, useEffect } from "react";
 import Binder from "../../../all/atoms/helpers/Binder";
 import ModalImage from "~/components/pc/molucules/ModalImage";
+import ContentLoading from "~/components/all/atoms/ContentLoading";
 import style from "./index.module.scss";
 
 interface PhotoProps {
@@ -36,8 +37,10 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClick }) => {
   const [isDisplayedModal, setIsDesplayedModal] = useState(false);
   const [selectItem, setSelectItem] = useState<number | null>(null);
   const [displayedNextButton, setDisplayedNextButton] = useState(hasNext);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(false);
     setDisplayedNextButton(hasNext);
   }, [images, hasNext]);
 
@@ -74,6 +77,7 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClick }) => {
               onClick={() => {
                 if (onClick) {
                   setDisplayedNextButton(false);
+                  setIsLoading(true);
                   onClick();
                 }
               }}
@@ -82,6 +86,9 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClick }) => {
               M O R E
             </button>
           </div>
+        ) : null}
+        {isLoading ? (
+          <ContentLoading className={style.ImageGrid__loading} />
         ) : null}
         {isDisplayedModal && selectItem !== null ? (
           <ModalImage

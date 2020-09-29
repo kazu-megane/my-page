@@ -46,7 +46,8 @@
        max-height: 253px;
    }
 
-   & &__actionArea {
+   & &__actionArea,
+   & &__loading {
        margin-top: 40px;
        text-align: center;
    }

@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect, Fragment } from "react";
 import Binder from "../../../all/atoms/helpers/Binder";
+import ContentLoading from "~/components/all/atoms/ContentLoading";
 import style from "./index.module.scss";
 
 interface ImageProps {
@@ -16,9 +17,11 @@ export interface Props {
 
 const ImageGrid: FC<Props> = ({ className, images, hasNext, onClick }) => {
   const [displayedNextButton, setDisplayedNextButton] = useState(hasNext);
+  const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
+    setIsLoading(false);
     setDisplayedNextButton(hasNext);
   }, [hasNext, images]);
 
@@ -64,6 +67,7 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClick }) => {
               onClick={() => {
                 if (onClick) {
                   setDisplayedNextButton(false);
+                  setIsLoading(true);
                   setPage(page + 1);
                   onClick();
                 }
@@ -73,6 +77,9 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClick }) => {
               M O R E
             </button>
           </div>
+        ) : null}
+        {isLoading ? (
+          <ContentLoading className={style.ImageGrid__loading} />
         ) : null}
       </div>
     </Binder>

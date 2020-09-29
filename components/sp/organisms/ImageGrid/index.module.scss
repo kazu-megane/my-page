@@ -32,7 +32,8 @@
        max-height: 100%;
    }
 
-   & &__actionArea {
+   & &__actionArea,
+   & &__loading {
        margin-top: 40px;
    }
 
