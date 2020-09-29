@@ -79,8 +79,9 @@ export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps
     const token: any = await refreshAccessToken();
 
     // SSR時のua判定をする
-    const ua = context.req.headers["user-agent"]?.toLocaleLowerCase();
-    const isPc = ua && !ua.match(/iphone|android.+mobile|like mac os x/);
+    const ua = context.req.headers["user-agent"]?.toLowerCase();
+    const isPc =
+      ua && !ua.match(/iphone|android.+mobile|like mac os x|instagram|line/);
 
     return {
       props: {
