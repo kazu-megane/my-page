@@ -37,16 +37,6 @@ const HomeContent: FC<Props> = ({ className }) => {
               </span>
             </p>
           </li>
-          <li className={style.HomeContent__content}>
-            <p className={style.HomeContent__skelton}>
-              <span className={style.HomeContent__skeltonContent}></span>
-            </p>
-          </li>
-          <li className={style.HomeContent__content}>
-            <p className={style.HomeContent__skelton}>
-              <span className={style.HomeContent__skeltonContent}></span>
-            </p>
-          </li>
         </ul>
       </div>
     </Binder>

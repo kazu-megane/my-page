@@ -17,12 +17,19 @@
     & &__main {
         margin-top: 20px;
         padding: 0 24px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
     }
 
     & &__introduction,
     & &__imageGrid,
     & &__socialLinks {
         margin-top: 20px;
+    }
+
+    & &__homeContent {
+        flex-grow: 1;
     }
 
     & &__footer {
