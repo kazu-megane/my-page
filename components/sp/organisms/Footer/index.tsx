@@ -23,7 +23,11 @@ const Footer: FC<Props> = ({ className }) => (
         <div className={style.Footer__content}>
           <ul className={style.Footer__links}>
             <li className={style.Footer__link}>
-              <a className={style.Footer__linkContent} href={TWITTER_URL}>
+              <a
+                aria-label="twitter"
+                className={style.Footer__linkContent}
+                href={TWITTER_URL}
+              >
                 <FontAwesomeIcon
                   className={style.Footer__linkIcon}
                   icon={faTwitter}
@@ -31,7 +35,11 @@ const Footer: FC<Props> = ({ className }) => (
               </a>
             </li>
             <li className={style.Footer__link}>
-              <a className={style.Footer__linkContent} href={INSTAGRAM_URL}>
+              <a
+                aria-label="instagram"
+                className={style.Footer__linkContent}
+                href={INSTAGRAM_URL}
+              >
                 <FontAwesomeIcon
                   className={style.Footer__linkIcon}
                   icon={faInstagram}
@@ -39,7 +47,11 @@ const Footer: FC<Props> = ({ className }) => (
               </a>
             </li>
             <li className={style.Footer__link}>
-              <a className={style.Footer__linkContent} href={GITHUB_URL}>
+              <a
+                aria-label="github"
+                className={style.Footer__linkContent}
+                href={GITHUB_URL}
+              >
                 <FontAwesomeIcon
                   className={style.Footer__linkIcon}
                   icon={faGithub}
