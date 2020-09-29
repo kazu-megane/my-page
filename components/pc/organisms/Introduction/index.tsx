@@ -14,6 +14,8 @@ const Introduction: FC<Props> = ({ className }) => (
           <img
             src="/myPhoto.png"
             alt="myPhoto"
+            width="300"
+            height="300"
             className={style.Introduction__image}
           />
         </div>

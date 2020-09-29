@@ -9,11 +9,15 @@ interface Props {
 const Introduction: FC<Props> = ({ className }) => (
   <Binder classNames={[style.Introduction, className]}>
     <div>
-      <img
-        src="/myPhoto.png"
-        alt="myPhoto"
-        className={style.Introduction__image}
-      />
+      <p className={style.Introduction__image}>
+        <img
+          src="/myPhoto.png"
+          alt="myPhoto"
+          width="327"
+          height="327"
+          className={style.Introduction__imageContent}
+        />
+      </p>
       <p className={style.Introduction__name}>Kazuya Hashimoto</p>
       <p className={style.Introduction__text}>
         I was born in Japan in 1994. I studied computer science at Tokyo Denki

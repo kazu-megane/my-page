@@ -2,7 +2,14 @@
 
 .Introduction {
     & &__image {
-        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    & &__imageContent {
+        height: auto;
+        max-width: 100%;
     }
 
     & &__name {
