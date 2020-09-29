@@ -31,8 +31,8 @@ const About: NextPage<{ isPc: boolean }> = ({ isPc }) => {
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
   async (context) => {
-    const ua = context.req.headers["user-agent"];
-    const isPc = ua && !ua.match(/iPhone|Android.+Mobile/);
+    const ua = context.req.headers["user-agent"]?.toLocaleLowerCase();
+    const isPc = ua && !ua.match(/iphone|android.+mobile|like mac os x/);
 
     return {
       props: {
