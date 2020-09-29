@@ -17,14 +17,8 @@ type Props = {
 };
 
 const Photo: NextPage<Props> = ({ isPc, accessToken }) => {
-  const [isFirst, setIsFirst] = useState(true);
   const [isDesktop, setIsDesktop] = useState(isPc);
-  const photo = useSelector(photoSelectors);
   const dispatch = useDispatch();
-
-  const fetchPhoto = useCallback(() => {
-    dispatch(fetchPhotoItems(accessToken));
-  }, [dispatch]);
 
   function judgeDevice() {
     if (window.innerWidth <= 768) {
@@ -42,13 +36,8 @@ const Photo: NextPage<Props> = ({ isPc, accessToken }) => {
   }, []);
 
   useEffect(() => {
-    if (!isFirst && photo.images.length <= 0) {
-      fetchPhoto();
-    }
-    if (isFirst) {
-      setIsFirst(false);
-    }
-  }, [isFirst]);
+    dispatch(fetchPhotoItems(accessToken));
+  }, [accessToken]);
 
   return isDesktop ? (
     <PcPageTemplate pageType={PcPageType.PHOTO} />

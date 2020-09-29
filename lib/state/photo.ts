@@ -7,9 +7,8 @@ import {
   createSelector,
 } from "@reduxjs/toolkit";
 import { fetcher } from "../logics";
-import { setLoading } from "~/lib/state/loading";
+import { setLoading, loadingSelectors } from "~/lib/state/loading";
 import { StateProps } from "~/lib/state";
-import Photo from "~/pages/photo";
 
 type PhotoProps = {
   cameraMake: string;
@@ -89,35 +88,45 @@ export const { fetchSuccess, setAccessToken } = photoSlice.actions;
 export const photoSelectors = (state: StateProps) => state.photo;
 
 export const fetchPhotoItems = (accessToken: string) => async (
-  dispatch: Dispatch
+  dispatch: Dispatch,
+  getState: any
 ) => {
-  try {
-    dispatch(setLoading(true));
-    dispatch(setAccessToken(accessToken));
-    dispatch(
-      fetchSuccess(
-        await fetcher(
-          "https://photoslibrary.googleapis.com/v1/mediaItems:search",
-          {
-            method: "post",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: "Bearer " + accessToken,
-            },
-            body: JSON.stringify({
-              pageSize: "30",
-              albumId:
-                "AC2o_TmhQyq8bUzBgt5nx0_CE5lXSvEv5wbMxKaQMcMot69TbjxhXcUlaDyxKTuaTLxF12up1GGD",
-            }),
-          }
+  const state = getState();
+  const photo = photoSelectors(state);
+  const loading = loadingSelectors(state);
+
+  dispatch(setAccessToken(accessToken));
+
+  if (!photo.images.length) {
+    if (!loading.isLoading) {
+      dispatch(setLoading(true));
+    }
+    try {
+      dispatch(
+        fetchSuccess(
+          await fetcher(
+            "https://photoslibrary.googleapis.com/v1/mediaItems:search",
+            {
+              method: "post",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: "Bearer " + accessToken,
+              },
+              body: JSON.stringify({
+                pageSize: "30",
+                albumId:
+                  "AC2o_TmhQyq8bUzBgt5nx0_CE5lXSvEv5wbMxKaQMcMot69TbjxhXcUlaDyxKTuaTLxF12up1GGD",
+              }),
+            }
+          )
         )
-      )
-    );
-    dispatch(setLoading(false));
-  } catch (error) {
-    // TODO: fetchのエラー処理をここに書く
-    console.log("fetch error:", error);
+      );
+    } catch (error) {
+      // TODO: fetchのエラー処理をここに書く
+      console.log("fetch error:", error);
+    }
   }
+  dispatch(setLoading(false));
 };
 
 export const fetchNextPhotoItems = () => async (
