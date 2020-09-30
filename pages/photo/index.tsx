@@ -19,8 +19,12 @@ type Props = {
 const Photo: NextPage<Props> = ({ isPc, accessToken }) => {
   const [isDesktop, setIsDesktop] = useState(isPc);
   const dispatch = useDispatch();
+  const currentWidth = window.innerWidth;
 
   function judgeDevice() {
+    if (currentWidth === window.innerWidth) {
+      return;
+    }
     if (window.innerWidth <= 768) {
       setIsDesktop(false);
     } else {

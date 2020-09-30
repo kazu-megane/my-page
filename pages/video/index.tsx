@@ -6,8 +6,12 @@ import { wrapper } from "~/lib/strore";
 
 const Video: NextPage<{ isPc: boolean }> = ({ isPc }) => {
   const [isDesktop, setIsDesktop] = useState(isPc);
+  const currentWidth = window.innerWidth;
 
   function judgeDevice() {
+    if (currentWidth === window.innerWidth) {
+      return;
+    }
     if (window.innerWidth <= 768) {
       setIsDesktop(false);
     } else {
