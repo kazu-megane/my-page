@@ -35,8 +35,6 @@ export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps
     const isPc =
       ua && !ua.match(/iphone|android.+mobile|like mac os x|instagram|line/);
 
-    console.log("isPc: ", isPc);
-
     return {
       props: {
         isPc,
