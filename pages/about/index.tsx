@@ -6,10 +6,10 @@ import SpPageTemplate from "~/components/sp/template";
 
 const About: NextPage<{ isPc: boolean }> = ({ isPc }) => {
   const [isDesktop, setIsDesktop] = useState(isPc);
-  const currentWidth = window.innerWidth;
+  let currentWidth = 0;
 
   function judgeDevice() {
-    if (currentWidth === window.innerWidth) {
+    if (currentWidth === 0 || currentWidth === window.innerWidth) {
       return;
     }
     if (window.innerWidth <= 768) {
@@ -21,6 +21,7 @@ const About: NextPage<{ isPc: boolean }> = ({ isPc }) => {
 
   useEffect(() => {
     if (window) {
+      currentWidth = window.innerWidth;
       judgeDevice();
       window.addEventListener("resize", judgeDevice);
     }

@@ -19,10 +19,10 @@ type Props = {
 const Photo: NextPage<Props> = ({ isPc, accessToken }) => {
   const [isDesktop, setIsDesktop] = useState(isPc);
   const dispatch = useDispatch();
-  const currentWidth = window.innerWidth;
+  let currentWidth = 0;
 
   function judgeDevice() {
-    if (currentWidth === window.innerWidth) {
+    if (currentWidth === 0 || currentWidth === window.innerWidth) {
       return;
     }
     if (window.innerWidth <= 768) {
@@ -34,6 +34,7 @@ const Photo: NextPage<Props> = ({ isPc, accessToken }) => {
 
   useEffect(() => {
     if (window) {
+      currentWidth = window.innerWidth;
       judgeDevice();
       window.addEventListener("resize", judgeDevice);
     }
