@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PcPageTemplate, {
   PageType as PcPageType,
@@ -9,8 +9,8 @@ import SpPageTemplate, {
 } from "~/components/sp/template";
 import { wrapper } from "~/lib/strore";
 import { google } from "googleapis";
-import { fetchPhotoItems, photoSelectors } from "~/lib/state/photo";
-import { SP_WIDTH } from "~/constants";
+import { fetchPhotoItems } from "~/lib/state/photo";
+import { useJudgeDesktop } from "~/components/all/hooks/JudgeDesktop";
 
 type Props = {
   isPc: boolean;
@@ -18,29 +18,8 @@ type Props = {
 };
 
 const Photo: NextPage<Props> = ({ isPc, accessToken }) => {
-  const [isDesktop, setIsDesktop] = useState(isPc);
+  const isDesktop = useJudgeDesktop(isPc);
   const dispatch = useDispatch();
-  let currentWidth = 0;
-
-  function judgeDevice() {
-    if (currentWidth === 0 || currentWidth === window.innerWidth) {
-      return;
-    }
-    if (window.innerWidth <= SP_WIDTH) {
-      setIsDesktop(false);
-    } else {
-      setIsDesktop(true);
-    }
-    currentWidth = window.innerWidth;
-  }
-
-  useEffect(() => {
-    if (window) {
-      currentWidth = window.innerWidth;
-      judgeDevice();
-      window.addEventListener("resize", judgeDevice);
-    }
-  }, []);
 
   useEffect(() => {
     dispatch(fetchPhotoItems(accessToken));
