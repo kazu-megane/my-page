@@ -1,8 +1,6 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import Modal from "~/components/all/atoms/Modal";
 import Binder from "~/components/all/atoms/helpers/Binder";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import style from "./index.module.scss";
 
 interface PhotoProps {
@@ -59,6 +57,22 @@ const ModalImage: FC<Props> = ({ url, alt, data, onClick, className }) => {
   if (data.photo && data.photo.exposureTime) {
     exposureTime = `${data.photo.exposureTime} s`;
   }
+
+  useEffect(() => {
+    const scrollY = window.pageYOffset;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.right = "0";
+    document.body.style.left = "0";
+
+    return (): void => {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.right = "";
+      document.body.style.left = "";
+      window.scrollTo(0, scrollY);
+    };
+  }, []);
 
   return (
     <Binder classNames={[style.ModalImage, className]}>
