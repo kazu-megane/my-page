@@ -22,7 +22,7 @@ const Photo: NextPage<Props> = ({ isPc, accessToken }) => {
   let currentWidth = 0;
 
   function judgeDevice() {
-    if (currentWidth === 0 || currentWidth === window.innerWidth) {
+    if (currentWidth === 0 || currentWidth === window.outerWidth) {
       return;
     }
     if (window.innerWidth <= 768) {
@@ -34,7 +34,7 @@ const Photo: NextPage<Props> = ({ isPc, accessToken }) => {
 
   useEffect(() => {
     if (window) {
-      currentWidth = window.innerWidth;
+      currentWidth = window.outerWidth;
       judgeDevice();
       window.addEventListener("resize", judgeDevice);
     }

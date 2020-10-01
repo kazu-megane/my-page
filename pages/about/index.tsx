@@ -9,7 +9,7 @@ const About: NextPage<{ isPc: boolean }> = ({ isPc }) => {
   let currentWidth = 0;
 
   function judgeDevice() {
-    if (currentWidth === 0 || currentWidth === window.innerWidth) {
+    if (currentWidth === 0 || currentWidth === window.outerWidth) {
       return;
     }
     if (window.innerWidth <= 768) {
@@ -21,7 +21,7 @@ const About: NextPage<{ isPc: boolean }> = ({ isPc }) => {
 
   useEffect(() => {
     if (window) {
-      currentWidth = window.innerWidth;
+      currentWidth = window.outerWidth;
       judgeDevice();
       window.addEventListener("resize", judgeDevice);
     }
