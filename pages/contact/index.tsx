@@ -3,26 +3,21 @@ import { NextPage, GetServerSideProps } from "next";
 import { wrapper } from "~/lib/strore";
 import PcPageTemplate, { PageType } from "~/components/pc/template";
 import SpPageTemplate from "~/components/sp/template";
+import { SP_WIDTH } from "~/constants";
 
 const Contact: NextPage<{ isPc: boolean }> = ({ isPc }) => {
   const [isDesktop, setIsDesktop] = useState(isPc);
-  let currentWidth = 0;
 
   function judgeDevice() {
-    if (currentWidth === 0 || currentWidth === window.outerWidth) {
-      return;
-    }
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= SP_WIDTH) {
       setIsDesktop(false);
     } else {
       setIsDesktop(true);
     }
-    currentWidth = window.outerWidth;
   }
 
   useEffect(() => {
     if (window) {
-      currentWidth = window.outerWidth;
       judgeDevice();
       window.addEventListener("resize", judgeDevice);
     }

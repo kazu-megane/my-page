@@ -10,6 +10,7 @@ import SpPageTemplate, {
 import { wrapper } from "~/lib/strore";
 import { google } from "googleapis";
 import { fetchPhotoItems, photoSelectors } from "~/lib/state/photo";
+import { SP_WIDTH } from "~/constants";
 
 type Props = {
   isPc: boolean;
@@ -19,23 +20,17 @@ type Props = {
 const Photo: NextPage<Props> = ({ isPc, accessToken }) => {
   const [isDesktop, setIsDesktop] = useState(isPc);
   const dispatch = useDispatch();
-  let currentWidth = 0;
 
   function judgeDevice() {
-    if (currentWidth === 0 || currentWidth === window.outerWidth) {
-      return;
-    }
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= SP_WIDTH) {
       setIsDesktop(false);
     } else {
       setIsDesktop(true);
     }
-    currentWidth = window.outerWidth;
   }
 
   useEffect(() => {
     if (window) {
-      currentWidth = window.outerWidth;
       judgeDevice();
       window.addEventListener("resize", judgeDevice);
     }
