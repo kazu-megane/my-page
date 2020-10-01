@@ -3,10 +3,11 @@ import Modal from "~/components/all/atoms/Modal";
 import style from "./index.module.scss";
 import Link from "next/link";
 import Binder from "~/components/all/atoms/helpers/Binder";
+import { PAGE_TYPE } from "~/components/constants";
 
 interface Props {
   className?: string;
-  onClick?: (content?: string) => void;
+  onClick?: (content?: typeof PAGE_TYPE[keyof typeof PAGE_TYPE]) => void;
 }
 
 const ModalHeader: FC<Props> = ({ className, onClick = () => {} }) => (

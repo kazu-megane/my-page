@@ -1,17 +1,18 @@
 import React from "react";
 import { NextPage, GetServerSideProps } from "next";
 import { wrapper } from "~/lib/strore";
-import PcPageTemplate, { PageType } from "~/components/pc/template";
+import PcPageTemplate from "~/components/pc/template";
 import SpPageTemplate from "~/components/sp/template";
 import { useJudgeDesktop } from "~/components/all/hooks/JudgeDesktop";
+import { PAGE_TYPE } from "~/components/constants";
 
 const About: NextPage<{ isPc: boolean }> = ({ isPc }) => {
   const isDesktop = useJudgeDesktop(isPc);
 
   return isDesktop ? (
-    <PcPageTemplate pageType={PageType.ABOUT} />
+    <PcPageTemplate pageType={PAGE_TYPE.ABOUT} />
   ) : (
-    <SpPageTemplate pageType={PageType.ABOUT} />
+    <SpPageTemplate pageType={PAGE_TYPE.ABOUT} />
   );
 };
 

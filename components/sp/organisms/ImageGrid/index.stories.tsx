@@ -35,6 +35,7 @@ const stub: Props = {
       alt: "",
     },
   ],
+  columnNum: 4,
 };
 
 storiesOf("sp | organisms/ImageGrid", module).add("default", () => (

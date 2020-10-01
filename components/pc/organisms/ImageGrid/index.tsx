@@ -30,10 +30,10 @@ export interface Props {
   className?: string;
   images: ImageProps[];
   hasNext?: boolean;
-  onClick?: () => void;
+  onClickMore?: () => void;
 }
 
-const ImageGrid: FC<Props> = ({ className, images, hasNext, onClick }) => {
+const ImageGrid: FC<Props> = ({ className, images, hasNext, onClickMore }) => {
   const [isDisplayedModal, setIsDesplayedModal] = useState(false);
   const [selectItem, setSelectItem] = useState<number | null>(null);
   const [displayedNextButton, setDisplayedNextButton] = useState(hasNext);
@@ -82,10 +82,10 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClick }) => {
           <div className={style.ImageGrid__actionArea}>
             <button
               onClick={() => {
-                if (onClick) {
+                if (onClickMore) {
                   setDisplayedNextButton(false);
                   setIsLoading(true);
-                  onClick();
+                  onClickMore();
                 }
               }}
               className={style.ImageGrid__button}

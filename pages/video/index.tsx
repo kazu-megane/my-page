@@ -1,17 +1,18 @@
 import React from "react";
 import { NextPage, GetServerSideProps } from "next";
-import PcPageTemplate, { PageType } from "~/components/pc/template";
+import PcPageTemplate from "~/components/pc/template";
 import SpPageTemplate from "~/components/sp/template";
 import { wrapper } from "~/lib/strore";
 import { useJudgeDesktop } from "~/components/all/hooks/JudgeDesktop";
+import { PAGE_TYPE } from "~/components/constants";
 
 const Video: NextPage<{ isPc: boolean }> = ({ isPc }) => {
   const isDesktop = useJudgeDesktop(isPc);
 
   return isDesktop ? (
-    <PcPageTemplate pageType={PageType.VIDEO} />
+    <PcPageTemplate pageType={PAGE_TYPE.VIDEO} />
   ) : (
-    <SpPageTemplate pageType={PageType.VIDEO} />
+    <SpPageTemplate pageType={PAGE_TYPE.VIDEO} />
   );
 };
 

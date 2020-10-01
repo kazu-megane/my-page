@@ -1,6 +1,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import PcPageTemplate, { Props, PageType } from "./component";
+import PcPageTemplate, { Props } from "./component";
+import { PAGE_TYPE } from "~/components/constants";
 
 const imageStub: Pick<Props, "images"> = {
   images: [
@@ -88,10 +89,14 @@ const imageStub: Pick<Props, "images"> = {
 };
 
 storiesOf("pc | template", module)
-  .add("Home", () => <PcPageTemplate pageType={PageType.HOME} />)
-  .add("About", () => <PcPageTemplate pageType={PageType.ABOUT} />)
+  .add("Home", () => <PcPageTemplate images={[]} pageType={PAGE_TYPE.HOME} />)
+  .add("About", () => <PcPageTemplate images={[]} pageType={PAGE_TYPE.ABOUT} />)
   .add("PcPageTemplate", () => (
-    <PcPageTemplate {...imageStub} pageType={PageType.PHOTO} />
+    <PcPageTemplate {...imageStub} pageType={PAGE_TYPE.PHOTO} />
   ))
-  .add("PcPageTemplate", () => <PcPageTemplate pageType={PageType.VIDEO} />)
-  .add("Contact", () => <PcPageTemplate pageType={PageType.CONTACT} />);
+  .add("PcPageTemplate", () => (
+    <PcPageTemplate images={[]} pageType={PAGE_TYPE.VIDEO} />
+  ))
+  .add("Contact", () => (
+    <PcPageTemplate images={[]} pageType={PAGE_TYPE.CONTACT} />
+  ));

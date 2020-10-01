@@ -2,12 +2,13 @@ import React, { FC, useState, useEffect } from "react";
 import Binder from "~/components/all/atoms/helpers/Binder";
 import Link from "next/link";
 import ModalHeader from "~/components/sp/molecules/ModalHeader";
+import { PAGE_TYPE } from "~/components/constants";
 import style from "./index.module.scss";
 
-interface Props {
+export type Props = {
   className?: string;
-  onClick?: (content?: string) => void;
-}
+  onClick?: (content?: typeof PAGE_TYPE[keyof typeof PAGE_TYPE]) => void;
+};
 
 const Header: FC<Props> = ({ onClick = () => {}, className }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);

@@ -2,11 +2,12 @@ import React, { FC } from "react";
 import Binder from "../../../all/atoms/helpers/Binder";
 import style from "./index.module.scss";
 import Link from "next/link";
+import { PAGE_TYPE } from "~/components/constants";
 
-interface Props {
+export type Props = {
   className?: string;
-  onClick?: (content?: string) => void;
-}
+  onClick?: (content?: typeof PAGE_TYPE[keyof typeof PAGE_TYPE]) => void;
+};
 
 const Header: FC<Props> = ({ onClick = () => {}, className }) => (
   <Binder classNames={[style.Header, className]}>
@@ -16,7 +17,7 @@ const Header: FC<Props> = ({ onClick = () => {}, className }) => (
           <Link href="/">
             <a
               className={style.Header__columnLink}
-              onClick={() => onClick("HOME")}
+              onClick={() => onClick(PAGE_TYPE.HOME)}
             >
               <img
                 src="/headerLogo.png"
@@ -32,7 +33,7 @@ const Header: FC<Props> = ({ onClick = () => {}, className }) => (
               <Link href="/">
                 <a
                   className={style.Header__link}
-                  onClick={() => onClick("HOME")}
+                  onClick={() => onClick(PAGE_TYPE.HOME)}
                 >
                   HOME
                 </a>
@@ -42,7 +43,7 @@ const Header: FC<Props> = ({ onClick = () => {}, className }) => (
               <Link href="/about">
                 <a
                   className={style.Header__link}
-                  onClick={() => onClick("ABOUT")}
+                  onClick={() => onClick(PAGE_TYPE.ABOUT)}
                 >
                   ABOUT
                 </a>
@@ -52,7 +53,7 @@ const Header: FC<Props> = ({ onClick = () => {}, className }) => (
               <Link href="/photo">
                 <a
                   className={style.Header__link}
-                  onClick={() => onClick("PHOTO")}
+                  onClick={() => onClick(PAGE_TYPE.PHOTO)}
                 >
                   PHOTO
                 </a>
@@ -62,7 +63,7 @@ const Header: FC<Props> = ({ onClick = () => {}, className }) => (
               <Link href="/video">
                 <a
                   className={style.Header__link}
-                  onClick={() => onClick("VIDEO")}
+                  onClick={() => onClick(PAGE_TYPE.VIDEO)}
                 >
                   VIDEO
                 </a>
@@ -72,7 +73,7 @@ const Header: FC<Props> = ({ onClick = () => {}, className }) => (
               <Link href="/contact">
                 <a
                   className={style.Header__link}
-                  onClick={() => onClick("CONTACT")}
+                  onClick={() => onClick(PAGE_TYPE.CONTACT)}
                 >
                   CONTACT
                 </a>

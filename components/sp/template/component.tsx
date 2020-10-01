@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import Header from "../organisms/Header";
+import Header, { Props as HeaderProps } from "../organisms/Header";
 import ContentHeader, { ContentType } from "../organisms/ContentHeader";
 import Introduction from "../organisms/Introduction";
 import Footer from "../organisms/Footer";
@@ -7,49 +7,41 @@ import SocialLinks from "../organisms/SocialLinks";
 import ImageGrid, { Props as ImageGridProps } from "../organisms/ImageGrid";
 import HomeContent from "../organisms/HomeContent";
 import PageLoading from "../organisms/PageLoading";
+import { PAGE_TYPE } from "~/components/constants";
 import style from "./index.module.scss";
 
-export enum PageType {
-  HOME = "HOME",
-  ABOUT = "ABOUT",
-  PHOTO = "PHOTO",
-  VIDEO = "VIDEO",
-  CONTACT = "CONTACT",
-}
-
-export interface Props {
-  pageType: PageType;
-  images?: ImageGridProps["images"];
-  hasNext?: boolean;
-  isLoading?: boolean;
-}
-
-export interface DispatchProps {
-  onClick?: (content?: string) => void;
-  onClickMore?: () => void;
-}
+export type Props = Pick<
+  ImageGridProps,
+  "images" | "hasNext" | "columnNum" | "onClickMore" | "onClickNumButton"
+> &
+  Pick<HeaderProps, "onClick"> & {
+    pageType: typeof PAGE_TYPE[keyof typeof PAGE_TYPE];
+    isLoading?: boolean;
+  };
 
 function switchContentType(pageType: string) {
   switch (pageType) {
-    case PageType.ABOUT:
+    case PAGE_TYPE.ABOUT:
       return ContentType.ABOUT;
-    case PageType.PHOTO:
+    case PAGE_TYPE.PHOTO:
       return ContentType.PHOTO;
-    case PageType.VIDEO:
+    case PAGE_TYPE.VIDEO:
       return ContentType.VIDEO;
-    case PageType.CONTACT:
+    case PAGE_TYPE.CONTACT:
       return ContentType.CONTACT;
     default:
       return ContentType.ABOUT;
   }
 }
 
-const PageTemplate: FC<Props & DispatchProps> = ({
+const PageTemplate: FC<Props> = ({
   pageType,
   images,
+  columnNum,
   isLoading,
   hasNext,
   onClickMore,
+  onClickNumButton,
   onClick,
 }) => (
   <div className={style.PageTemplate}>
@@ -60,24 +52,26 @@ const PageTemplate: FC<Props & DispatchProps> = ({
       <PageLoading className={style.PageTemplate__loading} />
     ) : (
       <main className={style.PageTemplate__main}>
-        {pageType !== PageType.HOME ? (
+        {pageType !== PAGE_TYPE.HOME ? (
           <div className={style.PageTemplate__pageContent}>
             <ContentHeader
               contentType={switchContentType(pageType)}
               className={style.PageTemplate__contentHeader}
             />
-            {pageType === PageType.ABOUT ? (
+            {pageType === PAGE_TYPE.ABOUT ? (
               <Introduction className={style.PageTemplate__introduction} />
             ) : null}
-            {pageType === PageType.PHOTO && images ? (
+            {pageType === PAGE_TYPE.PHOTO && images ? (
               <ImageGrid
                 images={images}
+                columnNum={columnNum}
                 hasNext={hasNext}
-                onClick={onClickMore}
+                onClickMore={onClickMore}
+                onClickNumButton={onClickNumButton}
                 className={style.PageTemplate__imageGrid}
               />
             ) : null}
-            {pageType === PageType.CONTACT ? (
+            {pageType === PAGE_TYPE.CONTACT ? (
               <SocialLinks className={style.PageTemplate__socialLinks} />
             ) : null}
           </div>

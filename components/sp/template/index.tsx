@@ -1,21 +1,23 @@
 import React, { FC, useCallback, useEffect } from "react";
-import PageTemplateComponent, { Props, PageType } from "./component";
+import PageTemplateComponent, { Props as ComponentProps } from "./component";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchNextPhotoItems, photoSelectors } from "~/lib/state/photo";
 import { setLoading } from "~/lib/state/loading";
 import { loadingSelectors } from "~/lib/state/loading";
+import { pageSelectors, setColumnNum } from "~/lib/state/page";
+import { PAGE_TYPE } from "~/components/constants";
 
-export { PageType } from "./component";
-export type PageTemplateProps = Props;
+export type Props = Pick<ComponentProps, "pageType">;
 
 const PageTemplate: FC<Props> = ({ pageType }) => {
   const photo = useSelector(photoSelectors);
   const loading = useSelector(loadingSelectors);
+  const page = useSelector(pageSelectors);
   const dispatch = useDispatch();
 
   const onClickLink = useCallback(
     (context) => {
-      if (context === PageType.PHOTO && !photo.images.length) {
+      if (context === PAGE_TYPE.PHOTO && !photo.images.length) {
         dispatch(setLoading(true));
       }
     },
@@ -26,6 +28,13 @@ const PageTemplate: FC<Props> = ({ pageType }) => {
     dispatch(fetchNextPhotoItems());
   }, [dispatch]);
 
+  const onClickNumButton = useCallback(
+    (payload: number) => {
+      dispatch(setColumnNum(payload));
+    },
+    [dispatch]
+  );
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -34,9 +43,11 @@ const PageTemplate: FC<Props> = ({ pageType }) => {
     <PageTemplateComponent
       pageType={pageType}
       images={photo.images}
+      columnNum={page.columnNum}
       hasNext={!!photo.nextPageToken}
       onClick={onClickLink}
       onClickMore={onClickMore}
+      onClickNumButton={onClickNumButton}
       isLoading={loading.isLoading}
     />
   );

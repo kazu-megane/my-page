@@ -1,12 +1,12 @@
 import React, { FC, useCallback } from "react";
-import PageTemplateComponent, { Props, PageType } from "./component";
+import PageTemplateComponent, { Props as ComponentProps } from "./component";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchNextPhotoItems, photoSelectors } from "~/lib/state/photo";
 import { setLoading } from "~/lib/state/loading";
 import { loadingSelectors } from "~/lib/state/loading";
+import { PAGE_TYPE } from "~/components/constants";
 
-export { PageType } from "./component";
-export type PageTemplateProps = Props;
+export type Props = Pick<ComponentProps, "pageType">;
 
 const PageTemplate: FC<Props> = ({ pageType }) => {
   const photo = useSelector(photoSelectors);
@@ -15,7 +15,7 @@ const PageTemplate: FC<Props> = ({ pageType }) => {
 
   const onClickLink = useCallback(
     (context) => {
-      if (context === PageType.PHOTO && !photo.images.length) {
+      if (context === PAGE_TYPE.PHOTO && !photo.images.length) {
         dispatch(setLoading(true));
       }
     },

@@ -1,8 +1,9 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import PcPageTemplate, { Props, PageType } from "./component";
+import PcPageTemplate, { Props } from "./component";
+import { PAGE_TYPE } from "~/components/constants";
 
-const imageStub: Pick<Props, "images"> = {
+const imageStub: Pick<Props, "images" | "columnNum"> = {
   images: [
     {
       url:
@@ -45,13 +46,22 @@ const imageStub: Pick<Props, "images"> = {
       alt: "",
     },
   ],
+  columnNum: 4,
 };
 
 storiesOf("sp | template", module)
-  .add("Home", () => <PcPageTemplate pageType={PageType.HOME} />)
-  .add("About", () => <PcPageTemplate pageType={PageType.ABOUT} />)
-  .add("Photo", () => (
-    <PcPageTemplate {...imageStub} pageType={PageType.PHOTO} />
+  .add("Home", () => (
+    <PcPageTemplate images={[]} columnNum={4} pageType={PAGE_TYPE.HOME} />
   ))
-  .add("Video", () => <PcPageTemplate pageType={PageType.VIDEO} />)
-  .add("Contact", () => <PcPageTemplate pageType={PageType.CONTACT} />);
+  .add("About", () => (
+    <PcPageTemplate images={[]} columnNum={4} pageType={PAGE_TYPE.ABOUT} />
+  ))
+  .add("Photo", () => (
+    <PcPageTemplate {...imageStub} pageType={PAGE_TYPE.PHOTO} />
+  ))
+  .add("Video", () => (
+    <PcPageTemplate images={[]} columnNum={4} pageType={PAGE_TYPE.VIDEO} />
+  ))
+  .add("Contact", () => (
+    <PcPageTemplate images={[]} columnNum={4} pageType={PAGE_TYPE.CONTACT} />
+  ));

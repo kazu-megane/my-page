@@ -1,16 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import PcPageTemplate, {
-  PageType as PcPageType,
-} from "~/components/pc/template";
+import PcPageTemplate from "~/components/pc/template";
 import { NextPage, GetServerSideProps } from "next";
-import SpPageTemplate, {
-  PageType as SpPageType,
-} from "~/components/sp/template";
+import SpPageTemplate from "~/components/sp/template";
 import { wrapper } from "~/lib/strore";
 import { google } from "googleapis";
 import { fetchPhotoItems } from "~/lib/state/photo";
 import { useJudgeDesktop } from "~/components/all/hooks/JudgeDesktop";
+import { PAGE_TYPE } from "~/components/constants";
 
 type Props = {
   isPc: boolean;
@@ -26,9 +23,9 @@ const Photo: NextPage<Props> = ({ isPc, accessToken }) => {
   }, [accessToken]);
 
   return isDesktop ? (
-    <PcPageTemplate pageType={PcPageType.PHOTO} />
+    <PcPageTemplate pageType={PAGE_TYPE.PHOTO} />
   ) : (
-    <SpPageTemplate pageType={SpPageType.PHOTO} />
+    <SpPageTemplate pageType={PAGE_TYPE.PHOTO} />
   );
 };
 
