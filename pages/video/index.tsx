@@ -17,6 +17,7 @@ const Video: NextPage<{ isPc: boolean }> = ({ isPc }) => {
     } else {
       setIsDesktop(true);
     }
+    currentWidth = window.outerWidth;
   }
 
   useEffect(() => {

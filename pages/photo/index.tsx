@@ -30,6 +30,7 @@ const Photo: NextPage<Props> = ({ isPc, accessToken }) => {
     } else {
       setIsDesktop(true);
     }
+    currentWidth = window.outerWidth;
   }
 
   useEffect(() => {
