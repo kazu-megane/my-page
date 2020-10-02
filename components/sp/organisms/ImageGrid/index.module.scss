@@ -74,6 +74,7 @@
 
    & &__items {
        display: flex;
+       align-items: center;
        flex-wrap: wrap;
        margin-left: -20px;
    }
@@ -109,7 +110,6 @@
    & &__image {
        box-sizing: border-box;
        display: flex;
-       height: 100%;
        align-items: center;
        justify-content: center;
        padding: 20px 12px;
