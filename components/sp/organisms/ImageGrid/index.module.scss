@@ -112,9 +112,25 @@
        display: flex;
        align-items: center;
        justify-content: center;
-       padding: 20px 12px;
+       padding: 16px 12px;
        border: 1px solid #dddddd;
    }
+
+    & &__items.ImageGrid__items--2 .ImageGrid__image {
+        padding: 14px 10px;
+    }
+
+    & &__items.ImageGrid__items--3 .ImageGrid__image {
+        padding: 12px 8px;
+    }
+
+    & &__items.ImageGrid__items--4 .ImageGrid__image {
+        padding: 10px 4px;
+    }
+
+    & &__items.ImageGrid__items--5 .ImageGrid__image {
+        padding: 8px 4px;
+    }
 
    & &__imageContent {
        width: auto;
