@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect } from "react";
 import Binder from "../../../all/atoms/helpers/Binder";
 import ModalImage, {
   Props as ModalImageProps,
-} from "~/components/pc/molucules/ModalImage";
+} from "~/components/pc/molecules/ModalImage";
 import ContentLoading from "~/components/all/atoms/ContentLoading";
 import style from "./index.module.scss";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import ModalImage, { Props } from "./";
+import ModalImage, { Props } from ".";
 
 const stub: Props = {
   url: "https://pbs.twimg.com/media/EMxv6eMUcAAsdeQ?format=jpg&name=4096x4096",
