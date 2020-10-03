@@ -2,9 +2,9 @@ import React, { FC } from "react";
 import Binder from "../../../all/atoms/helpers/Binder";
 import style from "./index.module.scss";
 
-interface Props {
+type Props = {
   className?: string;
-}
+};
 
 const Introduction: FC<Props> = ({ className }) => (
   <Binder classNames={[style.Introduction, className]}>

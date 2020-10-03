@@ -9,9 +9,9 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 
-interface Props {
+type Props = {
   className?: string;
-}
+};
 
 const Footer: FC<Props> = ({ className }) => (
   <Binder classNames={[style.Footer, className]}>

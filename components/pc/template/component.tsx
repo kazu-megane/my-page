@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import Header, { Props as HeaderProps } from "../organisms/Header";
-import ContentHeader, { ContentType } from "../organisms/ContentHeader";
+import ContentHeader, { CONTENT_TYPE } from "../organisms/ContentHeader";
 import Introduction from "../organisms/Introduction";
 import Footer from "../organisms/Footer";
 import SocialLinks from "../organisms/SocialLinks";
@@ -19,15 +19,15 @@ export type Props = Pick<ImageGridProps, "images" | "hasNext" | "onClickMore"> &
 function switchContentType(pageType: string) {
   switch (pageType) {
     case PAGE_TYPE.ABOUT:
-      return ContentType.ABOUT;
+      return CONTENT_TYPE.ABOUT;
     case PAGE_TYPE.PHOTO:
-      return ContentType.PHOTO;
+      return CONTENT_TYPE.PHOTO;
     case PAGE_TYPE.VIDEO:
-      return ContentType.VIDEO;
+      return CONTENT_TYPE.VIDEO;
     case PAGE_TYPE.CONTACT:
-      return ContentType.CONTACT;
+      return CONTENT_TYPE.CONTACT;
     default:
-      return ContentType.ABOUT;
+      return CONTENT_TYPE.ABOUT;
   }
 }
 

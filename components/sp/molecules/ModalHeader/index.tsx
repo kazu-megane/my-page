@@ -5,10 +5,10 @@ import Link from "next/link";
 import Binder from "~/components/all/atoms/helpers/Binder";
 import { PAGE_TYPE } from "~/components/constants";
 
-interface Props {
+type Props = {
   className?: string;
   onClick?: (content?: typeof PAGE_TYPE[keyof typeof PAGE_TYPE]) => void;
-}
+};
 
 const ModalHeader: FC<Props> = ({ className, onClick = () => {} }) => (
   <Binder classNames={[style.ModalHeader, className]}>

@@ -3,9 +3,9 @@ import Binder from "~/components/all/atoms/helpers/Binder";
 import Loading from "~/components/all/atoms/Loading";
 import style from "./index.module.scss";
 
-interface Props {
+type Props = {
   className?: string;
-}
+};
 
 const PageLoading: FC<Props> = ({ className }) => (
   <Binder classNames={[style.PageLoading, className]}>

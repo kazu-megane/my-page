@@ -3,9 +3,9 @@ import Binder from "../../../all/atoms/helpers/Binder";
 import { TWITTER_URL, INSTAGRAM_URL } from "~/components/constants";
 import style from "./index.module.scss";
 
-interface Props {
+type Props = {
   className?: string;
-}
+};
 
 const SocialLinks: FC<Props> = ({ className }) => (
   <Binder classNames={[style.SocialLinks, className]}>

@@ -2,9 +2,9 @@ import React, { FC, useEffect, useState } from "react";
 import Binder from "../../../all/atoms/helpers/Binder";
 import style from "./index.module.scss";
 
-interface Props {
+type Props = {
   className?: string;
-}
+};
 
 function dateToStr24HPad0(date: Date, format: string) {
   if (!format) {

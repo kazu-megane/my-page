@@ -7,16 +7,16 @@ import React, {
   Ref,
 } from "react";
 
-interface Props {
+type Props = {
   children: ReactNode;
   classNames?: (string | undefined)[];
   [key: string]: any;
-}
+};
 
-interface HasClassNameProps {
+type HasClassNameProps = {
   className: string;
   [key: string]: any;
-}
+};
 
 function createClassName(names: (string | undefined)[]): string {
   return names

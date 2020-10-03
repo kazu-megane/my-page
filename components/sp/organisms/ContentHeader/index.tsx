@@ -2,27 +2,29 @@ import React, { FC } from "react";
 import Binder from "../../../all/atoms/helpers/Binder";
 import style from "./index.module.scss";
 
-export enum ContentType {
-  ABOUT = "ABOUT",
-  PHOTO = "PHOTO",
-  VIDEO = "VIDEO",
-  CONTACT = "CONTACT",
-}
+export const CONTENT_TYPE = {
+  ABOUT: "ABOUT",
+  PHOTO: "PHOTO",
+  VIDEO: "VIDEO",
+  CONTACT: "CONTACT",
+} as const;
 
-interface Props {
+type Props = {
   className?: string;
-  contentType: ContentType;
-}
+  contentType: typeof CONTENT_TYPE[keyof typeof CONTENT_TYPE];
+};
 
-function switchText(contentType: ContentType) {
+function switchText(
+  contentType: typeof CONTENT_TYPE[keyof typeof CONTENT_TYPE]
+) {
   switch (contentType) {
-    case ContentType.ABOUT:
+    case CONTENT_TYPE.ABOUT:
       return "About";
-    case ContentType.PHOTO:
+    case CONTENT_TYPE.PHOTO:
       return "Photo";
-    case ContentType.VIDEO:
+    case CONTENT_TYPE.VIDEO:
       return "Video";
-    case ContentType.CONTACT:
+    case CONTENT_TYPE.CONTACT:
       return "Contact";
     default:
       return "";
