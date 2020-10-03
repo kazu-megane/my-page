@@ -1,37 +1,22 @@
 import React, { FC, useState, useEffect } from "react";
 import Binder from "../../../all/atoms/helpers/Binder";
-import ModalImage from "~/components/pc/molucules/ModalImage";
+import ModalImage, {
+  Props as ModalImageProps,
+} from "~/components/pc/molucules/ModalImage";
 import ContentLoading from "~/components/all/atoms/ContentLoading";
 import style from "./index.module.scss";
 
-interface PhotoProps {
-  cameraMake: string;
-  cameraModel: string;
-  focalLength: number;
-  apertureFNumber: number;
-  isoEquivalent: number;
-  exposureTime: string;
-}
-
-interface DataProps {
-  creationTime: string;
-  width: string;
-  height: string;
-  photo?: PhotoProps;
-}
-
-interface ImageProps {
+type ImageProps = Pick<ModalImageProps, "data"> & {
   url: string;
   alt: string;
-  data: DataProps;
-}
+};
 
-export interface Props {
+export type Props = {
   className?: string;
   images: ImageProps[];
   hasNext?: boolean;
   onClickMore?: () => void;
-}
+};
 
 const ImageGrid: FC<Props> = ({ className, images, hasNext, onClickMore }) => {
   const [isDisplayedModal, setIsDesplayedModal] = useState(false);

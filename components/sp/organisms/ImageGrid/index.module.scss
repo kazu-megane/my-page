@@ -107,6 +107,10 @@
       width: 20%;
    }
 
+   & &__link {
+       display: block;
+   }
+
    & &__image {
        box-sizing: border-box;
        display: flex;

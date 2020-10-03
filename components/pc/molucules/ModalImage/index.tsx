@@ -3,29 +3,29 @@ import Modal from "~/components/all/atoms/Modal";
 import Binder from "~/components/all/atoms/helpers/Binder";
 import style from "./index.module.scss";
 
-interface PhotoProps {
+type PhotoProps = {
   cameraMake?: string;
   cameraModel?: string;
   focalLength?: number;
   apertureFNumber?: number;
   isoEquivalent?: number;
   exposureTime?: string;
-}
+};
 
-interface DataProps {
+type DataProps = {
   creationTime: string;
   width: string;
   height: string;
   photo?: PhotoProps;
-}
+};
 
-export interface Props {
+export type Props = {
   url: string;
   alt: string;
   data: DataProps;
   onClick: () => void;
   className?: string;
-}
+};
 
 const ModalImage: FC<Props> = ({ url, alt, data, onClick, className }) => {
   let camera = "";

@@ -1,21 +1,24 @@
 import React, { FC, useState, useEffect, Fragment } from "react";
 import Binder from "../../../all/atoms/helpers/Binder";
 import ContentLoading from "~/components/all/atoms/ContentLoading";
+import ModalImage, {
+  Props as ModalImageProps,
+} from "~/components/sp/molecules/ModalImage";
 import style from "./index.module.scss";
 
-interface ImageProps {
+type ImageProps = Pick<ModalImageProps, "data"> & {
   url: string;
   alt: string;
-}
+};
 
-export interface Props {
+export type Props = {
   className?: string;
   images: ImageProps[];
   columnNum: number;
   hasNext?: boolean;
   onClickMore?: () => void;
   onClickNumButton?: (num: number) => void;
-}
+};
 
 const ImageGrid: FC<Props> = ({
   className,
@@ -25,6 +28,8 @@ const ImageGrid: FC<Props> = ({
   onClickMore,
   onClickNumButton,
 }) => {
+  const [isDisplayedModal, setIsDesplayedModal] = useState(false);
+  const [selectItem, setSelectItem] = useState<number | null>(null);
   const [displayedNextButton, setDisplayedNextButton] = useState(hasNext);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -115,16 +120,24 @@ const ImageGrid: FC<Props> = ({
                   className={style.ImageGrid__item}
                   key={index}
                 >
-                  <p className={style.ImageGrid__image}>
-                    <img
-                      className={style.ImageGrid__imageContent}
-                      src={image.url}
-                      alt={image.alt}
-                      width="512"
-                      height="341"
-                      loading={count > 4 ? "lazy" : undefined}
-                    />
-                  </p>
+                  <a
+                    onClick={() => {
+                      setSelectItem(index);
+                      setIsDesplayedModal(true);
+                    }}
+                    className={style.ImageGrid__link}
+                  >
+                    <p className={style.ImageGrid__image}>
+                      <img
+                        className={style.ImageGrid__imageContent}
+                        src={image.url}
+                        alt={image.alt}
+                        width="512"
+                        height="341"
+                        loading={count > 4 ? "lazy" : undefined}
+                      />
+                    </p>
+                  </a>
                 </li>
               );
             })}
@@ -149,6 +162,13 @@ const ImageGrid: FC<Props> = ({
         ) : null}
         {isLoading ? (
           <ContentLoading className={style.ImageGrid__loading} />
+        ) : null}
+        {isDisplayedModal && selectItem !== null ? (
+          <ModalImage
+            {...images[selectItem]}
+            url={`${images[selectItem].url}=w2048-h1024`}
+            onClick={() => setIsDesplayedModal(false)}
+          />
         ) : null}
       </div>
     </Binder>

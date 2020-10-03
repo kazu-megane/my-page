@@ -21,7 +21,7 @@ const stub: Props = {
 };
 
 export default {
-  title: "pc/molecules/ModalImage",
+  title: "sp/molecules/ModalImage",
 };
 
 export const Default = () => <ModalImage {...stub} />;

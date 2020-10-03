@@ -1,10 +1,10 @@
 import React, { ReactNode, FC } from "react";
 import { createPortal } from "react-dom";
 
-interface Props {
+type Props = {
   className?: string;
   children: ReactNode;
-}
+};
 
 const Modal: FC<Props> = ({ className, children }) => {
   const root = document.getElementById("root");
