@@ -33,7 +33,33 @@ const ImageGrid: FC<Props> = ({
   const [displayedNextButton, setDisplayedNextButton] = useState(hasNext);
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
+  const [isFixed, setIsFixed] = useState(false);
   let count = 0;
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0] && entries[0].isIntersecting) {
+          setIsFixed(false);
+        } else {
+          setIsFixed(true);
+        }
+      },
+      {
+        rootMargin: "-40px",
+      }
+    );
+    const target = document.getElementById("columnButtonArea");
+    if (target) {
+      observer.observe(target);
+    }
+
+    return () => {
+      if (target) {
+        observer.unobserve(target);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     setIsLoading(false);
@@ -50,54 +76,65 @@ const ImageGrid: FC<Props> = ({
   return images.length > 0 ? (
     <Binder classNames={[style.ImageGrid, className]}>
       <div>
-        <div className={style.ImageGrid__columnButtonArea}>
-          <Binder
-            classNames={[
-              style.ImageGrid__columnButtonReduce,
-              columnNum <= 1 ? style["ImageGrid__columnButton--disable"] : "",
-            ]}
-          >
-            <button
-              type="button"
-              onClick={() => {
-                if (onClickNumButton && columnNum > 1) {
-                  onClickNumButton(columnNum - 1);
-                }
-              }}
-            ></button>
-          </Binder>
-          <ul className={style.ImageGrid__rows}>
-            <ul className={style.ImageGrid__columns}>
-              {Array(columnNum)
-                .fill(null)
-                .map((_, index) => (
-                  <li className={style.ImageGrid__column} key={index}></li>
-                ))}
+        <Binder
+          classNames={[
+            style.ImageGrid__columnButtonArea,
+            isFixed ? style["ImageGrid__columnButtonArea--fixed"] : "",
+          ]}
+        >
+          <div>
+            <Binder
+              classNames={[
+                style.ImageGrid__columnButtonReduce,
+                columnNum <= 1 ? style["ImageGrid__columnButton--disable"] : "",
+              ]}
+            >
+              <button
+                type="button"
+                onClick={() => {
+                  if (onClickNumButton && columnNum > 1) {
+                    onClickNumButton(columnNum - 1);
+                  }
+                }}
+              ></button>
+            </Binder>
+            <ul className={style.ImageGrid__rows}>
+              <ul className={style.ImageGrid__columns}>
+                {Array(columnNum)
+                  .fill(null)
+                  .map((_, index) => (
+                    <li className={style.ImageGrid__column} key={index}></li>
+                  ))}
+              </ul>
+              <ul className={style.ImageGrid__columns}>
+                {Array(columnNum)
+                  .fill(null)
+                  .map((_, index) => (
+                    <li className={style.ImageGrid__column} key={index}></li>
+                  ))}
+              </ul>
             </ul>
-            <ul className={style.ImageGrid__columns}>
-              {Array(columnNum)
-                .fill(null)
-                .map((_, index) => (
-                  <li className={style.ImageGrid__column} key={index}></li>
-                ))}
-            </ul>
-          </ul>
-          <Binder
-            classNames={[
-              style.ImageGrid__columnButtonPlus,
-              columnNum >= 5 ? style["ImageGrid__columnButton--disable"] : "",
-            ]}
-          >
-            <button
-              type="button"
-              onClick={() => {
-                if (onClickNumButton && columnNum < 5) {
-                  onClickNumButton(columnNum + 1);
-                }
-              }}
-            ></button>
-          </Binder>
-        </div>
+            <Binder
+              classNames={[
+                style.ImageGrid__columnButtonPlus,
+                columnNum >= 5 ? style["ImageGrid__columnButton--disable"] : "",
+              ]}
+            >
+              <button
+                type="button"
+                onClick={() => {
+                  if (onClickNumButton && columnNum < 5) {
+                    onClickNumButton(columnNum + 1);
+                  }
+                }}
+              ></button>
+            </Binder>
+          </div>
+        </Binder>
+        <div
+          id="columnButtonArea"
+          className={isFixed ? style.ImageGrid__columnButtonAreaSkelton : ""}
+        ></div>
         <Binder
           classNames={[
             style.ImageGrid__items,
