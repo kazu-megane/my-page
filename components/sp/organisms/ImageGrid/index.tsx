@@ -46,7 +46,7 @@ const ImageGrid: FC<Props> = ({
         }
       },
       {
-        rootMargin: "-40px",
+        rootMargin: "-60px",
       }
     );
     const target = document.getElementById("columnButtonArea");
