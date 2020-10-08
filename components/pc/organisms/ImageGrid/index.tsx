@@ -23,6 +23,7 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClickMore }) => {
   const [selectItem, setSelectItem] = useState<number | null>(null);
   const [displayedNextButton, setDisplayedNextButton] = useState(hasNext);
   const [isLoading, setIsLoading] = useState(false);
+  const [isDoneRead, setIsDoneRead] = useState(false);
   let count = 0;
 
   useEffect(() => {
@@ -48,16 +49,27 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClickMore }) => {
                     setIsDesplayedModal(true);
                   }}
                 >
-                  <p className={style.ImageGrid__image}>
-                    <img
-                      className={style.ImageGrid__imageContent}
-                      loading={count > 9 ? "lazy" : undefined}
-                      width="380"
-                      height="250"
-                      src={image.url}
-                      alt={image.alt}
-                    />
-                  </p>
+                  <Binder
+                    classNames={[
+                      style.ImageGrid__image,
+                      isDoneRead ? style["ImageGrid__image--done"] : "",
+                    ]}
+                  >
+                    <p>
+                      <span className={style.ImageGrid__imageSkelton} />
+                      <img
+                        className={style.ImageGrid__imageContent}
+                        loading={count > 9 ? "lazy" : undefined}
+                        width="380"
+                        height="250"
+                        src={image.url}
+                        alt={image.alt}
+                        onLoad={() => {
+                          setIsDoneRead(true);
+                        }}
+                      />
+                    </p>
+                  </Binder>
                 </a>
               </li>
             );

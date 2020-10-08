@@ -1,4 +1,9 @@
+@import "./settings/index";
 @import "./default.scss";
+
+:root {
+  font: #{$global-base-font-size}/#{$global-base-line-height} #{$global-base-font-family}
+}
 
 button {
   background-color: transparent;

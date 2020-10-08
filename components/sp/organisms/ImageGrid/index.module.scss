@@ -154,12 +154,30 @@
         padding: 8px 4px;
     }
 
+    & &__imageSkelton {
+        background-color: #dddddd;
+        width: 380px;
+        height: 250px;
+    }
+
    & &__imageContent {
        width: auto;
        max-width: 100%;
        height: auto;
        max-height: 100%;
+       display: none;
    }
+
+   & &__image.ImageGrid__image--done {
+    .ImageGrid__imageSkelton {
+        display: none;
+    }
+
+    .ImageGrid__imageContent {
+        display: block;
+    }
+}
+
 
    & &__actionArea,
    & &__loading {

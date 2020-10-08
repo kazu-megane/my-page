@@ -34,6 +34,7 @@ const ImageGrid: FC<Props> = ({
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [isFixed, setIsFixed] = useState(false);
+  const [isDoneRead, setIsDoneRead] = useState(false);
   let count = 0;
 
   useEffect(() => {
@@ -164,16 +165,27 @@ const ImageGrid: FC<Props> = ({
                     }}
                     className={style.ImageGrid__link}
                   >
-                    <p className={style.ImageGrid__image}>
-                      <img
-                        className={style.ImageGrid__imageContent}
-                        src={image.url}
-                        alt={image.alt}
-                        width="512"
-                        height="341"
-                        loading={count > 4 ? "lazy" : undefined}
-                      />
-                    </p>
+                    <Binder
+                      classNames={[
+                        style.ImageGrid__image,
+                        isDoneRead ? style["ImageGrid__image--done"] : "",
+                      ]}
+                    >
+                      <p>
+                        <span className={style.ImageGrid__imageSkelton} />
+                        <img
+                          className={style.ImageGrid__imageContent}
+                          loading={count > 9 ? "lazy" : undefined}
+                          width="380"
+                          height="250"
+                          src={image.url}
+                          alt={image.alt}
+                          onLoad={() => {
+                            setIsDoneRead(true);
+                          }}
+                        />
+                      </p>
+                    </Binder>
                   </a>
                 </li>
               );

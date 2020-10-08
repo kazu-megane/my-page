@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useState } from "react";
 import Modal from "~/components/all/atoms/Modal";
 import Binder from "~/components/all/atoms/helpers/Binder";
 import style from "./index.module.scss";
@@ -28,6 +28,7 @@ export type Props = {
 };
 
 const ModalImage: FC<Props> = ({ url, alt, data, onClick, className }) => {
+  const [isDoneRead, setIsDoneRead] = useState(false);
   let camera = "";
   let foculLength = "";
   let apertureFNumber = "";
@@ -82,15 +83,26 @@ const ModalImage: FC<Props> = ({ url, alt, data, onClick, className }) => {
             <a className={style.ModalImage__closeLink} onClick={onClick}></a>
           </p>
           <div className={style.ModalImage__main}>
-            <p className={style.ModalImage__image}>
-              <img
-                src={url}
-                alt={alt}
-                width="375"
-                height="250"
-                className={style.ModalImage__imageContent}
-              />
-            </p>
+            <Binder
+              classNames={[
+                style.ModalImage__image,
+                isDoneRead ? style["ModalImage__image--done"] : "",
+              ]}
+            >
+              <p>
+                <span className={style.ModalImage__imageSkelton} />
+                <img
+                  className={style.ModalImage__imageContent}
+                  width="375"
+                  height="250"
+                  src={url}
+                  alt={alt}
+                  onLoad={() => {
+                    setIsDoneRead(true);
+                  }}
+                />
+              </p>
+            </Binder>
             <ul className={style.ModalImage__descriptions}>
               {data.photo ? (
                 <>

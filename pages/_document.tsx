@@ -24,6 +24,10 @@ class MyDocument extends Document {
             }
             `}
           </style>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Noto+Sans+JP:wght@400;700&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <div id="root">

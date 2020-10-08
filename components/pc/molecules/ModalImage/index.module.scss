@@ -68,12 +68,29 @@
         justify-content: center;
     }
 
+    & &__imageSkelton {
+        background-color: #dddddd;
+        width: 1282px;
+        height: 854px;
+    }
+
     & &__imageContent {
         width: auto;
         max-width: 100%;
         height: auto;
         max-height: 900px;
+        display: none;
     }
+
+    & &__image.ModalImage__image--done {
+        .ModalImage__imageSkelton {
+            display: none;
+        }
+ 
+        .ModalImage__imageContent {
+            display: block;
+        }
+    } 
 
     & &__descriptions {
         display: flex;
