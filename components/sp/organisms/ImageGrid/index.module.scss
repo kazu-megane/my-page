@@ -143,7 +143,7 @@
 
    & &__imageSkelton {
         background-color: #dddddd;
-        width: 300px;
+        width: 100%;
         height: 200px;
         transition: visibility 0s $animation-duration;
     }
@@ -153,7 +153,6 @@
             padding: 14px 10px;
         }
         .ImageGrid__imageSkelton {
-            width: 300px;
             height: 100px;
         }
     }
@@ -163,7 +162,6 @@
             padding: 12px 8px;
         }
         .ImageGrid__imageSkelton {
-            width: 100px;
             height: 50px;
         }
     }
@@ -173,7 +171,6 @@
             padding: 10px 4px;
         }
         .ImageGrid__imageSkelton {
-            width: 100px;
             height: 40px;
         }
     }
@@ -183,7 +180,6 @@
             padding: 8px 4px;
         }
         .ImageGrid__imageSkelton {
-            width: 100px;
             height: 30px;
         }
     }
@@ -201,20 +197,20 @@
    }
 
    & &__image.ImageGrid__image--done {
-    .ImageGrid__imageSkelton {
-        position: absolute;
-        top: 0;
-        left: 0;
-        visibility: hidden;
-    }
+        .ImageGrid__imageSkelton {
+            position: absolute;
+            top: 0;
+            left: 0;
+            visibility: hidden;
+        }
 
-    .ImageGrid__imageContent {
-        position: static;
-        visibility: visible;
-        animation: ReadImage-doneAnimation $animation-duration ease-in-out 1;
-        opacity: 1;
+        .ImageGrid__imageContent {
+            position: static;
+            visibility: visible;
+            animation: ReadImage-doneAnimation $animation-duration ease-in-out 1;
+            opacity: 1;
+        }
     }
-}
 
 
    & &__actionArea,
