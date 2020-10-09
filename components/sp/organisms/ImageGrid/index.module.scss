@@ -1,6 +1,8 @@
 @import '../../../../style/index';
 
 .ImageGrid {
+   $animation-duration: 0.15s;
+
    position: relative;
 
    & &__columnButtonArea {
@@ -130,6 +132,7 @@
    }
 
    & &__image {
+       position: relative;
        box-sizing: border-box;
        display: flex;
        align-items: center;
@@ -138,26 +141,51 @@
        border: 1px solid #dddddd;
    }
 
-    & &__items.ImageGrid__items--2 .ImageGrid__image {
-        padding: 14px 10px;
-    }
-
-    & &__items.ImageGrid__items--3 .ImageGrid__image {
-        padding: 12px 8px;
-    }
-
-    & &__items.ImageGrid__items--4 .ImageGrid__image {
-        padding: 10px 4px;
-    }
-
-    & &__items.ImageGrid__items--5 .ImageGrid__image {
-        padding: 8px 4px;
-    }
-
-    & &__imageSkelton {
+   & &__imageSkelton {
         background-color: #dddddd;
-        width: 380px;
-        height: 250px;
+        width: 300px;
+        height: 200px;
+        transition: visibility 0s $animation-duration;
+    }
+
+    & &__items.ImageGrid__items--2 {
+        .ImageGrid__image {
+            padding: 14px 10px;
+        }
+        .ImageGrid__imageSkelton {
+            width: 300px;
+            height: 100px;
+        }
+    }
+
+    & &__items.ImageGrid__items--3 {
+        .ImageGrid__image {
+            padding: 12px 8px;
+        }
+        .ImageGrid__imageSkelton {
+            width: 100px;
+            height: 50px;
+        }
+    }
+
+    & &__items.ImageGrid__items--4 {
+        .ImageGrid__image {
+            padding: 10px 4px;
+        }
+        .ImageGrid__imageSkelton {
+            width: 100px;
+            height: 40px;
+        }
+    }
+
+    & &__items.ImageGrid__items--5 {
+        .ImageGrid__image {
+            padding: 8px 4px;
+        }
+        .ImageGrid__imageSkelton {
+            width: 100px;
+            height: 30px;
+        }
     }
 
    & &__imageContent {
@@ -165,16 +193,26 @@
        max-width: 100%;
        height: auto;
        max-height: 100%;
-       display: none;
+       visibility: hidden;
+       position: absolute;
+       top: 0;
+       left: 0;
+       opacity: 0;
    }
 
    & &__image.ImageGrid__image--done {
     .ImageGrid__imageSkelton {
-        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        visibility: hidden;
     }
 
     .ImageGrid__imageContent {
-        display: block;
+        position: static;
+        visibility: visible;
+        animation: ReadImage-doneAnimation $animation-duration ease-in-out 1;
+        opacity: 1;
     }
 }
 
@@ -193,4 +231,14 @@
        font-weight: bold;
        padding: 8px 12px;
    }
+}
+
+@keyframes ReadImage-doneAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }

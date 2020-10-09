@@ -20,6 +20,38 @@ export type Props = {
   onClickNumButton?: (num: number) => void;
 };
 
+const Image: FC<Pick<ImageProps, "url" | "alt"> & { count: number }> = ({
+  url,
+  alt,
+  count,
+}) => {
+  const [isDoneRead, setIsDoneRead] = useState(false);
+
+  return (
+    <Binder
+      classNames={[
+        style.ImageGrid__image,
+        isDoneRead ? style["ImageGrid__image--done"] : "",
+      ]}
+    >
+      <p>
+        <span className={style.ImageGrid__imageSkelton} />
+        <img
+          className={style.ImageGrid__imageContent}
+          width="512"
+          height="341"
+          src={url}
+          alt={alt}
+          loading={count > 4 ? "lazy" : undefined}
+          onLoad={() => {
+            setIsDoneRead(true);
+          }}
+        />
+      </p>
+    </Binder>
+  );
+};
+
 const ImageGrid: FC<Props> = ({
   className,
   images,
@@ -165,27 +197,7 @@ const ImageGrid: FC<Props> = ({
                     }}
                     className={style.ImageGrid__link}
                   >
-                    <Binder
-                      classNames={[
-                        style.ImageGrid__image,
-                        isDoneRead ? style["ImageGrid__image--done"] : "",
-                      ]}
-                    >
-                      <p>
-                        <span className={style.ImageGrid__imageSkelton} />
-                        <img
-                          className={style.ImageGrid__imageContent}
-                          loading={count > 9 ? "lazy" : undefined}
-                          width="380"
-                          height="250"
-                          src={image.url}
-                          alt={image.alt}
-                          onLoad={() => {
-                            setIsDoneRead(true);
-                          }}
-                        />
-                      </p>
-                    </Binder>
+                    <Image url={image.url} alt={image.alt} count={count} />
                   </a>
                 </li>
               );

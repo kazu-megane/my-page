@@ -1,6 +1,8 @@
 @import '../../../../style/index';
 
 .ModalImage {
+  $animation-duration: 0.15s;
+
   position: fixed;
   top: 0;
   left: 0;
@@ -12,6 +14,7 @@
     position: absolute;
     top: 4px;
     right: 8px;
+    z-index: 1;
   }
 
   & &__closeLink {
@@ -51,6 +54,7 @@
   }
 
   & &__image {
+    position: relative;
     min-height: 0;
     min-width: 0;
     display: flex;
@@ -62,6 +66,7 @@
     background-color: #dddddd;
     width: 375px;
     height: 250px;
+    // transition: visibility 0s $animation-duration;
   }
 
   & &__imageContent {
@@ -69,16 +74,26 @@
     width: auto;
     height: auto;
     max-height: 100%;
-    display: none;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
   }
 
   & &__image.ModalImage__image--done {
     .ModalImage__imageSkelton {
-        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        visibility: hidden;
     }
 
     .ModalImage__imageContent {
-        display: block;
+        position: static;
+        visibility: visible;
+        animation: ReadImage-doneAnimation $animation-duration ease-in-out 1;
+        opacity: 1;
     }
   } 
 
@@ -90,5 +105,15 @@
 
   & &__description + &__description {
     margin-top: 8px;
+  }
+}
+
+@keyframes ReadImage-doneAnimation {
+  0% {
+      opacity: 0;
+  }
+
+  100% {
+      opacity: 1;
   }
 }

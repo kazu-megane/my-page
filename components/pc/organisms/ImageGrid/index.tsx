@@ -18,12 +18,43 @@ export type Props = {
   onClickMore?: () => void;
 };
 
+const Image: FC<Pick<ImageProps, "url" | "alt"> & { count: number }> = ({
+  url,
+  alt,
+  count,
+}) => {
+  const [isDoneRead, setIsDoneRead] = useState(false);
+
+  return (
+    <Binder
+      classNames={[
+        style.ImageGrid__image,
+        isDoneRead ? style["ImageGrid__image--done"] : "",
+      ]}
+    >
+      <p>
+        <span className={style.ImageGrid__imageSkelton} />
+        <img
+          className={style.ImageGrid__imageContent}
+          loading={count > 9 ? "lazy" : undefined}
+          width="380"
+          height="250"
+          src={url}
+          alt={alt}
+          onLoad={() => {
+            setIsDoneRead(true);
+          }}
+        />
+      </p>
+    </Binder>
+  );
+};
+
 const ImageGrid: FC<Props> = ({ className, images, hasNext, onClickMore }) => {
   const [isDisplayedModal, setIsDesplayedModal] = useState(false);
   const [selectItem, setSelectItem] = useState<number | null>(null);
   const [displayedNextButton, setDisplayedNextButton] = useState(hasNext);
   const [isLoading, setIsLoading] = useState(false);
-  const [isDoneRead, setIsDoneRead] = useState(false);
   let count = 0;
 
   useEffect(() => {
@@ -49,27 +80,7 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClickMore }) => {
                     setIsDesplayedModal(true);
                   }}
                 >
-                  <Binder
-                    classNames={[
-                      style.ImageGrid__image,
-                      isDoneRead ? style["ImageGrid__image--done"] : "",
-                    ]}
-                  >
-                    <p>
-                      <span className={style.ImageGrid__imageSkelton} />
-                      <img
-                        className={style.ImageGrid__imageContent}
-                        loading={count > 9 ? "lazy" : undefined}
-                        width="380"
-                        height="250"
-                        src={image.url}
-                        alt={image.alt}
-                        onLoad={() => {
-                          setIsDoneRead(true);
-                        }}
-                      />
-                    </p>
-                  </Binder>
+                  <Image url={image.url} alt={image.alt} count={count} />
                 </a>
               </li>
             );
