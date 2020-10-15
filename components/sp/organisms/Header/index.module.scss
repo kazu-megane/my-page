@@ -15,14 +15,14 @@
 
 
     & &__columnLink {
-        display: block;
+        display: flex;
+        align-items: center;
         color: inherit;
         text-decoration: inherit;
-        height: 23px;
     }
 
     & &__logo {
-        height: inherit;
+        height: auto;
     }
 
     & &__trigger {

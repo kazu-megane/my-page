@@ -10,7 +10,7 @@ export type Props = {
   onClick?: (content?: typeof PAGE_TYPE[keyof typeof PAGE_TYPE]) => void;
 };
 
-const Header: FC<Props> = ({ onClick = () => {}, className }) => {
+const Header: FC<Props> = ({ onClick = () => { }, className }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   useEffect(() => {
@@ -41,6 +41,8 @@ const Header: FC<Props> = ({ onClick = () => {}, className }) => {
                 <img
                   src="/headerLogo.png"
                   alt="logo"
+                  width="186"
+                  height="23"
                   className={style.Header__logo}
                 />
               </a>

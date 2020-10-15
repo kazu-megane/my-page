@@ -16,14 +16,14 @@
     }
 
     & &__columnLink {
-        display: block;
+        display: flex;
+        align-items: center;
         color: inherit;
         text-decoration: inherit;
-        height: 30px;
     }
 
     & &__logo {
-        height: inherit;
+        height: auto;
     }
 
     & &__rightContents {

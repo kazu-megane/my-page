@@ -9,7 +9,7 @@ export type Props = {
   onClick?: (content?: typeof PAGE_TYPE[keyof typeof PAGE_TYPE]) => void;
 };
 
-const Header: FC<Props> = ({ onClick = () => {}, className }) => (
+const Header: FC<Props> = ({ onClick = () => { }, className }) => (
   <Binder classNames={[style.Header, className]}>
     <div>
       <div className={style.Header__columns}>
@@ -22,6 +22,8 @@ const Header: FC<Props> = ({ onClick = () => {}, className }) => (
               <img
                 src="/headerLogo.png"
                 alt="logo"
+                width="242"
+                height="30"
                 className={style.Header__logo}
               />
             </a>
