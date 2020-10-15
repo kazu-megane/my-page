@@ -26,6 +26,7 @@ class MyApp extends App<MyAppProps> {
             name="viewport"
             content="initial-scale=1.0, maximum-scale=1.0, width=device-width, user-scalable=0, shrink-to-fit=no"
           />
+          <meta name="description" content="Kazuya Hashimoto's portfolio site." />
         </Head>
         <Component {...pageProps} />
       </>
