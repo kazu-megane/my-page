@@ -56,7 +56,6 @@
     flex-direction: column;
     justify-content: center;
     min-height: 0;
-    box-sizing: border-box;
   }
 
   & &__image {
@@ -77,10 +76,7 @@
   }
 
   & &__imageContent {
-    max-width: 100%;
     width: auto;
-    height: auto;
-    max-height: 100%;
     visibility: hidden;
     position: absolute;
     top: 0;
