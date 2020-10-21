@@ -20,9 +20,7 @@ const Introduction: FC<Props> = ({ className }) => (
       </p>
       <p className={style.Introduction__name}>Kazuya Hashimoto</p>
       <p className={style.Introduction__text}>
-        I was born in Japan in 1994. I studied computer science at Tokyo Denki
-        University. I'm currently working as front-end enginner and web
-        designer.
+        I was born in Japan in 1994. I'm currently working as front-end enginner and web designer.
       </p>
       <p className={style.Introduction__text}>
         Now, I'm studying photography and video regardless of my work.

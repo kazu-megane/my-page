@@ -5,6 +5,7 @@ import Introduction from "../organisms/Introduction";
 import Footer from "../organisms/Footer";
 import SocialLinks from "../organisms/SocialLinks";
 import ImageGrid, { Props as ImageGridProps } from "../organisms/ImageGrid";
+import VideoList from '../organisms/VideoList';
 import HomeContent from "../organisms/HomeContent";
 import PageLoading from "../organisms/PageLoading";
 import { PAGE_TYPE } from "~/components/constants";
@@ -44,46 +45,49 @@ const PageTemplate: FC<Props> = ({
   onClickNumButton,
   onClick,
 }) => (
-  <div className={style.PageTemplate}>
-    <header className={style.PageTemplate__header}>
-      <Header onClick={onClick} />
-    </header>
-    {isLoading ? (
-      <PageLoading className={style.PageTemplate__loading} />
-    ) : (
-      <main className={style.PageTemplate__main}>
-        {pageType !== PAGE_TYPE.HOME ? (
-          <div className={style.PageTemplate__pageContent}>
-            <ContentHeader
-              contentType={switchContentType(pageType)}
-              className={style.PageTemplate__contentHeader}
-            />
-            {pageType === PAGE_TYPE.ABOUT ? (
-              <Introduction className={style.PageTemplate__introduction} />
-            ) : null}
-            {pageType === PAGE_TYPE.PHOTO && images ? (
-              <ImageGrid
-                images={images}
-                columnNum={columnNum}
-                hasNext={hasNext}
-                onClickMore={onClickMore}
-                onClickNumButton={onClickNumButton}
-                className={style.PageTemplate__imageGrid}
-              />
-            ) : null}
-            {pageType === PAGE_TYPE.CONTACT ? (
-              <SocialLinks className={style.PageTemplate__socialLinks} />
-            ) : null}
-          </div>
-        ) : (
-          <HomeContent className={style.PageTemplate__homeContent} />
+    <div className={style.PageTemplate}>
+      <header className={style.PageTemplate__header}>
+        <Header onClick={onClick} />
+      </header>
+      {isLoading ? (
+        <PageLoading className={style.PageTemplate__loading} />
+      ) : (
+          <main className={style.PageTemplate__main}>
+            {pageType !== PAGE_TYPE.HOME ? (
+              <div className={style.PageTemplate__pageContent}>
+                <ContentHeader
+                  contentType={switchContentType(pageType)}
+                  className={style.PageTemplate__contentHeader}
+                />
+                {pageType === PAGE_TYPE.ABOUT ? (
+                  <Introduction className={style.PageTemplate__introduction} />
+                ) : null}
+                {pageType === PAGE_TYPE.PHOTO && images ? (
+                  <ImageGrid
+                    images={images}
+                    columnNum={columnNum}
+                    hasNext={hasNext}
+                    onClickMore={onClickMore}
+                    onClickNumButton={onClickNumButton}
+                    className={style.PageTemplate__imageGrid}
+                  />
+                ) : null}
+                {pageType === PAGE_TYPE.VIDEO ? (
+                  <VideoList className={style.PageTemplate__videoList} />
+                ) : null}
+                {pageType === PAGE_TYPE.CONTACT ? (
+                  <SocialLinks className={style.PageTemplate__socialLinks} />
+                ) : null}
+              </div>
+            ) : (
+                <HomeContent className={style.PageTemplate__homeContent} />
+              )}
+          </main>
         )}
-      </main>
-    )}
-    <footer className={style.PageTemplate__footer}>
-      <Footer className={style.PageTemplate__footerContent} />
-    </footer>
-  </div>
-);
+      <footer className={style.PageTemplate__footer}>
+        <Footer className={style.PageTemplate__footerContent} />
+      </footer>
+    </div>
+  );
 
 export default PageTemplate;
