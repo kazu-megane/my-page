@@ -80,7 +80,7 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClickMore }) => {
                     setIsDesplayedModal(true);
                   }}
                 >
-                  <Image url={image.url} alt={image.alt} count={count} />
+                  <Image url={`${image.url}=w400-h300`} alt={image.alt} count={count} />
                 </a>
               </li>
             );

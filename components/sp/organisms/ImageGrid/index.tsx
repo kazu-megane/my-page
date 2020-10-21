@@ -197,7 +197,7 @@ const ImageGrid: FC<Props> = ({
                     }}
                     className={style.ImageGrid__link}
                   >
-                    <Image url={image.url} alt={image.alt} count={count} />
+                    <Image url={`${image.url}=w300-h200`} alt={image.alt} count={count} />
                   </a>
                 </li>
               );
@@ -227,7 +227,7 @@ const ImageGrid: FC<Props> = ({
         {isDisplayedModal && selectItem !== null ? (
           <ModalImage
             {...images[selectItem]}
-            url={`${images[selectItem].url}=w2048-h1024`}
+            url={`${images[selectItem].url}=w600-h600`}
             onClick={() => setIsDesplayedModal(false)}
           />
         ) : null}
