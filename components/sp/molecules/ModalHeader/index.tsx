@@ -10,7 +10,7 @@ type Props = {
   onClick?: (content?: typeof PAGE_TYPE[keyof typeof PAGE_TYPE]) => void;
 };
 
-const ModalHeader: FC<Props> = ({ className, onClick = () => {} }) => (
+const ModalHeader: FC<Props> = ({ className, onClick = () => { } }) => (
   <Binder classNames={[style.ModalHeader, className]}>
     <Modal>
       <ul className={style.ModalHeader__lists}>
@@ -31,6 +31,16 @@ const ModalHeader: FC<Props> = ({ className, onClick = () => {} }) => (
               onClick={() => onClick("ABOUT")}
             >
               ABOUT
+            </a>
+          </Link>
+        </li>
+        <li className={style.ModalHeader__list}>
+          <Link href="/work">
+            <a
+              className={style.ModalHeader__link}
+              onClick={() => onClick("WORK")}
+            >
+              WORK
             </a>
           </Link>
         </li>

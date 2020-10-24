@@ -8,6 +8,7 @@ import ImageGrid, { Props as ImageGridProps } from "../organisms/ImageGrid";
 import VideoList from '../organisms/VideoList';
 import HomeContent from "../organisms/HomeContent";
 import PageLoading from "../organisms/PageLoading";
+import WorkContent from '../organisms/WorkContent';
 import { PAGE_TYPE } from "~/components/constants";
 import style from "./index.module.scss";
 
@@ -21,6 +22,8 @@ function switchContentType(pageType: string) {
   switch (pageType) {
     case PAGE_TYPE.ABOUT:
       return CONTENT_TYPE.ABOUT;
+    case PAGE_TYPE.WORK:
+      return CONTENT_TYPE.WORK;
     case PAGE_TYPE.PHOTO:
       return CONTENT_TYPE.PHOTO;
     case PAGE_TYPE.VIDEO:
@@ -64,6 +67,9 @@ const PageTemplate: FC<Props> = ({
                     onClickMore={onClickMore}
                     className={style.PageTemplate__imageGrid}
                   />
+                ) : null}
+                {pageType === PAGE_TYPE.WORK ? (
+                  <WorkContent className={style.PageTemplate__workContent} />
                 ) : null}
                 {pageType === PAGE_TYPE.VIDEO ? (
                   <VideoList className={style.PageTemplate__videoList} />

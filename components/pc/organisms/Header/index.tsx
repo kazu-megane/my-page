@@ -52,6 +52,16 @@ const Header: FC<Props> = ({ onClick = () => { }, className }) => (
               </Link>
             </li>
             <li className={style.Header__rightContent}>
+              <Link href="/work">
+                <a
+                  className={style.Header__link}
+                  onClick={() => onClick(PAGE_TYPE.WORK)}
+                >
+                  WORK
+                </a>
+              </Link>
+            </li>
+            <li className={style.Header__rightContent}>
               <Link href="/photo">
                 <a
                   className={style.Header__link}

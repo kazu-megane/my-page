@@ -1,0 +1,7 @@
+@import '../../../../style/index';
+
+.WorkContent {
+  & &__text {
+    font-size: 15px;
+  }
+}
