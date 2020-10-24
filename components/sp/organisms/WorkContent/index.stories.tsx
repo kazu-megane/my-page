@@ -2,7 +2,7 @@ import React from 'react';
 import WorkContent from './';
 
 export default {
-  title: 'pc/organisms/WorkContent'
+  title: 'sp/organisms/WorkContent'
 }
 
 export const Default = () => <WorkContent />;
