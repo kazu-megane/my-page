@@ -1,5 +1,23 @@
 @import '../../../../style/index';
 
 .WorkContent {
- 
+  & &__itemImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  & &__imageContent {
+    max-width: 100%;
+  }
+
+  & &__year {
+    margin-top: 8px;
+    font-size: 15px;
+  }
+
+  & &__title {
+    margin-top: 4px;
+  }
 }

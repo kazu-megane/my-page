@@ -1,7 +1,41 @@
 @import '../../../../style/index';
 
 .WorkContent {
-  & &__text {
+  & &__items {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -20px;
+    margin-left: -20px;
+  }
+
+  & &__item {
+    padding-top: 20px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    width: 33.33%;
+  }
+
+  & &__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  & &__imageContent {
+    max-width: 100%;
+  }
+
+  & &__year {
+    margin-top: 12px;
     font-size: 15px;
+  }
+
+  & &__title {
+    margin-top: 8px;
   }
 }
