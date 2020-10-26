@@ -1,14 +1,14 @@
 import React, { FC, useEffect, useState } from "react";
-import Header, { Props as HeaderProps } from "../organisms/Header";
-import ContentHeader, { CONTENT_TYPE } from "../organisms/ContentHeader";
-import Introduction from "../organisms/Introduction";
-import Footer from "../organisms/Footer";
-import SocialLinks from "../organisms/SocialLinks";
-import ImageGrid, { Props as ImageGridProps } from "../organisms/ImageGrid";
-import VideoList from '../organisms/VideoList';
-import HomeContent from "../organisms/HomeContent";
-import PageLoading from "../organisms/PageLoading";
-import WorkContent from '../organisms/WorkContent';
+import Header, { Props as HeaderProps } from "../../organisms/Header";
+import ContentHeader, { CONTENT_TYPE } from "../../organisms/ContentHeader";
+import Introduction from "../../organisms/Introduction";
+import Footer from "../../organisms/Footer";
+import SocialLinks from "../../organisms/SocialLinks";
+import ImageGrid, { Props as ImageGridProps } from "../../organisms/ImageGrid";
+import VideoList from '../../organisms/VideoList';
+import HomeContent from "../../organisms/HomeContent";
+import PageLoading from "../../organisms/PageLoading";
+import WorkContent from '../../organisms/WorkContent';
 import { PAGE_TYPE } from "~/components/constants";
 import style from "./index.module.scss";
 

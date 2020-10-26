@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PcPageTemplate from "~/components/pc/template/Page";
 import { NextPage, GetServerSideProps } from "next";
-import SpPageTemplate from "~/components/sp/template";
+import SpPageTemplate from "~/components/sp/template/Page";
 import { wrapper } from "~/lib/strore";
 import { google } from "googleapis";
 import { fetchPhotoItems } from "~/lib/state/photo";

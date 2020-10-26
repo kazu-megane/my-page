@@ -3,6 +3,7 @@ import { NextPage, GetServerSideProps } from 'next';
 import { useRouter } from 'next/router'
 import { useJudgeDesktop } from "~/components/all/hooks/JudgeDesktop";
 import PcWorkDetailTemplate from "~/components/pc/template/WorkDetail";
+import SpWorkDetailTemplate from "~/components/sp/template/WorkDetail";
 import { wrapper } from "~/lib/strore";
 
 const WorkDetail: NextPage<{ isPc: boolean }> = ({ isPc }) => {
@@ -14,7 +15,7 @@ const WorkDetail: NextPage<{ isPc: boolean }> = ({ isPc }) => {
     return null;
   }
 
-  return isDesktop ? <PcWorkDetailTemplate id={Array.isArray(id) ? id[0] : id} /> : null;
+  return isDesktop ? <PcWorkDetailTemplate id={Array.isArray(id) ? id[0] : id} /> : <SpWorkDetailTemplate id={Array.isArray(id) ? id[0] : id} />;
 }
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(

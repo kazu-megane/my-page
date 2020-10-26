@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import Link from 'next/link';
 import Binder from '~/components/all/atoms/helpers/Binder';
 import style from "./index.module.scss";
 
@@ -11,9 +12,11 @@ const WorkContent: FC<Props> = ({ className }) => (
     <div>
       <ul className={style.WorkContent__items}>
         <li className={style.WorkContent__item}>
-          <a href="https://design-ship.jp/" className={style.WorkContent__itemImage}>
-            <img src="/work/designship.png" width="330" height="175" className={style.WorkContent__imageContent} />
-          </a>
+          <Link href="/work/[id]" as="/work/designship">
+            <a className={style.WorkContent__itemImage}>
+              <img src="/work/designship.png" width="330" height="175" className={style.WorkContent__imageContent} />
+            </a>
+          </Link>
           <p className={style.WorkContent__year}>2020</p>
           <p className={style.WorkContent__title}>Designship</p>
         </li>
