@@ -1,7 +1,7 @@
 import React from "react";
 import { NextPage, GetServerSideProps } from "next";
 import { wrapper } from "~/lib/strore";
-import PcPageTemplate from "~/components/pc/template";
+import PcPageTemplate from "~/components/pc/template/Page";
 import SpPageTemplate from "~/components/sp/template";
 import { useJudgeDesktop } from "~/components/all/hooks/JudgeDesktop";
 import { PAGE_TYPE } from "~/components/constants";

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import PcPageTemplate from "~/components/pc/template";
+import PcPageTemplate from "~/components/pc/template/Page";
 import { NextPage, GetServerSideProps } from "next";
 import SpPageTemplate from "~/components/sp/template";
 import { wrapper } from "~/lib/strore";
@@ -25,8 +25,8 @@ const Photo: NextPage<Props> = ({ isPc, accessToken }) => {
   return isDesktop ? (
     <PcPageTemplate pageType={PAGE_TYPE.PHOTO} />
   ) : (
-    <SpPageTemplate pageType={PAGE_TYPE.PHOTO} />
-  );
+      <SpPageTemplate pageType={PAGE_TYPE.PHOTO} />
+    );
 };
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
