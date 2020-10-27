@@ -1,7 +1,7 @@
-@import '../../../../style/index';
+@import "../../../../style/settings/index";
 
 .Footer {
-    color: #808080;
+    color: $global-color-gray;
 
     & &__contents {
         display: flex;

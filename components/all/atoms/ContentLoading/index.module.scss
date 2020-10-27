@@ -1,4 +1,4 @@
-@import "../../../../style/index";
+@import "../../../../style/settings/index";
 
 .ContentLoading {
   @-webkit-keyframes sk-bouncedelay {
@@ -23,7 +23,7 @@
   & &__bounce3 {
     width: 11px;
     height: 11px;
-    background-color: #808080;
+    background-color: $global-color-gray;
 
     border-radius: 100%;
     display: inline-block;

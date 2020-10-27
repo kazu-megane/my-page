@@ -1,4 +1,4 @@
-@import "../../../../style/index";
+@import "../../../../style/settings/index";
 
 .Header {
     padding: 32px 28px;
@@ -28,7 +28,7 @@
     & &__trigger {
         padding: 4px 0;
         transition: 200ms all ease;
-        background-color: #ffffff;
+        background-color: $global-color-white;
     }
 
     & &__triggerIcon {
@@ -39,7 +39,7 @@
             display: block;
             width: 20px;
             height: 2px;
-            background-color: #808080;
+            background-color: $global-color-gray;
             border-radius: 5px;
             transition: 400ms all ease;
         }

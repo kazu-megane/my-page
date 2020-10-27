@@ -1,4 +1,5 @@
 import React from "react";
+import "../style/index.scss";
 import Head from "next/head";
 import App, { AppContext } from "next/app";
 import { WrapperProps } from "next-redux-wrapper";

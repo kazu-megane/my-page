@@ -1,4 +1,4 @@
-@import '../../../../style/index';
+@import "../../../../style/settings/index";
 
 .WorkContent {
   & &__items {
@@ -23,7 +23,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    border: 1px solid #808080;
+    border: 1px solid $global-color-gray;
 
     &:hover {
       opacity: 0.8;

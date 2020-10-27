@@ -1,4 +1,4 @@
-@import '../../../../style/index';
+@import "../../../../style/settings/index";
 
 .Header {
     & &__columns {
@@ -33,11 +33,11 @@
     & &__rightContent + &__rightContent {
         margin-left: 14px;
         padding-left: 14px;
-        border-left: 1px solid #808080;
+        border-left: 1px solid $global-color-gray;
     }
 
     & &__link {
-        color: #808080;
+        color: $global-color-gray;
         text-decoration: inherit;
         font-size: 13px;
 

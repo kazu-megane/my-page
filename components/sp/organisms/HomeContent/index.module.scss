@@ -1,4 +1,4 @@
-@import '../../../../style/index';
+@import "../../../../style/settings/index";
 
 .HomeContent {
     @keyframes fadeIn {
@@ -53,7 +53,7 @@
        align-items: flex-end;
        justify-content: flex-end;
        opacity: 0.2;
-       background-color: #d6d6d6;
+       background-color: $globa-color-skelton;
        width: 300px;
        height: 180px;
     //    filter: drop-shadow(8px 8px 8px rgba(0,0,0,0.6));

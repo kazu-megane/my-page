@@ -1,4 +1,4 @@
-@import "../../../../style/index";
+@import "../../../../style/settings/index";
 
 .Loading {
     @keyframes loading {
@@ -10,7 +10,7 @@
         }
     }
 
-    color: #808080;
+    color: $global-color-gray;
 
     & &__contentText {
         animation: loading 1.6s infinite alternate;

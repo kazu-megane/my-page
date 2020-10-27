@@ -1,4 +1,4 @@
-@import '../../../../style/index';
+@import "../../../../style/settings/index";
 
 .ModalImage {
   $animation-duration: 0.15s;
@@ -8,7 +8,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: $global-color-white;
   z-index: 999999;
   display: flex;
   flex-direction: column;
@@ -35,7 +35,7 @@
           display: block;
           width: 1px;
           height: 28px;
-          background: #808080;
+          background: $global-color-gray;
           transform: rotate(45deg);
           // transform-origin: 0% 50%;
           position: absolute;
@@ -67,7 +67,7 @@
   }
 
   & &__imageSkelton {
-    background-color: #dddddd;
+    background-color: $global-color-gray-3;
     width: 375px;
     max-width: 100%;
     height: 250px;
