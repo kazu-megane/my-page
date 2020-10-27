@@ -5,6 +5,7 @@ export const GITHUB_URL = "https://github.com/kazu-megane";
 export const PAGE_TYPE = {
   HOME: "HOME",
   ABOUT: "ABOUT",
+  WORK: "WORK",
   PHOTO: "PHOTO",
   VIDEO: "VIDEO",
   CONTACT: "CONTACT",

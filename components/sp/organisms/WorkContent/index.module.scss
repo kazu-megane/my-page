@@ -1,0 +1,29 @@
+@import '../../../../style/index';
+
+.WorkContent {
+  & &__item + &__item {
+    margin-top: 20px;
+  }
+
+  & &__itemImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid #808080;
+  }
+
+  & &__imageContent {
+    width: 100%;
+    height: auto;
+  }
+
+  & &__year {
+    margin-top: 8px;
+    font-size: 15px;
+  }
+
+  & &__title {
+    margin-top: 4px;
+  }
+}

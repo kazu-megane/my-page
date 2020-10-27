@@ -1,7 +1,7 @@
 import React from "react";
 import { NextPage, GetServerSideProps } from "next";
-import PcPageTemplate from "~/components/pc/template";
-import SpPageTemplate from "~/components/sp/template";
+import PcPageTemplate from "~/components/pc/template/Page";
+import SpPageTemplate from "~/components/sp/template/Page";
 import { wrapper } from "~/lib/strore";
 import { useJudgeDesktop } from "~/components/all/hooks/JudgeDesktop";
 import { PAGE_TYPE } from "~/components/constants";
@@ -12,8 +12,8 @@ const Video: NextPage<{ isPc: boolean }> = ({ isPc }) => {
   return isDesktop ? (
     <PcPageTemplate pageType={PAGE_TYPE.VIDEO} />
   ) : (
-    <SpPageTemplate pageType={PAGE_TYPE.VIDEO} />
-  );
+      <SpPageTemplate pageType={PAGE_TYPE.VIDEO} />
+    );
 };
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(

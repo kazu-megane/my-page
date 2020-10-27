@@ -4,6 +4,7 @@ import style from "./index.module.scss";
 
 export const CONTENT_TYPE = {
   ABOUT: "ABOUT",
+  WORK: "WORK",
   PHOTO: "PHOTO",
   VIDEO: "VIDEO",
   CONTACT: "CONTACT",
@@ -20,6 +21,8 @@ function switchText(
   switch (contentType) {
     case CONTENT_TYPE.ABOUT:
       return "About";
+    case CONTENT_TYPE.WORK:
+      return 'Work';
     case CONTENT_TYPE.PHOTO:
       return "Photo";
     case CONTENT_TYPE.VIDEO:

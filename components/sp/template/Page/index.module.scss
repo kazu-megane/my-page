@@ -1,0 +1,39 @@
+@import '../../../../style/index';
+
+.PageTemplate {
+    min-height: 812px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    & &__loading {
+        flex-grow: 1;
+    }
+
+    & &__footer {
+        padding-top: 20px; 
+    }
+
+    & &__main {
+        margin-top: 20px;
+        padding: 0 24px;
+    }
+
+    & &__introduction,
+    & &__workContent,
+    & &__imageGrid,
+    & &__videoList,
+    & &__socialLinks {
+        margin-top: 20px;
+    }
+
+    & &__footer {
+        margin-top: auto;
+    }
+
+    & &__spContent {
+        color: red;
+        font-weight: bold;
+        font-size: 15px;
+    }
+}

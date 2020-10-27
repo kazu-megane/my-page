@@ -1,0 +1,21 @@
+@import '../../../../style/index';
+
+.WorkDetailTemplate {
+    min-height: 812px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    & &__footer {
+        padding-top: 20px; 
+    }
+
+    & &__main {
+        margin-top: 20px;
+        padding: 0 24px;
+    }
+
+    & &__footer {
+        margin-top: auto;
+    }
+}

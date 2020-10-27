@@ -2,7 +2,8 @@
 @import "./default.scss";
 
 :root {
-  font: #{$global-base-font-size}/#{$global-base-line-height} #{$global-base-font-family}
+  font: #{$global-base-font-size}/#{$global-base-line-height} #{$global-base-font-family};
+  color: #333;
 }
 
 button {
