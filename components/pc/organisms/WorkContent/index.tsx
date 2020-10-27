@@ -21,9 +21,11 @@ const WorkContent: FC<Props> = ({ className }) => (
           <p className={style.WorkContent__title}>Designship</p>
         </li>
         <li className={style.WorkContent__item}>
-          <a href="https://planckunits.io/" target="_blank" rel="noopener noreferrer" className={style.WorkContent__itemImage}>
-            <img src="/work/planckUnits.svg" width="340" height="180" className={style.WorkContent__imageContent} />
-          </a>
+          <Link href="/work/[id]" as="/work/planckunits">
+            <a className={style.WorkContent__itemImage}>
+              <img src="/work/planckUnits.svg" width="340" height="180" className={style.WorkContent__imageContent} />
+            </a>
+          </Link>
           <p className={style.WorkContent__year}>2019</p>
           <p className={style.WorkContent__title}>PlanckUnits</p>
         </li>

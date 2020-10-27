@@ -1,0 +1,114 @@
+@import '../../../../../style/index';
+
+.Planckunits {
+  padding-bottom: 40px;
+
+  & &__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & &__imageContent {
+    max-width: 100%;
+    height: auto;
+  }
+
+  & &__title {
+    margin-top: 16px;
+    font-size: 19px;
+    font-weight: bold;
+  }
+
+  & &__year {
+    margin-top: 12px;
+  }
+
+  & &__role {
+    margin-top: 8px;
+  }
+
+  & &__link {
+    margin-top: 12px;
+  }
+
+  & &__linkContent {
+    color: inherit;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  & &__description {
+    margin-top: 40px;
+  }
+
+  & &__descriptionTitle {
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+
+  & &__descriptionTheme {
+    margin-top: 20px;
+  }
+
+  & &__descriptionThemeText {
+    display: block;
+    line-height: 1.4;
+  }
+
+  & &__descriptionThemeText + &__descriptionThemeText {
+    margin-top: 12px;
+  }
+
+  & &__brochureDescription {
+    margin-top: 40px;
+  }
+
+  & &__brochureDescriptionTitle {
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+
+  & &__brochureDescriptionItems {
+    margin-top: 20px;
+  }
+
+  & &__brochureDescriptionItem + &__brochureDescriptionItem {
+    margin-top: 10px;
+  }
+
+  & &__brochureItemHeading {
+    font-weight: bold;
+    flex-shrink: 0;
+    flex-basis: 200px;
+  }
+
+  & &__brochureItemText {
+    margin-top: 8px;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  & &__brochureImages {
+    margin-top: 20px;
+  }
+
+  & &__brochureImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & &__brochureImage + &__brochureImage {
+    margin-top: 20px;
+  }
+
+  & &__brochureImageContent {
+    max-width: 100%;
+    height: auto;
+  }
+}
