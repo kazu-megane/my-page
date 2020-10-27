@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Binder from '~/components/all/atoms/helpers/Binder';
 import Designship from './Designship';
-import PlanckUnits from './PlanckUnit';
+import PlanckUnits from './PlanckUnits';
 import style from "./index.module.scss";
 
 type Props = {
