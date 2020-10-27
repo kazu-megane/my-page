@@ -2,8 +2,7 @@ import React, { FC, useCallback, useEffect } from "react";
 import PageTemplateComponent, { Props as ComponentProps } from "./component";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchNextPhotoItems, photoSelectors } from "~/lib/state/photo";
-import { setLoading } from "~/lib/state/loading";
-import { loadingSelectors } from "~/lib/state/loading";
+import { setLoading, loadingSelectors } from "~/lib/state/loading";
 import { pageSelectors, setColumnNum } from "~/lib/state/page";
 import { PAGE_TYPE } from "~/components/constants";
 

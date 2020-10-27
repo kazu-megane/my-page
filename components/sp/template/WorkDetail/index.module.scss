@@ -6,8 +6,8 @@
     flex-direction: column;
     position: relative;
 
-    & &__footer {
-        padding-top: 20px; 
+    & &__loading {
+        flex-grow: 1;
     }
 
     & &__main {
@@ -16,6 +16,7 @@
     }
 
     & &__footer {
+        padding-top: 20px; 
         margin-top: auto;
     }
 }
