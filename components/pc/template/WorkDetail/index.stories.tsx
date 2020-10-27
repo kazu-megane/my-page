@@ -1,7 +1,10 @@
 import React from "react";
-import { storiesOf } from "@storybook/react";
-import PcPageTemplate from "./component";
+import PcWorkDetailTemplate from "./component";
 
-storiesOf("pc | template/WorkDetail", module)
-  .add("Designship", () => <PcPageTemplate id="designship" />)
+export default {
+  title: 'pc/template/WorkDetail'
+}
+
+export const Designship = () => <PcWorkDetailTemplate id="designship" />;
+export const PlanckUnits = () => <PcWorkDetailTemplate id="planckunits" />;
 

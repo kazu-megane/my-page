@@ -88,13 +88,14 @@ const imageStub: Pick<Props, "images"> = {
   ],
 };
 
-storiesOf("pc | template", module)
+storiesOf("pc/template/Page", module)
   .add("Home", () => <PcPageTemplate images={[]} pageType={PAGE_TYPE.HOME} />)
   .add("About", () => <PcPageTemplate images={[]} pageType={PAGE_TYPE.ABOUT} />)
-  .add("PcPageTemplate", () => (
+  .add("Work", () => <PcPageTemplate images={[]} pageType={PAGE_TYPE.WORK} />)
+  .add("Photo", () => (
     <PcPageTemplate {...imageStub} pageType={PAGE_TYPE.PHOTO} />
   ))
-  .add("PcPageTemplate", () => (
+  .add("Video", () => (
     <PcPageTemplate images={[]} pageType={PAGE_TYPE.VIDEO} />
   ))
   .add("Contact", () => (

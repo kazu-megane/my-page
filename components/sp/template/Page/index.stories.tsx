@@ -1,6 +1,6 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import PcPageTemplate, { Props } from "./component";
+import SpPageTemplate, { Props } from "./component";
 import { PAGE_TYPE } from "~/components/constants";
 
 const imageStub: Pick<Props, "images" | "columnNum"> = {
@@ -69,19 +69,22 @@ const imageStub: Pick<Props, "images" | "columnNum"> = {
   columnNum: 4,
 };
 
-storiesOf("sp | template", module)
+storiesOf("sp/template/Page", module)
   .add("Home", () => (
-    <PcPageTemplate images={[]} columnNum={4} pageType={PAGE_TYPE.HOME} />
+    <SpPageTemplate images={[]} columnNum={4} pageType={PAGE_TYPE.HOME} />
   ))
   .add("About", () => (
-    <PcPageTemplate images={[]} columnNum={4} pageType={PAGE_TYPE.ABOUT} />
+    <SpPageTemplate images={[]} columnNum={4} pageType={PAGE_TYPE.ABOUT} />
+  ))
+  .add("Work", () => (
+    <SpPageTemplate images={[]} columnNum={4} pageType={PAGE_TYPE.WORK} />
   ))
   .add("Photo", () => (
-    <PcPageTemplate {...imageStub} pageType={PAGE_TYPE.PHOTO} />
+    <SpPageTemplate {...imageStub} pageType={PAGE_TYPE.PHOTO} />
   ))
   .add("Video", () => (
-    <PcPageTemplate images={[]} columnNum={4} pageType={PAGE_TYPE.VIDEO} />
+    <SpPageTemplate images={[]} columnNum={4} pageType={PAGE_TYPE.VIDEO} />
   ))
   .add("Contact", () => (
-    <PcPageTemplate images={[]} columnNum={4} pageType={PAGE_TYPE.CONTACT} />
+    <SpPageTemplate images={[]} columnNum={4} pageType={PAGE_TYPE.CONTACT} />
   ));
