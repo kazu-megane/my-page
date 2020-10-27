@@ -4,9 +4,9 @@ import style from "./index.module.scss";
 const Planckunits: FC = () => (
   <div className={style.Planckunits}>
     <p className={style.Planckunits__image}>
-      <img src="/work/planckUnits.svg" alt="planckunits" width="330" height="140" className={style.Planckunits__imageContent} />
+      <img src="/work/planckUnits.svg" alt="planckunits" width="1200" height="630" className={style.Planckunits__imageContent} />
     </p>
-    <p className={style.Planckunits__title}>Planckunits</p>
+    <p className={style.Planckunits__title}>PlanckUnits</p>
     <p className={style.Planckunits__year}>2019</p>
     <p className={style.Planckunits__role}>Designed a corporate brochure.</p>
     <p className={style.Planckunits__link}>
@@ -40,10 +40,10 @@ const Planckunits: FC = () => (
     </div>
     <ul className={style.Planckunits__brochureImages}>
       <li className={style.Planckunits__brochureImage}>
-        <img src="/work/planckunits/brochure_1.png" width="330" height="235" alt="brochureImage" className={style.Planckunits__brochureImageContent} />
+        <img src="/work/planckunits/brochure_1.png" width="1191" height="842" alt="brochureImage" className={style.Planckunits__brochureImageContent} />
       </li>
       <li className={style.Planckunits__brochureImage}>
-        <img src="/work/planckunits/brochure_2.png" width="330" height="235" alt="brochureImage" className={style.Planckunits__brochureImageContent} />
+        <img src="/work/planckunits/brochure_2.png" width="1191" height="842" alt="brochureImage" className={style.Planckunits__brochureImageContent} />
       </li>
     </ul>
   </div>
