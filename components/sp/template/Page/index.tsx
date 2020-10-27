@@ -19,6 +19,8 @@ const PageTemplate: FC<Props> = ({ pageType }) => {
     (context) => {
       if (context === PAGE_TYPE.PHOTO && !photo.images.length) {
         dispatch(setLoading(true));
+      } else {
+        dispatch(setLoading(false));
       }
     },
     [dispatch, photo]
