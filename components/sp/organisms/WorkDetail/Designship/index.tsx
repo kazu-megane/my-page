@@ -10,7 +10,7 @@ const Designship: FC = () => (
     <p className={style.Designship__year}>2020</p>
     <p className={style.Designship__role}>Developed a live site and designed a novelty.</p>
     <p className={style.Designship__link}>
-      <a href="https://design-ship.jp/" target="_blank" rel="noopener noreferrer" className={style.Designship__linkContent}>Official website</a>
+      <a href="https://design-ship.jp/" className={style.Designship__linkContent}>Official website</a>
     </p>
     <div className={style.Designship__description}>
       <p className={style.Designship__descriptionTitle}>物語の力で「デザイン」の壁を越える。</p>

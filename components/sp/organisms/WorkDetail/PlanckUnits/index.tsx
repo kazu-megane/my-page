@@ -10,7 +10,7 @@ const PlanckUnits: FC = () => (
     <p className={style.Planckunits__year}>2019</p>
     <p className={style.Planckunits__role}>Designed a corporate brochure.</p>
     <p className={style.Planckunits__link}>
-      <a href="https://planckunits.io/" target="_blank" rel="noopener noreferrer" className={style.Planckunits__linkContent}>Official website</a>
+      <a href="https://planckunits.io/" className={style.Planckunits__linkContent}>Official website</a>
     </p>
     <div className={style.Planckunits__description}>
       <p className={style.Planckunits__descriptionTitle}>IoTとクラウド技術でのオーダーメイド開発</p>
