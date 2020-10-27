@@ -22,7 +22,7 @@ const VideoList: FC<Props> = ({ className }) => (
       <ul className={style.VideoList__items}>
         <li className={style.VideoList__item}>
           <div className={style.VideoList__video}>
-            <iframe src={`https://www.youtube.com/embed/${VIDEO.AOMORI}?playsinline=1`} className={style.VideoList__videoContent} />
+            <iframe src={`https://www.youtube.com/embed/${VIDEO.AOMORI}`} className={style.VideoList__videoContent} />
           </div>
           <div className={style.VideoList__description}>
             <p className={style.VideoList__descriptionHeading}>Aomori Vlog</p>
@@ -31,7 +31,7 @@ const VideoList: FC<Props> = ({ className }) => (
         </li>
         <li className={style.VideoList__item}>
           <div className={style.VideoList__video}>
-            <iframe src={`https://www.youtube.com/embed/${VIDEO.SNOWBOARD}?playsinline=1`} className={style.VideoList__videoContent} />
+            <iframe src={`https://www.youtube.com/embed/${VIDEO.SNOWBOARD}`} className={style.VideoList__videoContent} />
           </div>
           <div className={style.VideoList__description}>
             <p className={style.VideoList__descriptionHeading}>Snowboard Vlog</p>
@@ -40,7 +40,7 @@ const VideoList: FC<Props> = ({ className }) => (
         </li>
         <li className={style.VideoList__item}>
           <div className={style.VideoList__video}>
-            <iframe src={`https://www.youtube.com/embed/${VIDEO.FINLAND_3}?playsinline=1`} className={style.VideoList__videoContent} />
+            <iframe src={`https://www.youtube.com/embed/${VIDEO.FINLAND_3}`} className={style.VideoList__videoContent} />
           </div>
           <div className={style.VideoList__description}>
             <p className={style.VideoList__descriptionHeading}>Finland Vlog 3</p>
@@ -49,7 +49,7 @@ const VideoList: FC<Props> = ({ className }) => (
         </li>
         <li className={style.VideoList__item}>
           <div className={style.VideoList__video}>
-            <iframe src={`https://www.youtube.com/embed/${VIDEO.FINLAND_2}?playsinline=1`} className={style.VideoList__videoContent} />
+            <iframe src={`https://www.youtube.com/embed/${VIDEO.FINLAND_2}`} className={style.VideoList__videoContent} />
           </div>
           <div className={style.VideoList__description}>
             <p className={style.VideoList__descriptionHeading}>Finland Vlog 2</p>
@@ -58,7 +58,7 @@ const VideoList: FC<Props> = ({ className }) => (
         </li>
         <li className={style.VideoList__item}>
           <div className={style.VideoList__video}>
-            <iframe src={`https://www.youtube.com/embed/${VIDEO.FINLAND_1}?playsinline=1`} className={style.VideoList__videoContent} />
+            <iframe src={`https://www.youtube.com/embed/${VIDEO.FINLAND_1}`} className={style.VideoList__videoContent} />
           </div>
           <div className={style.VideoList__description}>
             <p className={style.VideoList__descriptionHeading}>Finland Vlog 1</p>
@@ -67,7 +67,7 @@ const VideoList: FC<Props> = ({ className }) => (
         </li>
         <li className={style.VideoList__item}>
           <div className={style.VideoList__video}>
-            <iframe src={`https://www.youtube.com/embed/${VIDEO.GERMANY}?playsinline=1`} className={style.VideoList__videoContent} />
+            <iframe src={`https://www.youtube.com/embed/${VIDEO.GERMANY}`} className={style.VideoList__videoContent} />
           </div>
           <div className={style.VideoList__description}>
             <p className={style.VideoList__descriptionHeading}>Germany Vlog</p>
@@ -76,7 +76,7 @@ const VideoList: FC<Props> = ({ className }) => (
         </li>
         <li className={style.VideoList__item}>
           <div className={style.VideoList__video}>
-            <iframe src={`https://www.youtube.com/embed/${VIDEO.AIZU}?playsinline=1`} className={style.VideoList__videoContent} />
+            <iframe src={`https://www.youtube.com/embed/${VIDEO.AIZU}`} className={style.VideoList__videoContent} />
           </div>
           <div className={style.VideoList__description}>
             <p className={style.VideoList__descriptionHeading}>AizuKomagadake Vlog</p>
