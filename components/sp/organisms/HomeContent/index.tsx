@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
+import Image from 'next/image';
 import Binder from "../../../all/atoms/helpers/Binder";
 import style from "./index.module.scss";
 
@@ -41,10 +42,10 @@ const HomeContent: FC<Props> = ({ className }) => {
       <div>
         <ul className={style.HomeContent__images}>
           <li className={style.HomeContent__image}>
-            <img src="/home.png" alt="home" width="325" height="325" className={style.HomeContent__imageContent} />
+            <Image src="/home.png" alt="home" loading="eager" unsized className={style.HomeContent__imageContent} />
           </li>
           <li className={style.HomeContent__image}>
-            <img src="/home2.png" alt="home2" width="325" height="325" className={style.HomeContent__imageContent} />
+            <Image src="/home2.png" alt="home2" loading="eager" unsized className={style.HomeContent__imageContent} />
             <p className={style.HomeContent__imageDate}>{today}</p>
           </li>
         </ul>
