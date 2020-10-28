@@ -17,6 +17,30 @@ class MyDocument extends Document {
     return (
       <Html lang="ja">
         <Head>
+          <meta name="og:type" property="og:type" content="website" />
+          <meta
+            name="og:site_name"
+            property="og:site_name"
+            content="KAZUYA HASHIMOTO"
+          />
+          <meta
+            name="og:title"
+            property="og:title"
+            content="KAZUYA HASHIMOTO"
+          />
+          <meta
+            name="og:description"
+            property="og:description"
+            content="Kazuya Hashimoto's portfolio site."
+          />
+          <meta name="og:image" property="og:image" content="/og-image.png" />
+          <meta name="twitter:image" property="twitter:image" content="/og-image.png" />
+          <meta name="twitter:card" property="twitter:card" content="/og-image.png" />
+          <meta
+            name="apple-mobile-web-app-title"
+            content="KAZUYA HASHIMOTO"
+          />
+          <meta name="og:url" property="og:url" content="https://kazuyaframe.work/" />
           <style>
             {`
             #__next {
