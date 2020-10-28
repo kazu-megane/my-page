@@ -7,7 +7,6 @@
 
     & &__image {
         position: relative;
-        margin-top: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -15,17 +14,21 @@
         box-shadow: 8px 8px 8px rgba(0,0,0,0.1);
     }
 
-   & &__imageContent {
-       max-width: 100%;
-       height: auto;
-   }
+    & &__image + &__image {
+        margin-top: 20px;
+    }
 
-   & &__imageDate {
-       position: absolute;
-       top: 50%;
-       left: 50%;
-       transform: translateY(-50%) translateX(-50%);
-       font-weight: bold;
-       color: $global-color-white;
-   }
+    & &__imageContent {
+        max-width: 100%;
+        height: auto;
+    }
+
+    & &__imageDate {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        font-weight: bold;
+        color: $global-color-white;
+    }
 }
