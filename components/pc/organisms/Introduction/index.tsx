@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import Image from 'next/image';
 import Binder from "../../../all/atoms/helpers/Binder";
 import style from "./index.module.scss";
 
@@ -11,11 +12,11 @@ const Introduction: FC<Props> = ({ className }) => (
     <div>
       <div className={style.Introduction__columns}>
         <div className={style.Introduction__columnLeft}>
-          <img
+          <Image
             src="/myPhoto.png"
             alt="myPhoto"
-            width="300"
-            height="300"
+            width={300}
+            height={300}
             className={style.Introduction__image}
           />
         </div>
