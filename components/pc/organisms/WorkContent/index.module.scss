@@ -24,6 +24,7 @@
     justify-content: center;
     width: 100%;
     border: 1px solid $global-color-gray;
+    box-sizing: border-box;
 
     &:hover {
       opacity: 0.8;
