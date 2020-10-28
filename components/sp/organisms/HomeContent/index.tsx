@@ -24,47 +24,28 @@ function dateToStr24HPad0(date: Date, format: string) {
 }
 
 const HomeContent: FC<Props> = ({ className }) => {
-  const today = dateToStr24HPad0(new Date(), "YYYY/MM/DD hh:mm");
+  const [today, setToday] = useState(dateToStr24HPad0(new Date(), "YYYY/MM/DD hh:mm:ss"));
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setToday(dateToStr24HPad0(new Date(), "YYYY/MM/DD hh:mm:ss"));
+    }, 1000);
+
+    return () => {
+      clearInterval(timer)
+    }
+  }, []);
 
   return (
     <Binder classNames={[style.HomeContent, className]}>
       <div>
-        <ul className={style.HomeContent__contents}>
-          <li className={style.HomeContent__content}>
-            <p className={style.HomeContent__skelton}>
-              <span className={style.HomeContent__skeltonContent}>
-                <span className={style.HomeContent__text}>
-                  <span className={style.HomeContent__textValue}>
-                    #切り取られた日常
-                  </span>
-                </span>
-                <span className={style.HomeContent__date}>{today}</span>
-              </span>
-            </p>
+        <ul className={style.HomeContent__images}>
+          <li className={style.HomeContent__image}>
+            <img src="/home.png" alt="home" width="325" height="325" className={style.HomeContent__imageContent} />
           </li>
-          <li className={style.HomeContent__content}>
-            <p className={style.HomeContent__skelton}>
-              <span className={style.HomeContent__skeltonContent}>
-                <span className={style.HomeContent__text}>
-                  <span className={style.HomeContent__textValue}>#sony</span>
-                  <span className={style.HomeContent__textValue}>
-                    #fujifilm
-                  </span>
-                </span>
-              </span>
-            </p>
-          </li>
-          <li className={style.HomeContent__content}>
-            <p className={style.HomeContent__skelton}>
-              <span className={style.HomeContent__skeltonContent}>
-                <span className={style.HomeContent__text}>
-                  <span className={style.HomeContent__textValue}>#tamron</span>
-                  <span className={style.HomeContent__textValue}>
-                    #noktonClassic
-                  </span>
-                </span>
-              </span>
-            </p>
+          <li className={style.HomeContent__image}>
+            <img src="/home2.png" alt="home2" width="325" height="325" className={style.HomeContent__imageContent} />
+            <p className={style.HomeContent__imageDate}>{today}</p>
           </li>
         </ul>
       </div>
