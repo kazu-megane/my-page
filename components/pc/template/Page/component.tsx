@@ -69,7 +69,7 @@ const PageTemplate: FC<Props> = ({
                   />
                 ) : null}
                 {pageType === PAGE_TYPE.WORK ? (
-                  <WorkContent className={style.PageTemplate__workContent} />
+                  <WorkContent onClick={onClick} className={style.PageTemplate__workContent} />
                 ) : null}
                 {pageType === PAGE_TYPE.VIDEO ? (
                   <VideoList className={style.PageTemplate__videoList} />

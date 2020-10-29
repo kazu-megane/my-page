@@ -66,7 +66,7 @@ const PageTemplate: FC<Props> = ({
                   <Introduction className={style.PageTemplate__introduction} />
                 ) : null}
                 {pageType === PAGE_TYPE.WORK ? (
-                  <WorkContent className={style.PageTemplate__workContent} />
+                  <WorkContent onClick={onClick} className={style.PageTemplate__workContent} />
                 ) : null}
                 {pageType === PAGE_TYPE.PHOTO && images ? (
                   <ImageGrid

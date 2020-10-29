@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from "react";
+import React, { FC, useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading, loadingSelectors } from "~/lib/state/loading";
 import { photoSelectors } from "~/lib/state/photo";
@@ -12,13 +12,19 @@ const WorkDetailTemplate: FC<Props> = ({ id }) => {
   const loading = useSelector(loadingSelectors);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      dispatch(setLoading(false));
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+    }
+  }, [id]);
+
   const onClickLink = useCallback(
-    (context) => {
-      if (context === PAGE_TYPE.PHOTO && !photo.images.length) {
-        dispatch(setLoading(true));
-      } else {
-        dispatch(setLoading(false));
-      }
+    (_context) => {
+      dispatch(setLoading(true));
     },
     [dispatch, photo]
   );

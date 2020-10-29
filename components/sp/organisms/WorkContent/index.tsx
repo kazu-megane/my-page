@@ -6,6 +6,7 @@ import style from "./index.module.scss";
 
 type Props = {
   className?: string;
+  onClick?: () => void;
 }
 
 const clickDetailEvent = (page: string) => {
@@ -16,13 +17,18 @@ const clickDetailEvent = (page: string) => {
   });
 }
 
-const WorkContent: FC<Props> = ({ className }) => (
+const WorkContent: FC<Props> = ({ onClick, className }) => (
   <Binder classNames={[style.WorkContent, className]}>
     <div>
       <ul className={style.WorkContent__items}>
         <li className={style.WorkContent__item}>
           <Link href="/work/[id]" as="/work/Designship">
-            <a onClick={() => clickDetailEvent('Designship')} className={style.WorkContent__itemImage}>
+            <a onClick={() => {
+              clickDetailEvent('Designship');
+              if (onClick) {
+                onClick();
+              }
+            }} className={style.WorkContent__itemImage}>
               <img src="/work/designship.png" width="330" height="175" className={style.WorkContent__imageContent} />
             </a>
           </Link>
@@ -31,7 +37,12 @@ const WorkContent: FC<Props> = ({ className }) => (
         </li>
         <li className={style.WorkContent__item}>
           <Link href="/work/[id]" as="/work/PlanckUnits">
-            <a onClick={() => clickDetailEvent('PlanckUnits')} className={style.WorkContent__itemImage}>
+            <a onClick={() => {
+              clickDetailEvent('PlanckUnits')
+              if (onClick) {
+                onClick();
+              }
+            }} className={style.WorkContent__itemImage}>
               <img src="/work/planckUnits.svg" width="340" height="180" className={style.WorkContent__imageContent} />
             </a>
           </Link>
