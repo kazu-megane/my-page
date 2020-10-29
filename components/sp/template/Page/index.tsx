@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchNextPhotoItems, photoSelectors } from "~/lib/state/photo";
 import { setLoading, loadingSelectors } from "~/lib/state/loading";
 import { pageSelectors, setColumnNum } from "~/lib/state/page";
-import { PAGE_TYPE } from "~/components/constants";
+import { PAGE_TYPE, MINIMUM_WAIT_TIME } from "~/components/constants";
 
 export type Props = Pick<ComponentProps, "pageType">;
 
@@ -20,7 +20,7 @@ const PageTemplate: FC<Props> = ({ pageType }) => {
     }
     const timer = setTimeout(() => {
       dispatch(setLoading(false));
-    }, 500);
+    }, MINIMUM_WAIT_TIME);
 
     return () => {
       clearTimeout(timer);

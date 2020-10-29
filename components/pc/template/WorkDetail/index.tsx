@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLoading, loadingSelectors } from "~/lib/state/loading";
 import { photoSelectors } from "~/lib/state/photo";
 import WorkDetailTemplateComponent, { Props as ComponentProps } from "./component";
-import { PAGE_TYPE } from "~/components/constants";
+import { MINIMUM_WAIT_TIME } from "~/components/constants";
 
 export type Props = Pick<ComponentProps, 'id'>;
 
@@ -15,7 +15,7 @@ const WorkDetailTemplate: FC<Props> = ({ id }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       dispatch(setLoading(false));
-    }, 500);
+    }, MINIMUM_WAIT_TIME);
 
     return () => {
       clearTimeout(timer);
