@@ -40,6 +40,9 @@ const HomeContent: FC<Props> = ({ className }) => {
   return (
     <Binder classNames={[style.HomeContent, className]}>
       <div>
+        <p className={style.HomeContent__preText}>切り取られた日常</p>
+        <p className={style.HomeContent__text}>{today}</p>
+        <p className={style.HomeContent__newText}>Kazuya Hashimoto</p>
         <ul className={style.HomeContent__images}>
           <li className={style.HomeContent__image}>
             <Image src="/home.png" alt="home" loading="eager" unsized priority className={style.HomeContent__imageContent} />

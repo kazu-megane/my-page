@@ -1,16 +1,48 @@
 @import "../../../../style/settings/index";
 
 .HomeContent {
+    $delay-second: 3s;
+
+    position: relative;
     padding-bottom: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    & &__text,
+    & &__preText,
+    & &__newText {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%) translateY(200%);
+        text-align: center;
+        font-weight: bold;
+        font-size: 19px;
+        
+    }
+
+    & &__preText {
+        animation: FadeOut 2s 1s forwards;
+    }
+
+    & &__text {
+        opacity: 0;
+        animation: FadeIn 2s 2s forwards, FadeOut 2s $delay-second + 2 forwards;
+    }
+
+    & &__newText {
+        opacity: 0;
+        animation: FadeIn 3s $delay-second + 3 forwards;
+    }
 
     & &__images {
         position: relative;
         display: flex;
         justify-content: center;
         margin-left: -40px;
+        transform: translateY(50%);
+        animation: Slide 3s $delay-second + 3 forwards;
 
         &::after {
             position: absolute;
@@ -33,11 +65,21 @@
         width: 25%;
         border: 1px solid $global-color-black;
         box-shadow: 8px 8px 8px rgba(0,0,0,0.1);
+
+        &::before {
+            position: absolute;
+            content: "";
+            width: 90%;
+            height: 90%;
+            background-color: $global-color-black;
+        }
     }
 
    & &__imageContent {
        max-width: 100%;
        height: auto;
+       opacity: 0;
+       animation: FadeIn 3s $delay-second + 3 forwards;
    }
 
    & &__imageDate {
@@ -47,5 +89,34 @@
        transform: translateY(-50%) translateX(-50%);
        font-weight: bold;
        color: $global-color-white;
+       opacity: 0;
+       animation: FadeIn 3s $delay-second + 3 forwards;
    }
+}
+
+@keyframes Slide {
+    0% {
+        transform: translateY(50%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes FadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
