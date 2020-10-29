@@ -27,10 +27,11 @@ const clickMoreEvent = (pageNum: number) => {
   });
 }
 
-const clickDetailEvent = () => {
+const clickDetailEvent = (src: string) => {
   gtag.event({
     action: 'display_detail',
-    category: 'Photo_pc'
+    category: 'Photo_pc',
+    label: src
   });
 }
 
@@ -94,7 +95,7 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClickMore }) => {
                   className={style.ImageGrid__link}
                   onClick={() => {
                     setSelectItem(index);
-                    clickDetailEvent();
+                    clickDetailEvent(images[index].url);
                     setIsDesplayedModal(true);
                   }}
                 >
