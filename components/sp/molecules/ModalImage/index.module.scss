@@ -20,6 +20,10 @@
     z-index: 1;
   }
 
+  &.ModalImage--instagram .ModalImage__close {
+    top: 44px;
+  }
+
   & &__closeLink {
       display: block;
       cursor: pointer;

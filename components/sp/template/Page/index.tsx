@@ -6,9 +6,9 @@ import { setLoading, loadingSelectors } from "~/lib/state/loading";
 import { pageSelectors, setColumnNum } from "~/lib/state/page";
 import { PAGE_TYPE, MINIMUM_WAIT_TIME } from "~/components/constants";
 
-export type Props = Pick<ComponentProps, "pageType">;
+export type Props = Pick<ComponentProps, "pageType" | 'isInstagram'>;
 
-const PageTemplate: FC<Props> = ({ pageType }) => {
+const PageTemplate: FC<Props> = ({ pageType, isInstagram }) => {
   const photo = useSelector(photoSelectors);
   const loading = useSelector(loadingSelectors);
   const page = useSelector(pageSelectors);
@@ -54,6 +54,7 @@ const PageTemplate: FC<Props> = ({ pageType }) => {
   return (
     <PageTemplateComponent
       pageType={pageType}
+      isInstagram={isInstagram}
       images={photo.images}
       columnNum={page.columnNum}
       hasNext={!!photo.nextPageToken}
