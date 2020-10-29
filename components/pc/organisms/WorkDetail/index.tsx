@@ -12,8 +12,8 @@ type Props = {
 const WorkDetail: FC<Props> = ({ id, className }) => (
   <Binder classNames={[style.WorkDetail, className]}>
     <div>
-      {id === 'designship' ? <Designship /> : null}
-      {id === 'planckunits' ? <PlanckUnits /> : null}
+      {id === 'Designship' ? <Designship /> : null}
+      {id === 'PlanckUnits' ? <PlanckUnits /> : null}
     </div>
   </Binder>
 );

@@ -1,11 +1,20 @@
 import React, { FC } from "react";
 import Binder from "../../../all/atoms/helpers/Binder";
 import { TWITTER_URL, INSTAGRAM_URL } from "~/components/constants";
+import * as gtag from '~/lib/logics/gtag';
 import style from "./index.module.scss";
 
 type Props = {
   className?: string;
 };
+
+const clickLinkEvent = (link: string) => {
+  gtag.event({
+    action: 'click_social_link',
+    category: 'SocialLinks_pc',
+    label: link,
+  });
+}
 
 const SocialLinks: FC<Props> = ({ className }) => (
   <Binder classNames={[style.SocialLinks, className]}>
@@ -18,6 +27,7 @@ const SocialLinks: FC<Props> = ({ className }) => (
           <a
             className={style.SocialLinks__link}
             href={TWITTER_URL}
+            onClick={() => clickLinkEvent(TWITTER_URL)}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -28,6 +38,7 @@ const SocialLinks: FC<Props> = ({ className }) => (
           <a
             className={style.SocialLinks__link}
             href={INSTAGRAM_URL}
+            onClick={() => clickLinkEvent(INSTAGRAM_URL)}
             target="_blank"
             rel="noopener noreferrer"
           >

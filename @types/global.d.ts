@@ -12,9 +12,9 @@ export declare global {
       type: 'event',
       eventAction: string,
       fieldObject: {
-        event_label: string
-        event_category: string
-        value: number
+        event_label?: string
+        event_category?: string
+        value?: number
       }
     )
   }

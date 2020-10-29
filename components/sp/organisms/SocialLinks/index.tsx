@@ -1,11 +1,21 @@
 import React, { FC } from "react";
 import Binder from "../../../all/atoms/helpers/Binder";
 import { TWITTER_URL, INSTAGRAM_URL } from "~/components/constants";
+import * as gtag from '~/lib/logics/gtag';
 import style from "./index.module.scss";
 
 type Props = {
   className?: string;
 };
+
+
+const clickLinkEvent = (link: string) => {
+  gtag.event({
+    action: 'click_social_link',
+    category: 'SocialLinks_sp',
+    label: link,
+  });
+}
 
 const SocialLinks: FC<Props> = ({ className }) => (
   <Binder classNames={[style.SocialLinks, className]}>
@@ -15,12 +25,12 @@ const SocialLinks: FC<Props> = ({ className }) => (
       </div>
       <ul className={style.SocialLinks__contents}>
         <li className={style.SocialLinks__content}>
-          <a className={style.SocialLinks__link} href={TWITTER_URL}>
+          <a className={style.SocialLinks__link} href={TWITTER_URL} onClick={() => clickLinkEvent(TWITTER_URL)}>
             Twitter
           </a>
         </li>
         <li className={style.SocialLinks__content}>
-          <a className={style.SocialLinks__link} href={INSTAGRAM_URL}>
+          <a className={style.SocialLinks__link} href={INSTAGRAM_URL} onClick={() => clickLinkEvent(INSTAGRAM_URL)}>
             Instagram
           </a>
         </li>

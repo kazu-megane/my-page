@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Head from 'next/head';
 import { useDispatch, useSelector } from "react-redux";
 import PcPageTemplate from "~/components/pc/template/Page";
 import { NextPage, GetServerSideProps } from "next";
@@ -22,11 +23,18 @@ const Photo: NextPage<Props> = ({ isPc, accessToken }) => {
     dispatch(fetchPhotoItems(accessToken));
   }, [accessToken]);
 
-  return isDesktop ? (
-    <PcPageTemplate pageType={PAGE_TYPE.PHOTO} />
-  ) : (
-      <SpPageTemplate pageType={PAGE_TYPE.PHOTO} />
-    );
+  return (
+    <>
+      <Head>
+        <title>KAZUYA HASHIMOTO | PHOTO</title>
+      </Head>
+      {isDesktop ? (
+        <PcPageTemplate pageType={PAGE_TYPE.PHOTO} />
+        ) : (
+        <SpPageTemplate pageType={PAGE_TYPE.PHOTO} />
+        )}
+    </>
+  )
 };
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(

@@ -1,10 +1,19 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
 import Binder from '~/components/all/atoms/helpers/Binder';
+import * as gtag from '~/lib/logics/gtag';
 import style from "./index.module.scss";
 
 type Props = {
   className?: string;
+}
+
+const clickDetailEvent = (page: string) => {
+  gtag.event({
+    action: 'click_work_detail',
+    category: 'WorkContent_pc',
+    label: page
+  });
 }
 
 const WorkContent: FC<Props> = ({ className }) => (
@@ -12,8 +21,8 @@ const WorkContent: FC<Props> = ({ className }) => (
     <div>
       <ul className={style.WorkContent__items}>
         <li className={style.WorkContent__item}>
-          <Link href="/work/[id]" as="/work/designship">
-            <a className={style.WorkContent__itemImage}>
+          <Link href="/work/[id]" as="/work/Designship">
+            <a onClick={() => clickDetailEvent('Designship')} className={style.WorkContent__itemImage}>
               <img src="/work/designship.png" width="340" height="180" className={style.WorkContent__imageContent} />
             </a>
           </Link>
@@ -21,8 +30,8 @@ const WorkContent: FC<Props> = ({ className }) => (
           <p className={style.WorkContent__title}>Designship</p>
         </li>
         <li className={style.WorkContent__item}>
-          <Link href="/work/[id]" as="/work/planckunits">
-            <a className={style.WorkContent__itemImage}>
+          <Link href="/work/[id]" as="/work/PlanckUnits">
+            <a onClick={() => clickDetailEvent('PlanckUnits')} className={style.WorkContent__itemImage}>
               <img src="/work/planckUnits.svg" width="340" height="180" className={style.WorkContent__imageContent} />
             </a>
           </Link>

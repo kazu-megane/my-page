@@ -9,9 +9,9 @@ export const pageview = (url: string) => {
 
 type Event = {
   action: string,
-  category: string,
-  label: string,
-  value: number
+  category?: string,
+  label?: string,
+  value?: number
 }
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
 export const event = ({ action, category, label, value }: Event) => {

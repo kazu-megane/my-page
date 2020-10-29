@@ -3,12 +3,28 @@ import Binder from "~/components/all/atoms/helpers/Binder";
 import Link from "next/link";
 import ModalHeader from "~/components/sp/molecules/ModalHeader";
 import { PAGE_TYPE } from "~/components/constants";
+import * as gtag from '~/lib/logics/gtag';
 import style from "./index.module.scss";
 
 export type Props = {
   className?: string;
   onClick?: (content?: typeof PAGE_TYPE[keyof typeof PAGE_TYPE]) => void;
 };
+
+const clickMenuEvent = () => {
+  gtag.event({
+    action: 'click_header_button',
+    category: 'Header_sp'
+  });
+}
+
+const clickMenuLinkEvent = (page?: typeof PAGE_TYPE[keyof typeof PAGE_TYPE]) => {
+  gtag.event({
+    action: 'click_header_link',
+    category: 'Header_sp',
+    label: page
+  });
+}
 
 const Header: FC<Props> = ({ onClick = () => { }, className }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -34,6 +50,7 @@ const Header: FC<Props> = ({ onClick = () => { }, className }) => {
               <a
                 className={style.Header__columnLink}
                 onClick={() => {
+                  clickMenuLinkEvent(PAGE_TYPE.HOME);
                   onClick("HOME");
                   setIsOpenMenu(false);
                 }}
@@ -58,6 +75,9 @@ const Header: FC<Props> = ({ onClick = () => { }, className }) => {
               <button
                 type="button"
                 onClick={() => {
+                  if (!isOpenMenu) {
+                    clickMenuEvent();
+                  }
                   setIsOpenMenu(!isOpenMenu);
                 }}
               >
@@ -72,6 +92,7 @@ const Header: FC<Props> = ({ onClick = () => { }, className }) => {
           <ModalHeader
             className={style.Header__modal}
             onClick={(content) => {
+              clickMenuLinkEvent(content);
               onClick(content);
               setIsOpenMenu(false);
             }}

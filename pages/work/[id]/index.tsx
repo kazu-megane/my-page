@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import { NextPage, GetServerSideProps } from 'next';
 import { useRouter } from 'next/router'
 import { useJudgeDesktop } from "~/components/all/hooks/JudgeDesktop";
@@ -15,7 +16,14 @@ const WorkDetail: NextPage<{ isPc: boolean }> = ({ isPc }) => {
     return null;
   }
 
-  return isDesktop ? <PcWorkDetailTemplate id={Array.isArray(id) ? id[0] : id} /> : <SpWorkDetailTemplate id={Array.isArray(id) ? id[0] : id} />;
+  return (
+    <>
+      <Head>
+        <title>KAZUYA HASHIMOTO | WORK | {Array.isArray(id) ? id[0] : id}</title>
+      </Head>
+      {isDesktop ? <PcWorkDetailTemplate id={Array.isArray(id) ? id[0] : id} /> : <SpWorkDetailTemplate id={Array.isArray(id) ? id[0] : id} />}
+    </>
+  );
 }
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(

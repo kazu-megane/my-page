@@ -1,4 +1,5 @@
 import React from "react";
+import Head from 'next/head';
 import { NextPage, GetServerSideProps } from "next";
 import PcPageTemplate from "~/components/pc/template/Page";
 import SpPageTemplate from "~/components/sp/template/Page";
@@ -9,11 +10,18 @@ import { PAGE_TYPE } from "~/components/constants";
 const Video: NextPage<{ isPc: boolean }> = ({ isPc }) => {
   const isDesktop = useJudgeDesktop(isPc);
 
-  return isDesktop ? (
-    <PcPageTemplate pageType={PAGE_TYPE.VIDEO} />
-  ) : (
-      <SpPageTemplate pageType={PAGE_TYPE.VIDEO} />
-    );
+  return (
+    <>
+      <Head>
+        <title>KAZUYA HASHIMOTO | VIDEO</title>
+      </Head>
+      {isDesktop ? (
+        <PcPageTemplate pageType={PAGE_TYPE.VIDEO} />
+        ) : (
+        <SpPageTemplate pageType={PAGE_TYPE.VIDEO} />
+        )}
+    </>
+  )
 };
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(

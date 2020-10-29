@@ -4,6 +4,7 @@ import ModalImage, {
   Props as ModalImageProps,
 } from "~/components/pc/molecules/ModalImage";
 import ContentLoading from "~/components/all/atoms/ContentLoading";
+import * as gtag from '~/lib/logics/gtag';
 import style from "./index.module.scss";
 
 type ImageProps = Pick<ModalImageProps, "data"> & {
@@ -17,6 +18,21 @@ export type Props = {
   hasNext?: boolean;
   onClickMore?: () => void;
 };
+
+const clickMoreEvent = (pageNum: number) => {
+  gtag.event({
+    action: 'click_more_button',
+    category: 'Photo_pc',
+    label: String(pageNum)
+  });
+}
+
+const clickDetailEvent = () => {
+  gtag.event({
+    action: 'display_detail',
+    category: 'Photo_pc'
+  });
+}
 
 const Image: FC<Pick<ImageProps, "url" | "alt"> & { count: number }> = ({
   url,
@@ -55,6 +71,7 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClickMore }) => {
   const [selectItem, setSelectItem] = useState<number | null>(null);
   const [displayedNextButton, setDisplayedNextButton] = useState(hasNext);
   const [isLoading, setIsLoading] = useState(false);
+  const [page, setPage] = useState(1);
   let count = 0;
 
   useEffect(() => {
@@ -77,6 +94,7 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClickMore }) => {
                   className={style.ImageGrid__link}
                   onClick={() => {
                     setSelectItem(index);
+                    clickDetailEvent();
                     setIsDesplayedModal(true);
                   }}
                 >
@@ -91,8 +109,10 @@ const ImageGrid: FC<Props> = ({ className, images, hasNext, onClickMore }) => {
             <button
               onClick={() => {
                 if (onClickMore) {
+                  clickMoreEvent(page);
                   setDisplayedNextButton(false);
                   setIsLoading(true);
+                  setPage(page + 1);
                   onClickMore();
                 }
               }}

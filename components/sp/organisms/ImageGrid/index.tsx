@@ -4,6 +4,7 @@ import ContentLoading from "~/components/all/atoms/ContentLoading";
 import ModalImage, {
   Props as ModalImageProps,
 } from "~/components/sp/molecules/ModalImage";
+import * as gtag from '~/lib/logics/gtag';
 import style from "./index.module.scss";
 
 type ImageProps = Pick<ModalImageProps, "data"> & {
@@ -19,6 +20,29 @@ export type Props = {
   onClickMore?: () => void;
   onClickNumButton?: (num: number) => void;
 };
+
+const clickMoreEvent = (pageNum: number) => {
+  gtag.event({
+    action: 'click_more_button',
+    category: 'Photo_sp',
+    label: String(pageNum)
+  });
+}
+
+const clickDetailEvent = () => {
+  gtag.event({
+    action: 'display_detail',
+    category: 'Photo_sp'
+  });
+}
+
+const clickChangeEvent = (num: number) => {
+  gtag.event({
+    action: 'click_chnage_column',
+    category: 'Photo_sp',
+    label: String(num)
+  });
+}
 
 const Image: FC<Pick<ImageProps, "url" | "alt"> & { count: number }> = ({
   url,
@@ -126,6 +150,7 @@ const ImageGrid: FC<Props> = ({
                 type="button"
                 onClick={() => {
                   if (onClickNumButton && columnNum > 1) {
+                    clickChangeEvent(columnNum);
                     onClickNumButton(columnNum - 1);
                   }
                 }}
@@ -157,6 +182,7 @@ const ImageGrid: FC<Props> = ({
                 type="button"
                 onClick={() => {
                   if (onClickNumButton && columnNum < 5) {
+                    clickChangeEvent(columnNum);
                     onClickNumButton(columnNum + 1);
                   }
                 }}
@@ -193,6 +219,7 @@ const ImageGrid: FC<Props> = ({
                   <a
                     onClick={() => {
                       setSelectItem(index);
+                      clickDetailEvent();
                       setIsDesplayedModal(true);
                     }}
                     className={style.ImageGrid__link}
@@ -209,6 +236,7 @@ const ImageGrid: FC<Props> = ({
             <button
               onClick={() => {
                 if (onClickMore) {
+                  clickMoreEvent(page);
                   setDisplayedNextButton(false);
                   setIsLoading(true);
                   setPage(page + 1);

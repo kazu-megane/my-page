@@ -8,10 +8,19 @@ import {
   faGithub,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
+import * as gtag from '~/lib/logics/gtag';
 
 type Props = {
   className?: string;
 };
+
+const clickLinkEvent = (link: string) => {
+  gtag.event({
+    action: 'click_footer_link',
+    category: 'Footer_pc',
+    label: link
+  })
+}
 
 const Footer: FC<Props> = ({ className }) => (
   <Binder classNames={[style.Footer, className]}>
@@ -27,6 +36,7 @@ const Footer: FC<Props> = ({ className }) => (
                 aria-label="twitter"
                 className={style.Footer__linkContent}
                 href={TWITTER_URL}
+                onClick={() => clickLinkEvent(TWITTER_URL)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -41,6 +51,7 @@ const Footer: FC<Props> = ({ className }) => (
                 aria-label="instagram"
                 className={style.Footer__linkContent}
                 href={INSTAGRAM_URL}
+                onClick={() => clickLinkEvent(INSTAGRAM_URL)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -55,6 +66,7 @@ const Footer: FC<Props> = ({ className }) => (
                 aria-label="github"
                 className={style.Footer__linkContent}
                 href={GITHUB_URL}
+                onClick={() => clickLinkEvent(GITHUB_URL)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
