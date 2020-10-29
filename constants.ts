@@ -1,1 +1,1 @@
-export const SP_WIDTH = 710;
+export const SP_WIDTH = 850;
