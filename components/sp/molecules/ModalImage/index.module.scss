@@ -24,10 +24,6 @@
     .ModalImage__close {
       top: 44px;
     }
-
-    .ModalImage__main {
-      padding-top: 80px;
-    }
   }
 
   & &__closeLink {
@@ -83,6 +79,8 @@
   }
 
   & &__imageContent {
+    width: auto;
+    height: auto;
     max-width: 100%;
     max-height: 100%;
     visibility: hidden;
