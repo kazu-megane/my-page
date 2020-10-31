@@ -259,7 +259,7 @@ const ImageGrid: FC<Props> = ({
         {isDisplayedModal && selectItem !== null ? (
           <ModalImage
             {...images[selectItem]}
-            url={`${images[selectItem].url}=w600-h600`}
+            url={`${images[selectItem].url}=w1200-h1200`}
             isInstagram={isInstagram}
             onClick={() => setIsDesplayedModal(false)}
           />
