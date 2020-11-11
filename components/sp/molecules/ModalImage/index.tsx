@@ -23,12 +23,11 @@ export type Props = {
   url: string;
   alt: string;
   data: DataProps;
-  isInstagram?: boolean,
   onClick: () => void;
   className?: string;
 };
 
-const ModalImage: FC<Props> = ({ url, alt, data, isInstagram, onClick, className }) => {
+const ModalImage: FC<Props> = ({ url, alt, data, onClick, className }) => {
   const [isDoneRead, setIsDoneRead] = useState(false);
   let camera = "";
   let foculLength = "";
@@ -77,7 +76,7 @@ const ModalImage: FC<Props> = ({ url, alt, data, isInstagram, onClick, className
   }, []);
 
   return (
-    <Binder classNames={[style.ModalImage, isInstagram ? style['ModalImage--instagram'] : '', className]}>
+    <Binder classNames={[style.ModalImage, className]}>
       <Modal>
         <>
           <p className={style.ModalImage__close}>

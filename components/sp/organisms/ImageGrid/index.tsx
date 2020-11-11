@@ -17,7 +17,6 @@ export type Props = {
   images: ImageProps[];
   columnNum: number;
   hasNext?: boolean;
-  isInstagram?: boolean,
   onClickMore?: () => void;
   onClickNumButton?: (num: number) => void;
 };
@@ -80,7 +79,6 @@ const Image: FC<Pick<ImageProps, "url" | "alt"> & { count: number }> = ({
 
 const ImageGrid: FC<Props> = ({
   className,
-  isInstagram,
   images,
   columnNum,
   hasNext,
@@ -140,7 +138,6 @@ const ImageGrid: FC<Props> = ({
           classNames={[
             style.ImageGrid__columnButtonArea,
             isFixed ? style["ImageGrid__columnButtonArea--fixed"] : "",
-            isInstagram ? style['ImageGrid__columnButtonArea--instagram'] : ''
           ]}
         >
           <div>
@@ -260,7 +257,6 @@ const ImageGrid: FC<Props> = ({
           <ModalImage
             {...images[selectItem]}
             url={`${images[selectItem].url}=w1200-h1200`}
-            isInstagram={isInstagram}
             onClick={() => setIsDesplayedModal(false)}
           />
         ) : null}

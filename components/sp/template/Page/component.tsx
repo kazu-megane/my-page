@@ -14,7 +14,7 @@ import style from "./index.module.scss";
 
 export type Props = Pick<
   ImageGridProps,
-  "images" | "hasNext" | "columnNum" | "onClickMore" | "onClickNumButton" | 'isInstagram'
+  "images" | "hasNext" | "columnNum" | "onClickMore" | "onClickNumButton"
 > &
   Pick<HeaderProps, "onClick"> & {
     pageType: typeof PAGE_TYPE[keyof typeof PAGE_TYPE];
@@ -44,7 +44,6 @@ const PageTemplate: FC<Props> = ({
   columnNum,
   isLoading,
   hasNext,
-  isInstagram,
   onClickMore,
   onClickNumButton,
   onClick,
@@ -73,7 +72,6 @@ const PageTemplate: FC<Props> = ({
                   <ImageGrid
                     images={images}
                     columnNum={columnNum}
-                    isInstagram={isInstagram}
                     hasNext={hasNext}
                     onClickMore={onClickMore}
                     onClickNumButton={onClickNumButton}

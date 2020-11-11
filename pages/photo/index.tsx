@@ -12,11 +12,10 @@ import { PAGE_TYPE } from "~/components/constants";
 
 type Props = {
   isPc: boolean;
-  isInstagram: boolean;
   accessToken: string;
 };
 
-const Photo: NextPage<Props> = ({ isPc, isInstagram, accessToken }) => {
+const Photo: NextPage<Props> = ({ isPc, accessToken }) => {
   const isDesktop = useJudgeDesktop(isPc);
   const dispatch = useDispatch();
 
@@ -32,7 +31,7 @@ const Photo: NextPage<Props> = ({ isPc, isInstagram, accessToken }) => {
       {isDesktop ? (
         <PcPageTemplate pageType={PAGE_TYPE.PHOTO} />
         ) : (
-          <SpPageTemplate pageType={PAGE_TYPE.PHOTO} isInstagram={isInstagram} />
+          <SpPageTemplate pageType={PAGE_TYPE.PHOTO} />
         )}
     </>
   )
@@ -75,13 +74,10 @@ export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps
     const isPc =
       ua && !ua.match(/iphone|android.+mobile|like mac os x|instagram|line/);
 
-    const isInstagram = ua && ua.match(/instagram/);
-
     return {
       props: {
         accessToken: token.access_token,
         isPc,
-        isInstagram
       },
     };
   }

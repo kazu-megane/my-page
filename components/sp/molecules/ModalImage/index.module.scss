@@ -20,15 +20,6 @@
     z-index: 1;
   }
 
-  &.ModalImage--instagram {
-    .ModalImage__close {
-      top: 44px;
-    }
-    .ModalImage__image {
-      margin-top: 40px;
-    }
-  }
-
   & &__closeLink {
       display: block;
       cursor: pointer;
