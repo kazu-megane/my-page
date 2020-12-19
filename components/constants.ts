@@ -12,3 +12,4 @@ export const PAGE_TYPE = {
   VIDEO: "VIDEO",
   CONTACT: "CONTACT",
 } as const;
+export type PageType = typeof PAGE_TYPE[keyof typeof PAGE_TYPE];

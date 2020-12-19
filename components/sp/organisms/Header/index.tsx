@@ -2,13 +2,13 @@ import React, { FC, useState, useEffect } from "react";
 import Binder from "~/components/all/atoms/helpers/Binder";
 import Link from "next/link";
 import ModalHeader from "~/components/sp/molecules/ModalHeader";
-import { PAGE_TYPE } from "~/components/constants";
+import { PAGE_TYPE, PageType } from "~/components/constants";
 import * as gtag from '~/lib/logics/gtag';
 import style from "./index.module.scss";
 
 export type Props = {
   className?: string;
-  onClick?: (content?: typeof PAGE_TYPE[keyof typeof PAGE_TYPE]) => void;
+  onClick?: (content?: PageType) => void;
 };
 
 const clickMenuEvent = () => {
@@ -18,7 +18,7 @@ const clickMenuEvent = () => {
   });
 }
 
-const clickMenuLinkEvent = (page?: typeof PAGE_TYPE[keyof typeof PAGE_TYPE]) => {
+const clickMenuLinkEvent = (page?: PageType) => {
   gtag.event({
     action: 'click_header_link',
     category: 'Header_sp',
