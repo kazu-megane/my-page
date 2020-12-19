@@ -10,6 +10,8 @@ import { fetcher } from "../logics";
 import { setLoading, loadingSelectors } from "~/lib/state/loading";
 import { StateProps } from "~/lib/state";
 
+const PAGE_SIZE = "51";
+
 type PhotoProps = {
   cameraMake: string;
   cameraModel: string;
@@ -113,7 +115,7 @@ export const fetchPhotoItems = (accessToken: string) => async (
                 Authorization: "Bearer " + accessToken,
               },
               body: JSON.stringify({
-                pageSize: "30",
+                pageSize: PAGE_SIZE,
                 albumId:
                   "AC2o_TmhQyq8bUzBgt5nx0_CE5lXSvEv5wbMxKaQMcMot69TbjxhXcUlaDyxKTuaTLxF12up1GGD",
               }),
@@ -151,7 +153,7 @@ export const fetchNextPhotoItems = () => async (
               Authorization: "Bearer " + accessToken,
             },
             body: JSON.stringify({
-              pageSize: "30",
+              pageSize: PAGE_SIZE,
               albumId:
                 "AC2o_TmhQyq8bUzBgt5nx0_CE5lXSvEv5wbMxKaQMcMot69TbjxhXcUlaDyxKTuaTLxF12up1GGD",
               pageToken: nextPageToken,
