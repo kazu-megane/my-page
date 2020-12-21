@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { useRouter } from 'next/router';
 import Binder from "../../../all/atoms/helpers/Binder";
 import style from "./index.module.scss";
@@ -53,7 +53,12 @@ const HeaderLink: FC<LinkProps> = ({ pageType, isCurrent, onClick }) => {
 
 const Header: FC<Props> = ({ onClick = () => { }, className }) => {
   const router = useRouter();
-  const currntPath = router.pathname.split('/')[router.pathname.split('/').length - 1];
+  const currentPath = router.pathname.split('/')[router.pathname.split('/').length - 1];
+  const [currentPage, setCurrentPage] = useState(currentPath ? currentPath.toUpperCase() : PAGE_TYPE.HOME);
+
+  useEffect(() => {
+    setCurrentPage(currentPath ? currentPath.toUpperCase() : PAGE_TYPE.HOME);
+  }, [router])
 
   return (
   <Binder classNames={[style.Header, className]}>
@@ -81,7 +86,14 @@ const Header: FC<Props> = ({ onClick = () => { }, className }) => {
         <div className={style.Header__columnRight}>
           <ul className={style.Header__rightContents}>
               {Object.entries(PAGE_TYPE).map(([_key, value], index) => (
-                <HeaderLink pageType={value} onClick={onClick} isCurrent={currntPath === value.toLowerCase() || (currntPath === '' && value === PAGE_TYPE.HOME)} key={index} />
+                <HeaderLink
+                  pageType={value}
+                  onClick={(pageType) => {
+                    onClick(pageType);
+                    setCurrentPage(pageType || PAGE_TYPE.HOME);
+                  }}
+                  isCurrent={currentPage === value}
+                  key={index} />
               ))}
           </ul>
         </div>
