@@ -203,15 +203,15 @@ const ImageGrid: FC<Props> = ({
         >
           <ul>
             {images.map((image, index) => {
-              if (index === 0 || (index + 1) % 30 === 0) {
+              if (index === 0 || (index + 1) % 50 === 0) {
                 count = 0;
               }
               count++;
               return (
                 <li
                   id={
-                    index > 0 && (index + 1) % 30 === 0
-                      ? `page-${(index + 1) / 30}`
+                    index > 0 && (index + 1) % 50 === 0
+                      ? `page-${(index + 1) / 50}`
                       : ""
                   }
                   className={style.ImageGrid__item}
