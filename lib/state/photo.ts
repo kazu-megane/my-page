@@ -9,8 +9,7 @@ import {
 import { fetcher } from "../logics";
 import { setLoading, loadingSelectors } from "~/lib/state/loading";
 import { StateProps } from "~/lib/state";
-
-const PAGE_SIZE = "51";
+import { PAGE_SIZE } from '~/constants';
 
 type PhotoProps = {
   cameraMake: string;

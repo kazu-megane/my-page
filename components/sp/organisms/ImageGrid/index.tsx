@@ -5,6 +5,7 @@ import ModalImage, {
   Props as ModalImageProps,
 } from "~/components/sp/molecules/ModalImage";
 import * as gtag from '~/lib/logics/gtag';
+import { PAGE_SIZE } from '~/constants';
 import style from "./index.module.scss";
 
 type ImageProps = Pick<ModalImageProps, "data"> & {
@@ -203,15 +204,15 @@ const ImageGrid: FC<Props> = ({
         >
           <ul>
             {images.map((image, index) => {
-              if (index === 0 || (index + 1) % 50 === 0) {
+              if (index === 0 || (index + 1) % PAGE_SIZE - 1 === 0) {
                 count = 0;
               }
               count++;
               return (
                 <li
                   id={
-                    index > 0 && (index + 1) % 50 === 0
-                      ? `page-${(index + 1) / 50}`
+                    index > 0 && (index + 1) % PAGE_SIZE - 1 === 0
+                      ? `page-${(index + 1) / PAGE_SIZE - 1}`
                       : ""
                   }
                   className={style.ImageGrid__item}
