@@ -55,6 +55,10 @@ const Introduction: FC<Props> = ({ className }) => (
             <p className={style.Introduction__biographyItemHeading}>2018.04</p>
             <p className={style.Introduction__biographyItemContent}>ヤフー株式会社 入社</p>
           </li>
+          <li className={style.Introduction__biographyItem}>
+            <p className={style.Introduction__biographyItemHeading}>2020.10</p>
+            <p className={style.Introduction__biographyItemContent}>Designship 2020 運営</p>
+          </li>
         </ul>
       </div>
     </div>
