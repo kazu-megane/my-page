@@ -27,7 +27,7 @@ const Footer: FC<Props> = ({ className }) => (
     <div>
       <div className={style.Footer__contents}>
         <div className={style.Footer__content}>
-          <p className={style.Footer__text}>© 2020 kazuya hashimoto</p>
+          <p className={style.Footer__text}>© 2021 kazuya hashimoto</p>
         </div>
         <div className={style.Footer__content}>
           <ul className={style.Footer__links}>
