@@ -23,12 +23,15 @@ const clickLinkEvent = (link: string) => {
   })
 }
 
-const Footer: FC<Props> = ({ className }) => (
+const Footer: FC<Props> = ({ className }) => {
+  const year = new Date().getFullYear();
+
+  return (
   <Binder classNames={[style.Footer, className]}>
     <div>
       <div className={style.Footer__contents}>
         <div className={style.Footer__content}>
-          <p className={style.Footer__text}>© 2021 kazuya hashimoto</p>
+            <p className={style.Footer__text}>© {year} kazuya hashimoto</p>
         </div>
         <div className={style.Footer__content}>
           <ul className={style.Footer__links}>
@@ -76,6 +79,7 @@ const Footer: FC<Props> = ({ className }) => (
       </div>
     </div>
   </Binder>
-);
+  )
+};
 
 export default Footer;
