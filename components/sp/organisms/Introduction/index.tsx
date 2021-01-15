@@ -24,13 +24,13 @@ const Introduction: FC<Props> = ({ className }) => (
           I was born in Japan in 1994. I'm currently working as front-end enginner and web designer based in Tokyo.
         </p>
         <p className={style.Introduction__profileText}>
-          Now, I'm learning photography and videos as a hobby.
+          Now, I'm learning photography and videos as a hobby. Mainly for snaps, landscape photography and portrait photography.
         </p>
       </div>
       <div className={style.Introduction__profile}>
         <p className={style.Introduction__profileName}>橋本 和也</p>
         <p className={style.Introduction__profileText}>1994年生まれ。フロントエンドエンジニア、デザイナー。</p>
-        <p className={style.Introduction__profileText}>仕事とは関係なく、写真や動画の勉強をしている。</p>
+        <p className={style.Introduction__profileText}>趣味で写真や動画の勉強をしている。主に、スナップや風景写真、ポートレートの撮影をしている。</p>
       </div>
       <div className={style.Introduction__biography}>
         <p className={style.Introduction__biographyTitle}>Biography</p>
