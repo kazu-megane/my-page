@@ -45,10 +45,10 @@ const HomeContent: FC<Props> = ({ className }) => {
         <p className={style.HomeContent__newText}>Kazuya Hashimoto</p>
         <ul className={style.HomeContent__images}>
           <li className={style.HomeContent__image}>
-            <Image src="/home.png" alt="home" loading="eager" unsized priority className={style.HomeContent__imageContent} />
+            <Image src="/home.png" alt="home" loading="eager" layout="fill" priority className={style.HomeContent__imageContent} />
           </li>
           <li className={style.HomeContent__image}>
-            <Image src="/home2.png" alt="home2" loading="eager" unsized priority className={style.HomeContent__imageContent} />
+            <Image src="/home2.png" alt="home2" loading="eager" layout="fill" priority className={style.HomeContent__imageContent} />
             <p className={style.HomeContent__imageDate}>{today}</p>
           </li>
         </ul>

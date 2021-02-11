@@ -43,17 +43,6 @@
         margin-left: -40px;
         transform: translateY(50%);
         animation: Slide 3s $delay-second + 3 forwards;
-
-        &::after {
-            position: absolute;
-            bottom: -1px;
-            left: 20px;
-            content: "";
-            width: 100%;
-            height: 2px;
-            background-color: $global-color-black;
-            box-shadow: 8px 8px 8px rgba(0,0,0,0.1);
-        }
     }
 
     & &__image {
@@ -62,7 +51,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 25%;
+        min-width: 337px;
+        min-height: 337px;
         border: 1px solid $global-color-black;
         box-shadow: 8px 8px 8px rgba(0,0,0,0.1);
 
