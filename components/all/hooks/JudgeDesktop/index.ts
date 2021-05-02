@@ -14,7 +14,6 @@ export const useJudgeDesktop = (isPc: boolean) => {
 
   useEffect(() => {
     if (window) {
-      judgeDevice();
       window.addEventListener("resize", judgeDevice);
     }
   }, []);
