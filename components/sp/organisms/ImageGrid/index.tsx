@@ -159,20 +159,24 @@ const ImageGrid: FC<Props> = ({
               ></button>
             </Binder>
             <ul className={style.ImageGrid__rows}>
-              <ul className={style.ImageGrid__columns}>
-                {Array(columnNum)
-                  .fill(null)
-                  .map((_, index) => (
-                    <li className={style.ImageGrid__column} key={index}></li>
-                  ))}
-              </ul>
-              <ul className={style.ImageGrid__columns}>
-                {Array(columnNum)
-                  .fill(null)
-                  .map((_, index) => (
-                    <li className={style.ImageGrid__column} key={index}></li>
-                  ))}
-              </ul>
+              <li className={style.ImageGrid__columns}>
+                <ul className={style.ImageGrid__rows}>
+                  {Array(columnNum)
+                    .fill(null)
+                    .map((_, index) => (
+                      <li className={style.ImageGrid__column} key={index}></li>
+                    ))}
+                </ul>
+              </li>
+              <li className={style.ImageGrid__columns}>
+                <ul className={style.ImageGrid__rows}>
+                  {Array(columnNum)
+                    .fill(null)
+                    .map((_, index) => (
+                      <li className={style.ImageGrid__column} key={index}></li>
+                    ))}
+                </ul>
+              </li>
             </ul>
             <Binder
               classNames={[

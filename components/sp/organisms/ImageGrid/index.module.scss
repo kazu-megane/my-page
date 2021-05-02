@@ -75,9 +75,9 @@
         }
    }
 
-   & &__columns {
+   & &__columns > .ImageGrid__rows {
        display: flex;
-   }
+    }
 
    & &__columns + &__columns {
        margin-top: 4px;
