@@ -56,7 +56,12 @@ const ModalImage: FC<Props> = ({ url, alt, data, onClick, className }) => {
   }
 
   if (data.photo && data.photo.exposureTime) {
-    exposureTime = `${data.photo.exposureTime} s`;
+    const time = parseFloat(data.photo.exposureTime.split('s')[0]);
+    if(time >= 1) {
+      exposureTime = `${time} s`
+    } else {
+      exposureTime = `1/${Math.floor(1/time)} s`;
+    }
   }
 
   useEffect(() => {
