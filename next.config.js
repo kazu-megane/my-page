@@ -9,6 +9,7 @@ module.exports = withSass({
     localIdentName: "[local]_[hash:base64:5]",
   },
   distDir: "build",
+  webpack5: false,
   webpack(config, _options) {
     // '~'でrootを参照
     config.resolve.alias = {
