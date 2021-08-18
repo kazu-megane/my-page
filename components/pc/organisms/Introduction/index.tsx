@@ -11,7 +11,7 @@ const Introduction: FC<Props> = ({ className }) => (
     <div>
       <p>
         <img
-          src="/myPhoto.png"
+          src="/myPhoto2.JPG"
           alt="myPhoto"
           width="300"
           height="300"
