@@ -6,7 +6,7 @@ export type Props = {
 };
 
 const initialState: Props = {
-  columnNum: 3,
+  columnNum: 1,
 };
 
 const pageSlice = createSlice({
