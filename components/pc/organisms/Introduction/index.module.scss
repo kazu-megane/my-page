@@ -1,60 +1,68 @@
 @import "../../../../style/settings/index";
 
 .Introduction {
-    & &__image {
-        background-color: $global-color-gray;
-        height: auto;
-    }
+  & &__image {
+    background-color: $global-color-gray;
+    height: auto;
+  }
 
-    & &__columns {
-        margin-top: 40px;
-        display: flex;
-    }
+  & &__columns {
+    margin-top: 40px;
+    display: flex;
+  }
 
-    & &__columnLeft {
-        width: 50%;
-    }
+  & &__columnLeft {
+    width: 50%;
+  }
 
-    & &__columnRight {
-        width: 50%;
-        margin-left: 20px;
-    }
+  & &__columnRight {
+    width: 50%;
+    margin-left: 20px;
+  }
 
-    & &__name {
-        font-size: 17px;
-    }
+  & &__name {
+    font-size: 17px;
+  }
 
-    & &__text {
-        margin-top: 24px;
-        line-height: 1.4;
-    }
+  & &__text {
+    margin-top: 24px;
+    line-height: 1.4;
+  }
 
-    & &__text + &__text {
-        margin-top: 12px;
-    }
+  & &__text + &__text {
+    margin-top: 12px;
+  }
 
-    & &__biography {
-        margin-top: 80px;
-    }
+  & &__biography {
+    margin-top: 80px;
+  }
 
-    & &__biographyTitle {
-        font-size: 19px;
-        font-weight: bold;
-    }
+  & &__biographyTitle {
+    font-size: 19px;
+    font-weight: bold;
+  }
 
-    & &__biographyItems {
-        margin-top: 20px;
-    }
+  & &__biographyItems {
+    margin-top: 20px;
+  }
 
-    & &__biographyItem {
-        display: flex;
-    }
+  & &__biographyItem {
+    display: flex;
+  }
 
-    & &__biographyItem + &__biographyItem {
-        margin-top: 12px;
-    }
+  & &__biographyItem + &__biographyItem {
+    margin-top: 12px;
+  }
 
-    & &__biographyItemHeading + &__biographyItemContent {
-        margin-left: 12px;
+  & &__biographyItemHeading + &__biographyItemContent {
+    margin-left: 12px;
+  }
+
+  & &__biographyItemContentLink {
+    color: inherit;
+
+    &:hover {
+      color: $global-color-gray;
     }
+  }
 }

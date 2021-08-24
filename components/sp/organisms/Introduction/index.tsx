@@ -56,7 +56,13 @@ const Introduction: FC<Props> = ({ className }) => (
           <li className={style.Introduction__biographyItem}>
             <p className={style.Introduction__biographyItemHeading}>2017.12</p>
             <p className={style.Introduction__biographyItemContent}>
-              HCG2017シンポジウム 学生優秀インタラクティブ発表賞 受賞
+              <a
+                href="https://www.ieice.org/hcg/symposium2017/sites.google.com/a/hcg-symposium.org/2017/award.html"
+                className={style.Introduction__biographyItemContentLink}
+              >
+                HCG2017シンポジウム
+              </a>{" "}
+              学生優秀インタラクティブ発表賞 受賞
             </p>
           </li>
           <li className={style.Introduction__biographyItem}>
@@ -74,7 +80,25 @@ const Introduction: FC<Props> = ({ className }) => (
           <li className={style.Introduction__biographyItem}>
             <p className={style.Introduction__biographyItemHeading}>2020.10</p>
             <p className={style.Introduction__biographyItemContent}>
-              Designship 2020 運営
+              <a
+                href="https://design-ship.jp/2020"
+                className={style.Introduction__biographyItemContentLink}
+              >
+                Designship 2020
+              </a>{" "}
+              運営
+            </p>
+          </li>
+          <li className={style.Introduction__biographyItem}>
+            <p className={style.Introduction__biographyItemHeading}>2021.10</p>
+            <p className={style.Introduction__biographyItemContent}>
+              <a
+                href="https://design-ship.jp/"
+                className={style.Introduction__biographyItemContentLink}
+              >
+                Designship 2021
+              </a>{" "}
+              運営
             </p>
           </li>
         </ul>

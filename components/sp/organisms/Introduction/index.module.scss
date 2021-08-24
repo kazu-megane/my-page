@@ -1,63 +1,67 @@
 @import "../../../../style/settings/index";
 
 .Introduction {
-    & &__image {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  & &__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    & &__imageContent {
-        height: auto;
-        max-width: 100%;
-    }
+  & &__imageContent {
+    height: auto;
+    max-width: 100%;
+  }
 
-    & &__profile {
-        margin-top: 12px;
-    }
+  & &__profile {
+    margin-top: 12px;
+  }
 
-    & &__profile + &__profile {
-        margin-top: 24px;
-    }
+  & &__profile + &__profile {
+    margin-top: 24px;
+  }
 
-    & &__profileName {
-        font-size: 15px;
-    }
+  & &__profileName {
+    font-size: 15px;
+  }
 
-    & &__profileText {
-        font-size: 11px;
-        margin-top: 16px;
-        line-height: 1.4;
-    }
+  & &__profileText {
+    font-size: 11px;
+    margin-top: 16px;
+    line-height: 1.4;
+  }
 
-    & &__profileText + &__profileText {
-        margin-top: 8px;
-    }
+  & &__profileText + &__profileText {
+    margin-top: 8px;
+  }
 
-    & &__biography {
-        margin-top: 40px;
-    }
+  & &__biography {
+    margin-top: 40px;
+  }
 
-    & &__biographyTitle {
-        font-size: 17px;
-        font-weight: bold;
-    }
+  & &__biographyTitle {
+    font-size: 17px;
+    font-weight: bold;
+  }
 
-    & &__biographyItems {
-        margin-top: 16px;
-    }
+  & &__biographyItems {
+    margin-top: 16px;
+  }
 
-    & &__biographyItem {
-        display: flex;
-        font-size: 11px;
-        line-height: 1.4;
-    }
+  & &__biographyItem {
+    display: flex;
+    font-size: 11px;
+    line-height: 1.4;
+  }
 
-    & &__biographyItem + &__biographyItem {
-        margin-top: 8px;
-    }
+  & &__biographyItem + &__biographyItem {
+    margin-top: 8px;
+  }
 
-    & &__biographyItemHeading + &__biographyItemContent {
-        margin-left: 8px;
-    }
+  & &__biographyItemHeading + &__biographyItemContent {
+    margin-left: 8px;
+  }
+
+  & &__biographyItemContentLink {
+    color: inherit;
+  }
 }
