@@ -1,14 +1,14 @@
-import React from 'react';
-import Head from 'next/head';
-import { NextPage, GetServerSideProps } from 'next';
-import { useRouter } from 'next/router'
+import React from "react";
+import Head from "next/head";
+import { NextPage, GetServerSideProps } from "next";
+import { useRouter } from "next/router";
 import { useJudgeDesktop } from "~/components/all/hooks/JudgeDesktop";
 import PcWorkDetailTemplate from "~/components/pc/template/WorkDetail";
 import SpWorkDetailTemplate from "~/components/sp/template/WorkDetail";
 import { wrapper } from "~/lib/strore";
 
 const WorkDetail: NextPage<{ isPc: boolean }> = ({ isPc }) => {
-  const router = useRouter()
+  const router = useRouter();
   const { id } = router.query;
   const isDesktop = useJudgeDesktop(isPc);
 
@@ -19,16 +19,22 @@ const WorkDetail: NextPage<{ isPc: boolean }> = ({ isPc }) => {
   return (
     <>
       <Head>
-        <title>KAZUYA HASHIMOTO | WORK | {Array.isArray(id) ? id[0] : id}</title>
+        <title>
+          KAZUYA HASHIMOTO | WORK | {Array.isArray(id) ? id[0] : id}
+        </title>
       </Head>
-      {isDesktop ? <PcWorkDetailTemplate id={Array.isArray(id) ? id[0] : id} /> : <SpWorkDetailTemplate id={Array.isArray(id) ? id[0] : id} />}
+      {isDesktop ? (
+        <PcWorkDetailTemplate id={Array.isArray(id) ? id[0] : id} />
+      ) : (
+        <SpWorkDetailTemplate id={Array.isArray(id) ? id[0] : id} />
+      )}
     </>
   );
-}
+};
 
-export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
-  async (context) => {
-    const ua = context.req.headers["user-agent"]?.toLowerCase();
+export const getServerSideProps: GetServerSideProps =
+  wrapper.getServerSideProps(() => async ({ req }) => {
+    const ua = req.headers["user-agent"]?.toLowerCase();
     const isPc =
       ua && !ua.match(/iphone|android.+mobile|like mac os x|instagram|line/);
 
@@ -37,7 +43,6 @@ export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps
         isPc,
       },
     };
-  }
-);
+  });
 
 export default WorkDetail;

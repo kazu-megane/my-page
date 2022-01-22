@@ -10,7 +10,10 @@
       "es7",
       "es2017"
     ],
-    "rootDirs": ["components", "stories"],
+    "rootDirs": [
+      "components",
+      "stories"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -24,8 +27,11 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
-      "~/*": ["./*"]
-    }
+      "~/*": [
+        "./*"
+      ]
+    },
+    "incremental": true
   },
   "exclude": [
     "node_modules",

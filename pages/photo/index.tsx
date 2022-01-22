@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Head from 'next/head';
+import Head from "next/head";
 import { useDispatch, useSelector } from "react-redux";
 import PcPageTemplate from "~/components/pc/template/Page";
 import { NextPage, GetServerSideProps } from "next";
@@ -30,15 +30,15 @@ const Photo: NextPage<Props> = ({ isPc, accessToken }) => {
       </Head>
       {isDesktop ? (
         <PcPageTemplate pageType={PAGE_TYPE.PHOTO} />
-        ) : (
-          <SpPageTemplate pageType={PAGE_TYPE.PHOTO} />
-        )}
+      ) : (
+        <SpPageTemplate pageType={PAGE_TYPE.PHOTO} />
+      )}
     </>
-  )
+  );
 };
 
-export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
-  async (context) => {
+export const getServerSideProps: GetServerSideProps =
+  wrapper.getServerSideProps(() => async ({ req }) => {
     // accessTokenを取得
     const CLIENT_ID = process.env.CLIENT_ID;
     const CLIENT_SECRET = process.env.CLIENT_SECRET;
@@ -70,7 +70,7 @@ export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps
     const token: any = await refreshAccessToken();
 
     // SSR時のua判定をする
-    const ua = context.req.headers["user-agent"]?.toLowerCase();
+    const ua = req.headers["user-agent"]?.toLowerCase();
     const isPc =
       ua && !ua.match(/iphone|android.+mobile|like mac os x|instagram|line/);
 
@@ -80,7 +80,6 @@ export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps
         isPc,
       },
     };
-  }
-);
+  });
 
 export default Photo;

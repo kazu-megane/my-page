@@ -7,7 +7,9 @@ import { rootReducer } from "./state";
 const configureStore = () => {
   const store = createStore(
     rootReducer,
-    process.env.NODE_ENV === 'development' ? composeWithDevTools(applyMiddleware(thunkMiddleware)) : applyMiddleware(thunkMiddleware)
+    process.env.NODE_ENV === "development"
+      ? composeWithDevTools(applyMiddleware(thunkMiddleware))
+      : applyMiddleware(thunkMiddleware)
   );
   return store;
 };

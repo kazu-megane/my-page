@@ -1,3 +1,3 @@
 module.exports = {
-  plugins: [require("autoprefixer"), require("postcss-csso")],
+  plugins: ["autoprefixer", "postcss-csso"],
 };
