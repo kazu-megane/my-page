@@ -1,6 +1,6 @@
 import React from "react";
-import { NextPage, GetServerSideProps } from "next";
-import Head from 'next/head';
+import { NextPage, GetServerSideProps, GetServerSidePropsContext } from "next";
+import Head from "next/head";
 import { wrapper } from "~/lib/strore";
 import PcPageTemplate from "~/components/pc/template/Page";
 import SpPageTemplate from "~/components/sp/template/Page";
@@ -17,16 +17,16 @@ const About: NextPage<{ isPc: boolean }> = ({ isPc }) => {
       </Head>
       {isDesktop ? (
         <PcPageTemplate pageType={PAGE_TYPE.ABOUT} />
-        ) : (
+      ) : (
         <SpPageTemplate pageType={PAGE_TYPE.ABOUT} />
-        )}
+      )}
     </>
-  )
+  );
 };
 
-export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
-  async (context) => {
-    const ua = context.req.headers["user-agent"]?.toLowerCase();
+export const getServerSideProps: GetServerSideProps =
+  wrapper.getServerSideProps(() => async ({ req }) => {
+    const ua = req.headers["user-agent"]?.toLowerCase();
     const isPc =
       ua && !ua.match(/iphone|android.+mobile|like mac os x|instagram|line/);
 
@@ -35,7 +35,6 @@ export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps
         isPc,
       },
     };
-  }
-);
+  });
 
 export default About;

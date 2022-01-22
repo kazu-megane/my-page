@@ -1,5 +1,5 @@
 import React from "react";
-import Head from 'next/head';
+import Head from "next/head";
 import { NextPage, GetServerSideProps } from "next";
 import { wrapper } from "~/lib/strore";
 import PcPageTemplate from "~/components/pc/template/Page";
@@ -17,16 +17,16 @@ const Contact: NextPage<{ isPc: boolean }> = ({ isPc }) => {
       </Head>
       {isDesktop ? (
         <PcPageTemplate pageType={PAGE_TYPE.CONTACT} />
-        ) : (
+      ) : (
         <SpPageTemplate pageType={PAGE_TYPE.CONTACT} />
-        )}
+      )}
     </>
-  )
+  );
 };
 
-export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(
-  async (context) => {
-    const ua = context.req.headers["user-agent"]?.toLowerCase();
+export const getServerSideProps: GetServerSideProps =
+  wrapper.getServerSideProps(() => async ({ req }) => {
+    const ua = req.headers["user-agent"]?.toLowerCase();
     const isPc =
       ua && !ua.match(/iphone|android.+mobile|like mac os x|instagram|line/);
 
@@ -35,7 +35,6 @@ export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps
         isPc,
       },
     };
-  }
-);
+  });
 
 export default Contact;

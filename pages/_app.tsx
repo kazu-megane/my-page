@@ -1,25 +1,24 @@
 import React, { useEffect, FC } from "react";
 import "../style/index.scss";
 import Head from "next/head";
-import { useRouter } from 'next/router';
-import { AppContext } from "next/app";
-import { WrapperProps } from "next-redux-wrapper";
+import { useRouter } from "next/router";
+import { AppContext, AppProps } from "next/app";
 import { wrapper } from "~/lib/strore";
-import * as gtag from '~/lib/logics/gtag';
+import * as gtag from "~/lib/logics/gtag";
 
-type MyAppProps = WrapperProps & AppContext;
+type MyAppProps = AppProps & AppContext;
 
 const MyApp: FC<MyAppProps> = ({ Component, pageProps }) => {
   const router = useRouter();
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      gtag.pageview(url)
-    }
-    router.events.on('routeChangeComplete', handleRouteChange)
+      gtag.pageview(url);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
 
   return (
     <>
@@ -33,6 +32,6 @@ const MyApp: FC<MyAppProps> = ({ Component, pageProps }) => {
       <Component {...pageProps} />
     </>
   );
-}
+};
 
 export default wrapper.withRedux(MyApp);

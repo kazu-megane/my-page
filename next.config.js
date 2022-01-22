@@ -1,13 +1,7 @@
-const withSass = require("@zeit/next-sass");
 const path = require("path");
 require("dotenv").config();
 
-module.exports = withSass({
-  cssModules: true,
-  cssLoaderOptions: {
-    importLoaders: 2,
-    localIdentName: "[local]_[hash:base64:5]",
-  },
+module.exports = {
   distDir: "build",
   webpack(config, _options) {
     // '~'でrootを参照
@@ -23,4 +17,4 @@ module.exports = withSass({
     CLIENT_SECRET: process.env.CLIENT_SECRET,
     REFRESH_TOKEN: process.env.REFRESH_TOKEN,
   },
-});
+};
