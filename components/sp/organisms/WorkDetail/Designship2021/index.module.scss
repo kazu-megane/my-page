@@ -1,0 +1,118 @@
+@import "../../../../../style/settings/index";
+
+.Designship {
+  padding-bottom: 40px;
+
+  & &__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & &__imageContent {
+    width: 100%;
+    height: auto;
+  }
+
+  & &__title {
+    margin-top: 16px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  & &__year {
+    margin-top: 12px;
+  }
+
+  & &__role {
+    margin-top: 8px;
+  }
+
+  & &__link {
+    margin-top: 16px;
+  }
+
+  & &__linkContent {
+    color: inherit;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  & &__description {
+    margin-top: 40px;
+  }
+
+  & &__descriptionTitle {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  & &__descriptionTheme {
+    margin-top: 20px;
+  }
+
+  & &__descriptionThemeTitle {
+    display: block;
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  & &__descriptionThemeTexts {
+    display: block;
+    margin-top: 16px;
+  }
+
+  & &__descriptionThemeText {
+    display: block;
+    line-height: 1.4;
+    font-size: 12px;
+  }
+
+  & &__descriptionThemeText + &__descriptionThemeText {
+    margin-top: 12px;
+  }
+
+  & &__siteImages {
+    margin-top: 20px;
+  }
+
+  & &__siteImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & &__siteImage + &__siteImage {
+    margin-top: 10px;
+  }
+
+  & &__siteImageContent {
+    width: 100%;
+    height: auto;
+  }
+
+  & &__siteDescription {
+    margin-top: 40px;
+  }
+
+  & &__siteDescriptionTitle {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+
+  & &__siteDescriptionItems {
+    margin-top: 20px;
+  }
+
+  & &__siteDescriptionItem {
+    font-size: 12px;
+  }
+
+  & &__siteDescriptionItem + &__siteDescriptionItem {
+    margin-top: 12px;
+  }
+}
