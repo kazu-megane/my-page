@@ -27,7 +27,7 @@ const Designship: FC = () => (
     </p>
     <div className={style.Designship__description}>
       <p className={style.Designship__descriptionTitle}>
-        物語の力で「デザイン」の壁を越える。
+        物語の力で「デザイン」の壁を越える
       </p>
       <p className={style.Designship__descriptionTheme}>
         <span className={style.Designship__descriptionThemeTitle}>
@@ -76,16 +76,44 @@ const Designship: FC = () => (
         </p>
         <ul className={style.Designship__siteDescriptionItems}>
           <li className={style.Designship__siteDescriptionItem}>
-            タイムテーブルをサイト内に実装
+            <p className={style.Designship__siteDescriptionItemHeading}>
+              タイムテーブルをサイト内に実装
+            </p>
+            <p className={style.Designship__siteDescriptionItemText}>
+              昨年まで、別サイトに飛ばしていたタイムテーブルを配信サイト内に実装。現在何のセッションが行われているのか把握できるようにしている。
+            </p>
           </li>
           <li className={style.Designship__siteDescriptionItem}>
-            次のセッション予告
+            <p className={style.Designship__siteDescriptionItemHeading}>
+              次のセッション予告
+            </p>
+            <p className={style.Designship__siteDescriptionItemText}>
+              休憩時に次のセッションが何なのかわかる仕組みを導入。
+            </p>
           </li>
           <li className={style.Designship__siteDescriptionItem}>
-            スマートフォンでも視聴しやすい配信サイト
+            <p className={style.Designship__siteDescriptionItemHeading}>
+              モバイルファーストなUX
+            </p>
+            <p className={style.Designship__siteDescriptionItemText}>
+              スマートフォンで視聴した際にも、操作しやすいUIに刷新。
+            </p>
           </li>
           <li className={style.Designship__siteDescriptionItem}>
-            運営からのアナウンス枠
+            <p className={style.Designship__siteDescriptionItemHeading}>
+              運営からのアナウンス枠
+            </p>
+            <p className={style.Designship__siteDescriptionItemText}>
+              昨年まで、運営からのアナウンスをチャットで流していたが、別枠でアナウンスを流せる仕組みを導入。
+            </p>
+          </li>
+          <li className={style.Designship__siteDescriptionItem}>
+            <p className={style.Designship__siteDescriptionItemHeading}>
+              スポンサーエリアをリッチ化
+            </p>
+            <p className={style.Designship__siteDescriptionItemText}>
+              スポンサーセッション時にはセッションで登壇している企業のスポンサーバナーが強調して表示されるように刷新。
+            </p>
           </li>
         </ul>
       </div>

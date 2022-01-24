@@ -115,4 +115,18 @@
   & &__siteDescriptionItem + &__siteDescriptionItem {
     margin-top: 12px;
   }
+
+  & &__siteDescriptionItemHeading {
+    font-weight: bold;
+    flex-shrink: 0;
+    flex-basis: 15rem;
+    font-weight: bold;
+  }
+
+  & &__siteDescriptionItemText {
+    font-size: 12px;
+    margin-top: 8px;
+    flex-grow: 1;
+    line-height: 1.4;
+  }
 }

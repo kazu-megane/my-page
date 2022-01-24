@@ -29,7 +29,7 @@ const Designship: FC = () => (
     </p>
     <div className={style.Designship__description}>
       <p className={style.Designship__descriptionTitle}>
-        物語の力で「デザイン」の壁を越える。
+        物語の力で「デザイン」の壁を越える
       </p>
       <p className={style.Designship__descriptionTheme}>
         <span className={style.Designship__descriptionThemeTitle}>
