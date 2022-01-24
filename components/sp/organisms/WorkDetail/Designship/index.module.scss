@@ -16,7 +16,7 @@
 
   & &__title {
     margin-top: 16px;
-    font-size: 19px;
+    font-size: 20px;
     font-weight: bold;
   }
 
@@ -29,7 +29,7 @@
   }
 
   & &__link {
-    margin-top: 12px;
+    margin-top: 16px;
   }
 
   & &__linkContent {
@@ -46,7 +46,7 @@
 
   & &__descriptionTitle {
     text-align: center;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: bold;
   }
 
@@ -54,10 +54,21 @@
     margin-top: 20px;
   }
 
+  & &__descriptionThemeTitle {
+    display: block;
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  & &__descriptionThemeTexts {
+    display: block;
+    margin-top: 16px;
+  }
+
   & &__descriptionThemeText {
     display: block;
     line-height: 1.4;
-    font-size: 11px;
+    font-size: 12px;
   }
 
   & &__descriptionThemeText + &__descriptionThemeText {
@@ -75,7 +86,7 @@
   }
 
   & &__noveltyImage + &__noveltyImage {
-    margin-top: 10px;
+    margin-top: 12px;
   }
 
   & &__noveltyImageContent {
@@ -89,7 +100,7 @@
 
   & &__noveltyDescriptionTitle {
     text-align: center;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: bold;
   }
 
@@ -109,7 +120,7 @@
   }
 
   & &__noveltyItemText {
-    font-size: 11px;
+    font-size: 12px;
     margin-top: 8px;
     flex-grow: 1;
     line-height: 1.4;
@@ -126,7 +137,7 @@
   }
 
   & &__siteImage + &__siteImage {
-    margin-top: 10px;
+    margin-top: 12px;
   }
 
   & &__siteImageContent {
@@ -139,7 +150,7 @@
   }
 
   & &__siteDescriptionTitle {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: bold;
     line-height: 1.4;
   }
@@ -149,10 +160,10 @@
   }
 
   & &__siteDescriptionItem {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   & &__siteDescriptionItem + &__siteDescriptionItem {
-    margin-top: 10px;
+    margin-top: 12px;
   }
 }

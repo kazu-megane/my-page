@@ -1,40 +1,40 @@
 @import "../../../../style/settings/index";
 
 .Footer {
-    color: $global-color-gray;
+  color: $global-color-gray;
 
-    & &__contents {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+  & &__contents {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  & &__content + &__content {
+    margin-left: 10px;
+  }
+
+  & &__text {
+    font-size: 16px;
+  }
+
+  & &__links {
+    display: flex;
+  }
+
+  & &__link + &__link {
+    margin-left: 20px;
+  }
+
+  & &__linkContent {
+    display: block;
+    color: inherit;
+
+    &:hover {
+      opacity: 0.8;
     }
+  }
 
-    & &__content + &__content {
-        margin-left: 10px;
-    }
-
-    & &__text {
-        font-size: 15px;
-    }
-
-    & &__links {
-        display: flex;
-    }
-
-    & &__link + &__link {
-        margin-left: 20px;
-    }
-
-    & &__linkContent {
-        display: block;
-        color: inherit;
-
-        &:hover {
-            opacity: 0.8;
-        }
-    }
-
-    & &__linkIcon {
-        font-size: 19px;
-    }
+  & &__linkIcon {
+    font-size: 20px;
+  }
 }

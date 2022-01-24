@@ -21,29 +21,29 @@
   }
 
   & &__name {
-    font-size: 17px;
+    font-size: 18px;
   }
 
   & &__text {
-    margin-top: 24px;
+    margin-top: 16px;
     line-height: 1.4;
   }
 
   & &__text + &__text {
-    margin-top: 12px;
+    margin-top: 8px;
   }
 
   & &__biography {
-    margin-top: 80px;
+    margin-top: 40px;
   }
 
   & &__biographyTitle {
-    font-size: 19px;
+    font-size: 20px;
     font-weight: bold;
   }
 
   & &__biographyItems {
-    margin-top: 20px;
+    margin-top: 16px;
   }
 
   & &__biographyItem {
@@ -51,7 +51,7 @@
   }
 
   & &__biographyItem + &__biographyItem {
-    margin-top: 12px;
+    margin-top: 8px;
   }
 
   & &__biographyItemHeading + &__biographyItemContent {

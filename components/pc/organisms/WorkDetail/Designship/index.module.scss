@@ -16,13 +16,13 @@
 
   & &__title {
     margin-top: 20px;
-    font-size: 25px;
+    font-size: 26px;
     font-weight: bold;
   }
 
   & &__year {
-    margin-top: 16px;
-    font-size: 15px;
+    margin-top: 12px;
+    font-size: 16px;
   }
 
   & &__role {
@@ -47,12 +47,22 @@
 
   & &__descriptionTitle {
     text-align: center;
-    font-size: 21px;
+    font-size: 22px;
     font-weight: bold;
   }
 
   & &__descriptionTheme {
     margin-top: 40px;
+    display: flex;
+    align-items: center;
+  }
+
+  & &__descriptionThemeTitle {
+    font-size: 26px;
+  }
+
+  & &__descriptionThemeTexts {
+    margin-left: 80px;
   }
 
   & &__descriptionThemeText {
@@ -93,7 +103,7 @@
 
   & &__noveltyDescriptionTitle {
     text-align: center;
-    font-size: 21px;
+    font-size: 22px;
     font-weight: bold;
   }
 
@@ -106,7 +116,7 @@
   }
 
   & &__noveltyDescriptionItem + &__noveltyDescriptionItem {
-    margin-top: 20px;
+    margin-top: 16px;
   }
 
   & &__noveltyItemHeading {
@@ -147,7 +157,7 @@
 
   & &__siteDescriptionTitle {
     text-align: center;
-    font-size: 21px;
+    font-size: 22px;
     font-weight: bold;
   }
 

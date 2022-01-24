@@ -6,6 +6,16 @@
   color: $global-color-black;
 }
 
+html,
+body,
+#main {
+  font-size: inherit;
+}
+
+body {
+  line-height: inherit;
+}
+
 button {
   background-color: transparent;
   border: none;

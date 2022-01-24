@@ -1,37 +1,33 @@
 @import "../../../../style/settings/index";
 
 .Footer {
-    padding: 32px 28px;
-    color: $global-color-gray;
+  padding: 32px 28px;
+  color: $global-color-gray;
 
-    & &__contents {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+  & &__contents {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    & &__content + &__content {
-        margin-left: 10px;
-    }
+  & &__content + &__content {
+    margin-left: 10px;
+  }
 
-    & &__text {
-        font-size: 13px;
-    }
+  & &__links {
+    display: flex;
+  }
 
-    & &__links {
-        display: flex;
-    }
+  & &__link + &__link {
+    margin-left: 20px;
+  }
 
-    & &__link + &__link {
-        margin-left: 20px;
-    }
+  & &__linkContent {
+    display: block;
+    color: inherit;
+  }
 
-    & &__linkContent {
-        display: block;
-        color: inherit;
-    }
-
-    & &__linkIcon {
-        font-size: 15px;
-    }
+  & &__linkIcon {
+    font-size: 16px;
+  }
 }

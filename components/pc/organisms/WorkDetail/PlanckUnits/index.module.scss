@@ -17,13 +17,13 @@
 
   & &__title {
     margin-top: 20px;
-    font-size: 25px;
+    font-size: 26px;
     font-weight: bold;
   }
 
   & &__year {
-    margin-top: 16px;
-    font-size: 15px;
+    margin-top: 12px;
+    font-size: 16px;
   }
 
   & &__role {
@@ -48,7 +48,7 @@
 
   & &__descriptionTitle {
     text-align: center;
-    font-size: 21px;
+    font-size: 22px;
     font-weight: bold;
   }
 
@@ -71,7 +71,7 @@
 
   & &__brochureDescriptionTitle {
     text-align: center;
-    font-size: 21px;
+    font-size: 22px;
     font-weight: bold;
   }
 
@@ -84,7 +84,7 @@
   }
 
   & &__brochureDescriptionItem + &__brochureDescriptionItem {
-    margin-top: 20px;
+    margin-top: 16px;
   }
 
   & &__brochureItemHeading {

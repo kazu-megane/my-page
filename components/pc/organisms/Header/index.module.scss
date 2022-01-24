@@ -1,53 +1,51 @@
 @import "../../../../style/settings/index";
 
 .Header {
-    & &__columns {
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-    }
+  & &__columns {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
 
-    & &__columnLeft {
-        flex-shrink: 0;
-    }
+  & &__columnLeft {
+    flex-shrink: 0;
+  }
 
-    & &__columnRight {
-        margin-left: 28px;
-    }
+  & &__columnRight {
+    margin-left: 28px;
+  }
 
-    & &__columnLink {
-        display: flex;
-        align-items: center;
-        color: inherit;
-        text-decoration: inherit;
-    }
+  & &__columnLink {
+    display: flex;
+    align-items: center;
+    color: inherit;
+    text-decoration: inherit;
+  }
 
-    & &__logo {
-        height: auto;
-    }
+  & &__logo {
+    height: auto;
+  }
 
-    & &__rightContents {
-        display: flex;
-    }
+  & &__rightContents {
+    display: flex;
+  }
 
-    & &__rightContent + &__rightContent {
-        margin-left: 14px;
-        padding-left: 14px;
-        border-left: 1px solid $global-color-gray;
-    }
+  & &__rightContent + &__rightContent {
+    margin-left: 14px;
+    padding-left: 14px;
+    border-left: 1px solid $global-color-gray;
+  }
 
-    & &__link {
-        color: $global-color-gray;
-        text-decoration: inherit;
-        font-size: 13px;
+  & &__link {
+    color: $global-color-gray;
+    text-decoration: inherit;
 
-        &:hover {
-            opacity: 0.5;
-        }
+    &:hover {
+      opacity: 0.5;
     }
+  }
 
-    & &__text {
-        font-size: 13px;
-        font-weight: bold;
-    }
+  & &__text {
+    font-weight: bold;
+  }
 }
