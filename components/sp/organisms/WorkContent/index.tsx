@@ -25,7 +25,7 @@ const WorkContent: FC<Props> = ({ onClick, className }) => (
           <Link href="/work/[id]" as="/work/Designship2021">
             <a
               onClick={() => {
-                clickDetailEvent("Designship");
+                clickDetailEvent("Designship2021");
                 if (onClick) {
                   onClick();
                 }
