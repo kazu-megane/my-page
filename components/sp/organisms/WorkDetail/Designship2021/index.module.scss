@@ -1,6 +1,6 @@
 @import "../../../../../style/settings/index";
 
-.Designship {
+.Designship2021 {
   padding-bottom: 40px;
 
   & &__image {
@@ -75,51 +75,37 @@
     margin-top: 12px;
   }
 
-  & &__noveltyImages {
-    margin-top: 20px;
-  }
-
-  & &__noveltyImage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  & &__noveltyImage + &__noveltyImage {
-    margin-top: 12px;
-  }
-
-  & &__noveltyImageContent {
-    width: 100%;
-    height: auto;
-  }
-
-  & &__noveltyDescription {
+  & &__siteDescription {
     margin-top: 40px;
   }
 
-  & &__noveltyDescriptionTitle {
-    text-align: center;
+  & &__siteDescriptionTitle {
     font-size: 18px;
     font-weight: bold;
+    line-height: 1.4;
+    text-align: center;
   }
 
-  & &__noveltyDescriptionItems {
+  & &__siteDescriptionItems {
     margin-top: 20px;
   }
 
-  & &__noveltyDescriptionItem + &__noveltyDescriptionItem {
+  & &__siteDescriptionItem {
+    font-size: 12px;
+  }
+
+  & &__siteDescriptionItem + &__siteDescriptionItem {
     margin-top: 12px;
   }
 
-  & &__noveltyItemHeading {
+  & &__siteDescriptionItemHeading {
     font-weight: bold;
     flex-shrink: 0;
-    flex-basis: 150px;
+    flex-basis: 15rem;
     font-weight: bold;
   }
 
-  & &__noveltyItemText {
+  & &__siteDescriptionItemText {
     font-size: 12px;
     margin-top: 8px;
     flex-grow: 1;
@@ -137,7 +123,7 @@
   }
 
   & &__siteImage + &__siteImage {
-    margin-top: 12px;
+    margin-top: 10px;
   }
 
   & &__siteImageContent {
@@ -145,25 +131,44 @@
     height: auto;
   }
 
-  & &__siteDescription {
+  & &__photographDescription {
     margin-top: 40px;
   }
 
-  & &__siteDescriptionTitle {
+  & &__photographDescriptionTitle {
     font-size: 18px;
     font-weight: bold;
     line-height: 1.4;
+    text-align: center;
   }
 
-  & &__siteDescriptionItems {
+  & &__photographDescriptionItems {
     margin-top: 20px;
   }
 
-  & &__siteDescriptionItem {
+  & &__photographDescriptionItem {
     font-size: 12px;
   }
 
-  & &__siteDescriptionItem + &__siteDescriptionItem {
+  & &__photographDescriptionItem + &__photographDescriptionItem {
     margin-top: 12px;
+  }
+
+  & &__photographDescriptionItemHeading {
+    font-weight: bold;
+    flex-shrink: 0;
+    flex-basis: 15rem;
+    font-weight: bold;
+  }
+
+  & &__photographDescriptionItemText {
+    font-size: 12px;
+    margin-top: 8px;
+    flex-grow: 1;
+    line-height: 1.4;
+  }
+
+  & &__photographDescriptionTweets {
+    margin-top: 20px;
   }
 }

@@ -1,33 +1,32 @@
 @import "../../../../style/settings/index";
 
 .SocialLinks {
-    & &__headerText {
-        font-size: 15px;
-        font-weight: bold;
+  & &__headerText {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  & &__contents {
+    display: flex;
+    margin-top: 12px;
+  }
+
+  & &__content + &__content {
+    margin-left: 10px;
+
+    &::before {
+      content: "/";
+      display: inline-block;
+      padding-right: 10px;
     }
+  }
 
-    & &__contents {
-        display: flex;
-        margin-top: 20px;
+  & &__link {
+    font-size: 16px;
+    color: inherit;
+
+    &:hover {
+      opacity: 0.8;
     }
-
-
-    & &__content + &__content {
-        margin-left: 10px;
-
-        &::before {
-            content: '/';
-            display: inline-block;
-            padding-right: 10px;
-        }
-    }
-
-    & &__link {
-        font-size: 17px;
-        color: inherit;
-
-        &:hover {
-            opacity: 0.8;
-        }
-    }
+  }
 }

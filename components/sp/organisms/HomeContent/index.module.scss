@@ -1,102 +1,102 @@
 @import "../../../../style/settings/index";
 
 .HomeContent {
-    $delay-second: 3s;
+  $delay-second: 3s;
 
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & &__text,
+  & &__preText,
+  & &__newText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  & &__preText {
+    animation: FadeOut 2s 1s forwards;
+  }
+
+  & &__text {
+    opacity: 0;
+    animation: FadeIn 2s 2s forwards, FadeOut 2s $delay-second + 2 forwards;
+  }
+
+  & &__newText {
+    opacity: 0;
+    animation: FadeIn 3s $delay-second + 3 forwards;
+  }
+
+  & &__images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  & &__image {
     position: relative;
+    min-width: 197px;
+    min-height: 197px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid $global-color-black;
 
-    & &__text,
-    & &__preText,
-    & &__newText {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        text-align: center;
-        font-size: 11px;
-        font-weight: bold;
+    &::before {
+      position: absolute;
+      content: "";
+      width: 90%;
+      height: 90%;
+      background-color: $global-color-black;
     }
+  }
 
-    & &__preText {
-        animation: FadeOut 2s 1s forwards;
-    }
+  & &__image + &__image {
+    margin-top: 80px;
+  }
 
-    & &__text {
-        opacity: 0;
-        animation: FadeIn 2s 2s forwards, FadeOut 2s $delay-second + 2 forwards;
-    }
+  & &__imageContent {
+    max-width: 100%;
+    height: auto;
+    opacity: 0;
+    animation: FadeIn 3s $delay-second + 3 forwards;
+  }
 
-    & &__newText {
-        opacity: 0;
-        animation: FadeIn 3s $delay-second + 3 forwards;
-    }
-
-    & &__images {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        overflow: hidden;
-    }
-
-    & &__image {
-        position: relative;
-        min-width: 197px;
-        min-height: 197px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid $global-color-black;
-
-        &::before {
-            position: absolute;
-            content: "";
-            width: 90%;
-            height: 90%;
-            background-color: $global-color-black;
-        }
-    }
-
-    & &__image + &__image {
-        margin-top: 80px;
-    }
-
-    & &__imageContent {
-        max-width: 100%;
-        height: auto;
-        opacity: 0;
-        animation: FadeIn 3s $delay-second + 3 forwards;
-    }
-
-    & &__imageDate {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateY(-50%) translateX(-50%);
-        font-size: 11px;
-        font-weight: bold;
-        color: $global-color-white;
-        opacity: 0;
-        animation: FadeIn 3s $delay-second + 3 forwards;
-    }
+  & &__imageDate {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    font-size: 12px;
+    font-weight: bold;
+    color: $global-color-white;
+    opacity: 0;
+    animation: FadeIn 3s $delay-second + 3 forwards;
+  }
 }
 
 @keyframes FadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes FadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
