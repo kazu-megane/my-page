@@ -5,7 +5,7 @@ const Designship2020: FC = () => (
   <div className={style.Designship2020}>
     <p className={style.Designship2020__image}>
       <img
-        src="/work/Designship2020.png"
+        src="/work/designship2020.png"
         alt="Designship2020"
         width="330"
         height="180"
@@ -143,7 +143,7 @@ const Designship2020: FC = () => (
       <ul className={style.Designship2020__siteImages}>
         <li className={style.Designship2020__siteImage}>
           <img
-            src="/work/Designship2020/onAir.png"
+            src="/work/designship2020/onAir.png"
             loading="lazy"
             alt="end"
             width="330"
@@ -153,7 +153,7 @@ const Designship2020: FC = () => (
         </li>
         <li className={style.Designship2020__siteImage}>
           <img
-            src="/work/Designship2020/end.png"
+            src="/work/designship2020/end.png"
             loading="lazy"
             alt="end"
             width="330"
