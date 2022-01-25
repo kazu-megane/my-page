@@ -140,6 +140,7 @@ const Designship2021: FC = () => {
           <li className={style.Designship2021__siteImage}>
             <img
               src="/work/designship2021/view_page.jpg"
+              loading="lazy"
               alt="view"
               width="1280"
               height="670"
@@ -149,6 +150,7 @@ const Designship2021: FC = () => {
           <li className={style.Designship2021__siteImage}>
             <img
               src="/work/designship2021/timetable.jpg"
+              loading="lazy"
               alt="timetable"
               width="1280"
               height="670"
