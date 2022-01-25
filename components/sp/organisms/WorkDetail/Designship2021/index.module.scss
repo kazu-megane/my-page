@@ -1,6 +1,6 @@
 @import "../../../../../style/settings/index";
 
-.Designship {
+.Designship2021 {
   padding-bottom: 40px;
 
   & &__image {
@@ -75,25 +75,6 @@
     margin-top: 12px;
   }
 
-  & &__siteImages {
-    margin-top: 20px;
-  }
-
-  & &__siteImage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  & &__siteImage + &__siteImage {
-    margin-top: 10px;
-  }
-
-  & &__siteImageContent {
-    width: 100%;
-    height: auto;
-  }
-
   & &__siteDescription {
     margin-top: 40px;
   }
@@ -102,6 +83,7 @@
     font-size: 18px;
     font-weight: bold;
     line-height: 1.4;
+    text-align: center;
   }
 
   & &__siteDescriptionItems {
@@ -128,5 +110,65 @@
     margin-top: 8px;
     flex-grow: 1;
     line-height: 1.4;
+  }
+
+  & &__siteImages {
+    margin-top: 20px;
+  }
+
+  & &__siteImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & &__siteImage + &__siteImage {
+    margin-top: 10px;
+  }
+
+  & &__siteImageContent {
+    width: 100%;
+    height: auto;
+  }
+
+  & &__photographDescription {
+    margin-top: 40px;
+  }
+
+  & &__photographDescriptionTitle {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  & &__photographDescriptionItems {
+    margin-top: 20px;
+  }
+
+  & &__photographDescriptionItem {
+    font-size: 12px;
+  }
+
+  & &__photographDescriptionItem + &__photographDescriptionItem {
+    margin-top: 12px;
+  }
+
+  & &__photographDescriptionItemHeading {
+    font-weight: bold;
+    flex-shrink: 0;
+    flex-basis: 15rem;
+    font-weight: bold;
+  }
+
+  & &__photographDescriptionItemText {
+    font-size: 12px;
+    margin-top: 8px;
+    flex-grow: 1;
+    line-height: 1.4;
+  }
+
+  & &__photographDescriptionTweets {
+    margin-top: 20px;
   }
 }

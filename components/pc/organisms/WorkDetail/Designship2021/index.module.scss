@@ -1,6 +1,6 @@
 @import "../../../../../style/settings/index";
 
-.Designship {
+.Designship2021 {
   padding-bottom: 40px;
 
   & &__image {
@@ -74,28 +74,6 @@
     margin-top: 12px;
   }
 
-  & &__siteImages {
-    margin-top: 20px;
-    margin-left: -20px;
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  & &__siteImage {
-    width: 50%;
-    padding-top: 20px;
-    padding-left: 20px;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  & &__siteImageContent {
-    max-width: 100%;
-    height: auto;
-  }
-
   & &__siteDescription {
     margin-top: 80px;
   }
@@ -127,5 +105,65 @@
 
   & &__siteDescriptionItemText {
     margin-left: 20px;
+  }
+
+  & &__siteImages {
+    margin-top: 20px;
+  }
+
+  & &__siteImage {
+    margin-top: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  & &__siteImageContent {
+    max-width: 100%;
+    height: auto;
+  }
+
+  & &__photographDescription {
+    margin-top: 80px;
+  }
+
+  & &__photographDescriptionTitle {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  & &__photographDescriptionItems {
+    margin-top: 40px;
+  }
+
+  & &__photographDescriptionItem {
+    display: flex;
+    align-items: center;
+  }
+
+  & &__photographDescriptionItem + &__photographDescriptionItem {
+    margin-top: 16px;
+  }
+
+  & &__photographDescriptionItemHeading {
+    font-weight: bold;
+    flex-shrink: 0;
+    flex-basis: 10rem;
+  }
+
+  & &__photographDescriptionItemText {
+    margin-left: 20px;
+  }
+
+  & &__photographDescriptionTweets {
+    margin-top: 12px;
+    display: flex;
+  }
+
+  & &__photographDescriptionTweet + &__photographDescriptionTweet {
+    margin-left: 12px;
   }
 }
