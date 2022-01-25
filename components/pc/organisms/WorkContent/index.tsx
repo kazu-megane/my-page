@@ -44,10 +44,10 @@ const WorkContent: FC<Props> = ({ onClick, className }) => (
           <p className={style.WorkContent__title}>Designship</p>
         </li>
         <li className={style.WorkContent__item}>
-          <Link href="/work/[id]" as="/work/Designship">
+          <Link href="/work/[id]" as="/work/Designship2020">
             <a
               onClick={() => {
-                clickDetailEvent("Designship");
+                clickDetailEvent("Designship2020");
                 if (onClick) {
                   onClick();
                 }
@@ -55,7 +55,7 @@ const WorkContent: FC<Props> = ({ onClick, className }) => (
               className={style.WorkContent__itemImage}
             >
               <img
-                src="/work/designship.png"
+                src="/work/designship2020.png"
                 width="340"
                 height="180"
                 className={style.WorkContent__imageContent}
