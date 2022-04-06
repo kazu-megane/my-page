@@ -22,8 +22,8 @@ const Introduction: FC<Props> = ({ className }) => (
         <div className={style.Introduction__columnLeft}>
           <p className={style.Introduction__name}>Kazuya Hashimoto</p>
           <p className={style.Introduction__text}>
-            I was born in Japan in 1994. I'm currently working as front-end
-            enginner and web designer based in Tokyo.
+            I was born in Japan in 1994. I'm currently working as
+            front-end/Design enginner and UI/UX designer based in Tokyo.
           </p>
           <p className={style.Introduction__text}>
             Now, I'm learning photography and videos as a hobby. Mainly for
@@ -33,7 +33,7 @@ const Introduction: FC<Props> = ({ className }) => (
         <div className={style.Introduction__columnRight}>
           <p className={style.Introduction__name}>橋本 和也</p>
           <p className={style.Introduction__text}>
-            1994年生まれ。フロントエンドエンジニア、デザイナー。
+            1994年生まれ。フロントエンド/デザインエンジニア、UI/UXデザイナー。
           </p>
           <p className={style.Introduction__text}>
             趣味で写真や動画の勉強をしている。主に、スナップや風景写真、ポートレートの撮影をしている。
