@@ -22,6 +22,28 @@ const WorkContent: FC<Props> = ({ onClick, className }) => (
     <div>
       <ul className={style.WorkContent__items}>
         <li className={style.WorkContent__item}>
+          <Link href="/work/[id]" as="/work/Fig">
+            <a
+              onClick={() => {
+                clickDetailEvent("Fig");
+                if (onClick) {
+                  onClick();
+                }
+              }}
+              className={style.WorkContent__itemImage}
+            >
+              <img
+                src="/work/fig.png"
+                width="400"
+                height="300"
+                className={style.WorkContent__imageContent}
+              />
+            </a>
+          </Link>
+          <p className={style.WorkContent__year}>2022</p>
+          <p className={style.WorkContent__title}>Fig</p>
+        </li>
+        <li className={style.WorkContent__item}>
           <Link href="/work/[id]" as="/work/Designship2021">
             <a
               onClick={() => {
