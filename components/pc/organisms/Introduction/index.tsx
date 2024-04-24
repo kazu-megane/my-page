@@ -23,7 +23,8 @@ const Introduction: FC<Props> = ({ className }) => (
           <p className={style.Introduction__name}>Kazuya Hashimoto</p>
           <p className={style.Introduction__text}>
             I was born in Japan in 1994. I'm currently working as
-            front-end/Design enginner and UI/UX designer based in Tokyo.
+            front-end/Design enginner and UI/UX designer and Photographer based
+            in Tokyo.
           </p>
           <p className={style.Introduction__text}>
             Now, I'm learning photography and videos as a hobby. Mainly for
@@ -33,7 +34,7 @@ const Introduction: FC<Props> = ({ className }) => (
         <div className={style.Introduction__columnRight}>
           <p className={style.Introduction__name}>橋本 和也</p>
           <p className={style.Introduction__text}>
-            1994年生まれ。フロントエンド/デザインエンジニア、UI/UXデザイナー。
+            1994年生まれ。フロントエンド/デザインエンジニア、UI/UXデザイナー、フォトグラファー。
           </p>
           <p className={style.Introduction__text}>
             趣味で写真や動画の勉強をしている。主に、スナップや風景写真、ポートレートの撮影をしている。
@@ -78,7 +79,7 @@ const Introduction: FC<Props> = ({ className }) => (
           <li className={style.Introduction__biographyItem}>
             <p className={style.Introduction__biographyItemHeading}>2018.04</p>
             <p className={style.Introduction__biographyItemContent}>
-              ヤフー株式会社 入社
+              LINEヤフー株式会社 入社
             </p>
           </li>
           <li className={style.Introduction__biographyItem}>
@@ -99,12 +100,40 @@ const Introduction: FC<Props> = ({ className }) => (
             <p className={style.Introduction__biographyItemHeading}>2021.10</p>
             <p className={style.Introduction__biographyItemContent}>
               <a
-                href="https://design-ship.jp/"
+                href="https://design-ship.jp/2021"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={style.Introduction__biographyItemContentLink}
               >
                 Designship 2021
+              </a>{" "}
+              運営
+            </p>
+          </li>
+          <li className={style.Introduction__biographyItem}>
+            <p className={style.Introduction__biographyItemHeading}>2022.11</p>
+            <p className={style.Introduction__biographyItemContent}>
+              <a
+                href="https://design-ship.jp/2022"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={style.Introduction__biographyItemContentLink}
+              >
+                Designship 2022
+              </a>{" "}
+              運営
+            </p>
+          </li>
+          <li className={style.Introduction__biographyItem}>
+            <p className={style.Introduction__biographyItemHeading}>2023.09</p>
+            <p className={style.Introduction__biographyItemContent}>
+              <a
+                href="https://design-ship.jp/2023"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={style.Introduction__biographyItemContentLink}
+              >
+                Designship 2023
               </a>{" "}
               運営
             </p>
