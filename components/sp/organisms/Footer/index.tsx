@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import Binder from "../../../all/atoms/helpers/Binder";
 import {
-  TWITTER_URL,
+  X_URL,
   INSTAGRAM_URL,
   NOTE_URL,
   GITHUB_URL,
@@ -9,7 +9,7 @@ import {
 import style from "./index.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faTwitter,
+  faXTwitter,
   faGithub,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
@@ -42,14 +42,14 @@ const Footer: FC<Props> = ({ className }) => {
             <ul className={style.Footer__links}>
               <li className={style.Footer__link}>
                 <a
-                  aria-label="twitter"
+                  aria-label="X（旧Twitter）"
                   className={style.Footer__linkContent}
-                  href={TWITTER_URL}
-                  onClick={() => clickLinkEvent(TWITTER_URL)}
+                  href={X_URL}
+                  onClick={() => clickLinkEvent(X_URL)}
                 >
                   <FontAwesomeIcon
                     className={style.Footer__linkIcon}
-                    icon={faTwitter}
+                    icon={faXTwitter}
                   />
                 </a>
               </li>
